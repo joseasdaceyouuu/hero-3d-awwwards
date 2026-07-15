@@ -29,12 +29,14 @@ import { CosmicBackground } from "@/components/hero/CosmicBackground";
 import { ParticleField } from "@/components/hero/ParticleField";
 import { DistortedText } from "@/components/hero/DistortedText";
 import { CustomCursor } from "@/components/hero/CustomCursor";
+import { MemoryDashboard } from "@/components/dashboard/MemoryDashboard";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [view, setView] = useState<"hero" | "dashboard">("hero");
 
   useEffect(() => {
     setMounted(true);
@@ -67,7 +69,38 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <CustomCursor />
+      {/* View toggle — fixed top-right */}
+      <div
+        className="fixed top-4 right-4 z-50 flex gap-1 p-1 border border-white/10"
+        style={{ background: "rgba(3,0,20,0.8)", backdropFilter: "blur(10px)" }}
+      >
+        <button
+          onClick={() => setView("hero")}
+          className={`px-3 py-1.5 text-[10px] uppercase tracking-widest transition-colors ${
+            view === "hero"
+              ? "bg-[#00d4ff] text-[#030014]"
+              : "text-white/50 hover:text-white"
+          }`}
+        >
+          Hero
+        </button>
+        <button
+          onClick={() => setView("dashboard")}
+          className={`px-3 py-1.5 text-[10px] uppercase tracking-widest transition-colors ${
+            view === "dashboard"
+              ? "bg-[#00d4ff] text-[#030014]"
+              : "text-white/50 hover:text-white"
+          }`}
+        >
+          Memory
+        </button>
+      </div>
+
+      {view === "dashboard" ? (
+        <MemoryDashboard />
+      ) : (
+        <>
+          <CustomCursor />
 
       {/* ========================================
           HERO SECTION — Cosmic Resonance
@@ -481,6 +514,8 @@ export default function Home() {
           }
         }
       `}</style>
+        </>
+      )}
     </main>
   );
 }
