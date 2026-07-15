@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://mightybot.ai/blog/best-structured-prompt-formats-for-llms",
+    "name": "Best Structured Prompt Formats for LLMs, Ranked - MightyBot",
+    "snippet": "Compare JSON, TOON, CSV/TSV, XML, YAML, and evidence aliases for LLM prompts, with guidance on token savings, output integrity, and schemas.",
+    "host_name": "mightybot.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2605.17304v1",
+    "name": "A Formal Framework for Verifiable LLM Context Compression - arXiv",
+    "snippet": "LLM context is not just tokens; JSON Schema provide standardized ways to represent and validate typed data. storage, validation, merge, and ...",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.newline.co/@Dipen/optimizing-tokens-for-better-structured-llm-outputs--adf4cfea",
+    "name": "Optimizing Tokens for Better Structured LLM Outputs - Newline",
+    "snippet": "Developers must balance token savings against the need for structure, often using hybrid approaches like columnar JSON for semi-structured data.",
+    "host_name": "www.newline.co",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/ernests-krafts-b3029b2ab_ai-machinelearning-llm-activity-7393032122028003328-kw1X",
+    "name": "Hugging Face just dropped TOON | Ernests Krafts - LinkedIn",
+    "snippet": "Hugging Face just dropped TOON - a data format that cuts LLM token usage by 30–60% when feeding in structured data.",
+    "host_name": "www.linkedin.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://tensorlake.ai/blog/toon-vs-json",
+    "name": "TOON vs JSON: A Token-Optimized Data Format for Reducing LLM Costs",
+    "snippet": "TOON strips the repetitive syntax out of JSON for LLM prompts, cutting token usage while improving structured extraction accuracy.",
+    "host_name": "tensorlake.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://discuss.4d.com/t/you-can-reduce-your-ai-token-usage-by-40-by-minifying-json-like-4dform-files/36852",
+    "name": "You can reduce your AI token usage by 40% by minifying JSON, like",
+    "snippet": "So being able to reduce my token usage by ~30% simply by changing the way my JSON is formatted suddenly starts to be interesting. In fact there ...",
+    "host_name": "discuss.4d.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.architectureandgovernance.com/applications-technology/token-economics-and-serialisation-strategy-evaluating-toon-for-enterprise-llm-integration",
+    "name": "Token Economics and Serialisation Strategy: Evaluating TOON for",
+    "snippet": "JSON Compression (gzip/brotli): Reduces transfer size but not token count—LLMs process uncompressed payloads.",
+    "host_name": "www.architectureandgovernance.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=r5u3ViTbWyc",
+    "name": "JSON Is Dead: TOON Saves Massive Tokens for LLMs and  - YouTube",
+    "snippet": "JSON is dead for modern AI, and TOON (Token-Oriented Object Notation) is quickly becoming the fastest way to cut LLM token usage by nearly ...",
+    "host_name": "www.youtube.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://david-gilbertson.medium.com/llm-output-formats-why-json-costs-more-than-tsv-ebaf590bd541",
+    "name": "LLM Output Formats: Why JSON Costs More Than TSV | by David Gilbertson",
+    "snippet": "When prompting an LLM to return structured data, your choice of format can make a big difference. This post compares six formats, evaluating their speed, token ...",
+    "host_name": "david-gilbertson.medium.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://blogs.halodoc.io/reducing-llm-token-costs-by-5-15-by-switching-from-json-to-toon-format",
+    "name": "Reducing LLM Token Costs by 15% by Switching from JSON to TOON",
+    "snippet": "Rule of thumb: If structured data (JSON objects, arrays of records) makes up a large portion of your prompt, expect double-digit input savings.",
+    "host_name": "blogs.halodoc.io",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

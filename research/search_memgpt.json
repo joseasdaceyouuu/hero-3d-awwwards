@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://arxiv.org/abs/2310.08560",
+    "name": "[2310.08560] MemGPT: Towards LLMs as Operating Systems",
+    "snippet": "Using this technique, we introduce MemGPT (Memory-GPT), a system that intelligently manages different memory tiers in order to effectively provide extended context within the LLM's limited context window, and utilizes interrupts to manage control flow between itself and the user.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/pdf/2310.08560",
+    "name": "MemGPT: Towards LLMs as Operating Systems - arXiv.org",
+    "snippet": "Using this technique, we introduce MemGPT (MemoryGPT), a system that intelli-gently manages different storage tiers in order to effectively provide extended context within the LLM’s limited context window.",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://sky.cs.berkeley.edu/project/memgpt",
+    "name": "MemGPT – UC Berkeley Sky Computing Lab",
+    "snippet": "Using this technique, we introduce MemGPT (MemoryGPT), a system that intelligently manages different storage tiers in order to effectively provide extended context within the LLM’s limited context window.",
+    "host_name": "sky.cs.berkeley.edu",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.leoniemonigatti.com/papers/memgpt.html",
+    "name": "MemGPT: Towards LLMs as Operating Systems - Leonie Monigatti",
+    "snippet": "The paper “ MemGPT: Towards LLMs as Operating Systems ” (2023) by Charles Packer, Sarah Wooders, Kevin Lin, Vivian Fang, Shishir G. Patil, and Joseph E. Gonzalez introduces a memory management system for LLMs. To enable using context beyond limited context windows, we propose virtual context management, a technique drawing inspiration from hierarchical memory systems […] which provide ...",
+    "host_name": "www.leoniemonigatti.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://research.memgpt.ai",
+    "name": "MemGPT",
+    "snippet": "Using this technique, we introduce MemGPT (MemoryGPT), a system that intelligently manages different storage tiers in order to effectively provide extended context within the LLM’s limited context window.",
+    "host_name": "research.memgpt.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ai-papers.aktagon.com/papers/memgpt",
+    "name": "MemGPT: Towards LLMs as Operating Systems",
+    "snippet": "MemGPT introduced a conceptual framework – treating LLM context management as an operating systems problem – that became widely influential in the AI agent ecosystem.",
+    "host_name": "ai-papers.aktagon.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://axi.lims.ac.uk/paper/2310.08560",
+    "name": "MemGPT: Towards LLMs as Operating System",
+    "snippet": "Using this technique, we introduce MemGPT (Memory-GPT), a system that intelligently manages different memory tiers in order to effectively provide extended context within the LLM's limited context window, and utilizes interrupts to manage control flow between itself and the user.",
+    "host_name": "axi.lims.ac.uk",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

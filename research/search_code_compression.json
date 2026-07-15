@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://www.langchain.com/blog/context-engineering-for-agents",
+    "name": "Context Engineering - LangChain",
+    "snippet": "Claude Code runs “auto-compact” after you exceed 95% of the context window and it will summarize the full trajectory of user-agent interactions.",
+    "host_name": "www.langchain.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://jtanruan.medium.com/context-engineering-in-llm-based-agents-d670d6b439bc",
+    "name": "Context Engineering in LLM-Based Agents",
+    "snippet": "Because of the context window limit, agents often need to compress context — that is, reduce the amount of text while retaining the most ... Techniques and Tools for... · Context Compression...",
+    "host_name": "jtanruan.medium.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=LLDkAr5MZR8",
+    "name": "all about AGENTS.md | LLM context engineering bootcamp | Lecture 5",
+    "snippet": "... managing context intelligently through compression and multi-agent isolation ... Building using Claude code - Email reply agent from scratch | LLM ...",
+    "host_name": "www.youtube.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://agenta.ai/blog/top-6-techniques-to-manage-context-length-in-llms",
+    "name": "Top techniques to Manage Context Lengths in LLMs - Agenta.ai",
+    "snippet": "Learn how you can use truncation, RAG, memory buffering, and compression to overcome the token limit and fit the LLM context window.",
+    "host_name": "agenta.ai",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/LLMDevs/comments/1mviv2a/6_techniques_you_should_know_to_manage_context",
+    "name": "6 Techniques You Should Know to Manage Context Lengths in LLM",
+    "snippet": "Context Compression → Removes redundancy without rewriting. SlimContext , a lightweight Node.js library that helps developers easily compress ... How do you handle memory for agents running continuously over ... Stop losing 40-80% of your agent's context window to bloated tool ... More results from www.reddit.com",
+    "host_name": "www.reddit.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=5oT4gLjUNcE",
+    "name": "How to Manage LLM Context Windows for AI Agents - YouTube",
+    "snippet": "Full write-up with architecture diagrams: https://arize.com/blog/how-to-manage-llm-context-windows-for-ai-agents/ Part one (planning): ...",
+    "host_name": "www.youtube.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://factory.ai/news/compressing-context",
+    "name": "Compressing Context - Factory.ai",
+    "snippet": "A simple way to stay within an LLM's context window is to compress the conversation on-the-fly with a summarization model.",
+    "host_name": "factory.ai",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://supermemory.ai/blog/extending-context-windows-in-llms",
+    "name": "2 Ways to Extend LLM Context Windows - Supermemory",
+    "snippet": "Semantic compression helps you manage massive inputs that would typically exceed a model's context window. But what if your context grows ...",
+    "host_name": "supermemory.ai",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://lorenzhw.substack.com/p/4-strategies-to-stop-your-ai-agent",
+    "name": "4 Strategies to Stop Your AI Agent From Getting Dumb",
+    "snippet": "Compressing context is about keeping only what matters and summarizing or trimming interactions so the agent doesn't drown in tokens.",
+    "host_name": "lorenzhw.substack.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://kargarisaac.medium.com/the-fundamentals-of-context-management-and-compaction-in-llms-171ea31741a2",
+    "name": "The Fundamentals of Context Management and Compaction in",
+    "snippet": "Context management is usually considered as managing and controlling what input is fed into the LLM, like instructions, history, tools, and ...",
+    "host_name": "kargarisaac.medium.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://arxiv.org/html/2310.05736v2",
+    "name": "Compressing Prompts for Accelerated Inference of Large Language Models",
+    "snippet": "Here we propose an iterative token-level prompt compression (ITPC) algorithm to mitigate the inaccuracy introduced by the conditional independence assumption.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.llmlingua.com",
+    "name": "LLMLingua Series | Effectively Deliver Information to LLMs via Prompt",
+    "snippet": "Our work achieved a 20x compression ratio with minimal performance loss (LLMLingua), and a 17.1% performance improvement with 4x compression (LongLLMLingua).",
+    "host_name": "www.llmlingua.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@sahin.samia/prompt-compression-in-large-language-models-llms-making-every-token-count-078a2d1c7e03",
+    "name": "Prompt Compression in Large Language Models (LLMs) - Medium",
+    "snippet": "In essence, prompt compression helps achieve three main goals: ✓ Reduce Costs: Fewer tokens mean lower usage fees. ✓ Improve Speed: Shorter ... Why is Prompt Compression... · LLMLingua Series",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.prompthub.us/blog/compressing-prompts-with-llmlingua-reduce-costs-retain-performance",
+    "name": "Compressing Prompts with LLMLingua: Reduce Costs, Retain",
+    "snippet": "Cut prompt token costs by up to 20x while maintaining the same performance. An analysis of LLMLingua.",
+    "host_name": "www.prompthub.us",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/microsoft/LLMLingua",
+    "name": "microsoft/LLMLingua: [EMNLP'23, ACL'24] To speed up LLMs  - GitHub",
+    "snippet": "It reduces costs and boosts efficiency with prompt compression, improving RAG performance by up to 21.4% using only 1/4 of the tokens.",
+    "host_name": "github.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ai.gopubby.com/saving-cost-prompt-compression-with-llmlingua-and-llamaindex-ca98851b943b",
+    "name": "Saving Cost! Prompt Compression with LLMLingua and LlamaIndex",
+    "snippet": "It reduces costs through prompt compression, improves RAG performance, and achieves up to a 21.4% performance increase using only 1/4 of the ...",
+    "host_name": "ai.gopubby.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.microsoft.com/en-us/research/project/llmlingua",
+    "name": "LLMLingua Series - Microsoft Research",
+    "snippet": "Identify and remove non-essential tokens in prompts using. This approach accelerates model inference, reduces costs, and improves downstream performance",
+    "host_name": "www.microsoft.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://prompthub.substack.com/p/save-money-with-prompt-compression",
+    "name": "Save Money with Prompt Compression - by Dan Cleary",
+    "snippet": "Compressing prompts is one way to reduce your LLM provider bill, while retaining similar performance levels. It's possible that you could just ...",
+    "host_name": "prompthub.substack.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.akshaykokane.com/squeezing-the-juice-microsofts-llmlingua2-research-demonstrates-a-token-saving-technique-using-4e3f222e2294",
+    "name": "Squeezing the Juice: Microsoft's LLMLingua2 demonstrates a Token",
+    "snippet": "Squeezing the Juice: Microsoft's LLMLingua2 demonstrates a Token-Saving Technique using Task-agnostic Prompt Compression.",
+    "host_name": "medium.akshaykokane.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=3cgE_ncMS68",
+    "name": "Save Money in Using GPT-4 by Compressing Prompt 20 times",
+    "snippet": "Compressing prompts up to 20 times with LLMLingua accelerates model inference, reduces costs, and improves downstream performance while ...",
+    "host_name": "www.youtube.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

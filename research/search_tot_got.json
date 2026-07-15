@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://wandb.ai/sauravmaheshkar/prompting-techniques/reports/Chain-of-thought-tree-of-thought-and-graph-of-thought-Prompting-techniques-explained---Vmlldzo4MzQwNjMx",
+    "name": "Chain-of-thought, tree-of-thought, and graph-of-thought: Prompting",
+    "snippet": "Chain-of-thought (CoT) is a simple prompting technique that often leads to more accurate LLM outputs. Put simply, chain-of-thought prompts ...",
+    "host_name": "wandb.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2401.14295v3",
+    "name": "Demystifying Chains, Trees, and Graphs of Thoughts - arXiv",
+    "snippet": "Tree of Thoughts, or Graph of Thoughts, in which the overall LLM reasoning is guided by a structure such as a graph.",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pub.towardsai.net/chain-of-thought-vs-tree-of-thought-vs-graph-of-thought-reasoning-method-comparison-1f19d238a005",
+    "name": "Chain-of-Thought vs Tree-of-Thought vs Graph-of-Thought: Reasoning",
+    "snippet": "Tree-of-Thought is better suited for problems that require exploration and where there might be multiple potential solutions or solution paths.",
+    "host_name": "pub.towardsai.net",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.promptingguide.ai/techniques/tot",
+    "name": "Tree of Thoughts (ToT) - Prompt Engineering Guide",
+    "snippet": "ToT maintains a tree of thoughts, where thoughts represent coherent language sequences that serve as intermediate steps toward solving a problem ...",
+    "host_name": "www.promptingguide.ai",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=wO1fgJUkTo4",
+    "name": "#248 Graph of thoughts - YouTube",
+    "snippet": "... Thought or Tree of Thoughts (ToT). The key idea and primary ... This work brings LLM reasoning closer to human thinking or brain ...",
+    "host_name": "www.youtube.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://x.com/cwolferesearch/status/1696282034145006006",
+    "name": "from [1] Graph-based reasoning. Humans do not seem to perform",
+    "snippet": "Advanced prompting techniques like chain of thought and tree of thought prompting have drastically improved the ability of large language models ...",
+    "host_name": "x.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://premvishnoi.medium.com/graph-of-thoughts-prompting-the-ultimate-guide-to-ai-reasoning-441b26681023",
+    "name": "Graph of Thoughts Prompting: The Ultimate Guide to AI Reasoning",
+    "snippet": "AI reasoning as a network of interconnected ideas not just a chain or a tree, but a full graph where thoughts can merge, split, loop back, and ...",
+    "host_name": "premvishnoi.medium.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.openai.com/t/graph-of-thought-as-prompt/575572",
+    "name": "Graph of Thought as prompt - OpenAI Developer Community",
+    "snippet": "Tree of thought would be a much better technique to engineer prompts with, mostly because it achieves much of the same thing without the ...",
+    "host_name": "community.openai.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://thesequence.substack.com/p/edge-361-llm-reasoning-with-graph",
+    "name": "Edge 361: LLM Reasoning with Graph of Thoughts - TheSequence",
+    "snippet": "Graph of Thoughts (GoT) is an innovative framework frames an LLM reasoning problem as a graph problem. The fundamental concept and primary ...",
+    "host_name": "thesequence.substack.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com/topics/graph-of-thoughts-got",
+    "name": "Graph of Thoughts (GoT) Framework - Emergent Mind",
+    "snippet": "Graph of Thoughts (GoT) is a prompting and reasoning framework for LLMs that generalizes and subsumes earlier paradigms such as Chain-of-Thought ...",
+    "host_name": "www.emergentmind.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

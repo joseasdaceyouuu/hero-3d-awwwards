@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://arxiv.org/abs/2310.06839",
+    "name": "LongLLMLingua: Accelerating and Enhancing LLMs in Long Context",
+    "snippet": "Abstract page for arXiv paper 2310.06839: LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2310.06839v2",
+    "name": "Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt",
+    "snippet": "LongLLMLingua builds on LLMLingua to better compress prompts in long context scenorias. It tackles three main issues in handling lengthy contexts, as introduced ...",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2407.08892v1",
+    "name": "Characterizing Prompt Compression Methods for Long Context Inference",
+    "snippet": "Longllmlingua: Accelerating and enhancing llms in long context scenarios via prompt compression. arXiv preprint arXiv:2310.06839, 2023c.",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aclanthology.org/2024.acl-long.91.pdf",
+    "name": "[PDF] LongLLMLingua: Accelerating and Enhancing LLMs in Long Context",
+    "snippet": "LLMLingua include three key components: budget controller, iterative token-level prompt compression, and distribution alignment, highlighted by ...",
+    "host_name": "aclanthology.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://llmlingua.com/longllmlingua.html",
+    "name": "LongLLMLingua: Accelerating and Enhancing LLMs in Long Context",
+    "snippet": "LongLLMLingua's compressed prompts outperform original prompts in terms of performance, cost efficiency, and system latency.",
+    "host_name": "llmlingua.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2409.01227v3",
+    "name": "Prompt Compression with Context-Aware Sentence Encoding",
+    "snippet": "CPC outperforms LongLLMLingua (SOTA) on both performance and latency. LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios ...",
+    "host_name": "arxiv.org",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@sahin.samia/prompt-compression-in-large-language-models-llms-making-every-token-count-078a2d1c7e03",
+    "name": "Prompt Compression in Large Language Models (LLMs) - Medium",
+    "snippet": "LongLLMLingua. Addressing challenges in long-context scenarios, LongLLMLingua enhances LLMs' ability to process extended inputs efficiently.",
+    "host_name": "medium.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://iclr.cc/virtual/2024/21199",
+    "name": "Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt",
+    "snippet": "LongLLMLingua, a method for prompt compression that improves LLMs' key information perception, effectively tackling these challenges.",
+    "host_name": "iclr.cc",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/view/34800/36955",
+    "name": "[PDF] Leveraging Attention to Effectively Compress Prompts for Long",
+    "snippet": "Longllmlingua: Accelerating and enhanc- ing llms in long context scenarios via prompt compression. arXiv preprint arXiv:2310.06839. Kim, G.; and Cho, K ...",
+    "host_name": "ojs.aaai.org",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openreview.net/pdf?id=lbFVTPv4s6",
+    "name": "[PDF] AN EMPIRICAL STUDY ON PROMPT COMPRESSION - OpenReview",
+    "snippet": "Building on LLMLingua, LongLLMLingua (Jiang et al., 2024) is tailored for long context scenarios. It employs a question-aware coarse-to-fine compression ...",
+    "host_name": "openreview.net",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

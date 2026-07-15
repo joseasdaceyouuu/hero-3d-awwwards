@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://mem0.ai/blog/context-compression-vs-memory-in-ai-agents",
+    "name": "Context Compression vs Memory in AI Agents - Mem0",
+    "snippet": "Tier 2: Compressed session memory. When the session grows long, anchored incremental summarization handles continuity within the session. Missing: iterations recency",
+    "host_name": "mem0.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2606.10677v1",
+    "name": "Maintainable Topic Documents for Long-Term LLM Agent Memory - arXiv",
+    "snippet": "At inference time, an agentic retrieval procedure lets the LLM read memory through iterative tool calls rather than a single retrieval step.",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@mjgmario/memory-engineering-for-ai-agents-how-to-build-real-long-term-memory-and-avoid-production-1d4e5266595c",
+    "name": "Memory Engineering for AI Agents: How to Build Real Long  - Medium",
+    "snippet": "Most agent “memory” systems collapse at scale due to bloat, contradictions, and unreliable context usage. Learn how to engineer real ... Missing: older | Show results with: older",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://heyneo.com/blog/agent-memory-compressor",
+    "name": "Agent Memory Compressor: Score-Based Context Window",
+    "snippet": "NEO built a memory compressor that keeps long agent runs under the context limit using a Recency × 0.4 + Type Weight × 0.4 + Keyword Boost ... Missing: incremental | Show results with: incremental",
+    "host_name": "heyneo.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://towardsdatascience.com/stop-treating-ai-memory-like-a-search-problem",
+    "name": "Stop Treating AI Memory Like a Search Problem",
+    "snippet": "The fix: when a new memory is created, check whether it contradicts anything already stored and actively mark older ones as superseded. # ...",
+    "host_name": "towardsdatascience.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://learnagentic.substack.com/p/what-is-memory-consolidation-for",
+    "name": "What is Memory Consolidation for AI Agents?",
+    "snippet": "Older interactions get progressively compressed using the surprise signal. system automatically learns what's worth detailed retention and what ... Missing: incremental iterations",
+    "host_name": "learnagentic.substack.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.indium.tech/agent-memory-compression-failure-modes",
+    "name": "5 Failure Modes in Agent Memory Compression for Long Context",
+    "snippet": "Understand the key failure modes in AI agent memory compression and their impact on long-context reasoning in real-world AI systems. Missing: recency | Show results with: recency",
+    "host_name": "www.indium.tech",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://blogs.oracle.com/developers/agent-memory-why-your-ai-has-amnesia-and-how-to-fix-it",
+    "name": "Agent Memory: Why Your AI Has Amnesia and How to Fix It",
+    "snippet": "A recency-weighted scoring function multiplies semantic similarity by an exponential decay factor based on time since last access. Missing: older iterations",
+    "host_name": "blogs.oracle.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openreview.net/pdf?id=ubAlIOmDoy",
+    "name": "[PDF] CONTEXT-DRIVEN INCREMENTAL COMPRESSION FOR MULTI-TURN",
+    "snippet": "We model a dialogue as interleaved contextual threads and maintain a compact memory whose slots store revisable, per- thread compressed states. At each turn, ...",
+    "host_name": "openreview.net",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/bijit-ghosh-48281a78_optimizing-any-ai-agent-framework-with-context-activity-7357760656386760705-KI8a",
+    "name": "Optimizing Any AI Agent Framework with Context Engineering | Bijit Ghosh",
+    "snippet": "Progressive summarization: Compress older layers, but mark boundaries clearly. This creates a time-layered memory that resists hallucination.",
+    "host_name": "www.linkedin.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

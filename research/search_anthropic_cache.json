@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://labeveryday.medium.com/prompt-caching-is-a-must-how-i-went-from-spending-720-to-72-monthly-on-api-costs-3086f3635d63",
+    "name": "Prompt Caching is a Must! How I Went From Spending $720 to $72",
+    "snippet": "After that, costs reduce to only 10% of the normal input price per million tokens. Think about it: - Base rate: $3 per million tokens (Claude ...",
+    "host_name": "labeveryday.medium.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/Anthropic/comments/1qzmjcx/anyone_here_successfully_lowering_costs_with",
+    "name": "Anyone here successfully lowering costs with \"prompt caching\" and/or",
+    "snippet": "We get between 91% and 95% cache hits across the claude models we use. Pricing on token usage, without caching we'd be paying 5x as much. Claude launches Prompt Caching which reduces API cost by upto 90% Anyone actually saving money with Claude's prompt caching? - Reddit More results from www.reddit.com",
+    "host_name": "www.reddit.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.okoone.com/spark/technology-innovation/anthropic-introduces-cost-saving-prompt-caching-for-claude",
+    "name": "Anthropic introduces cost-saving prompt caching for Claude | Okoone",
+    "snippet": "Claude's prompt caching offers a practical way to cut costs and improve efficiency by reusing data in high-frequency operations.",
+    "host_name": "www.okoone.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=2VBG_H9brdk",
+    "name": "Anthropic Claude Prompt Caching Going to be Game Changer",
+    "snippet": "Discover how to drastically reduce the costs and latency of using large language models with prompt caching in Claude!",
+    "host_name": "www.youtube.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://hakkoda.io/resources/prompt-caching",
+    "name": "Slashing LLM Costs and Latencies with Prompt Caching - Hakkoda",
+    "snippet": "Claude to access more background knowledge and example outputs, reducing costs by up to 90% and latency by up to 85% for long prompts.",
+    "host_name": "hakkoda.io",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mindstudio.ai/blog/anthropic-prompt-caching-claude-subscription-limits",
+    "name": "What Is Anthropic's Prompt Caching and Why Does It Affect Your Claude",
+    "snippet": "Anthropic uses prompt caching to reduce compute costs. When third-party tools break caching, your session limits drain faster.",
+    "host_name": "www.mindstudio.ai",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://frugal.co/blog/the-frugal-approach-to-anthropic-claude-api-costs",
+    "name": "The Frugal Approach to Anthropic Claude API Costs",
+    "snippet": "Prompt caching can reduce input costs by 90% for repeated content. How it works: Structure your prompt with a static prefix (system instructions ...",
+    "host_name": "frugal.co",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.infoworld.com/article/3487267/anthropic-adds-prompt-caching-to-claude-cutting-costs-for-developers.html",
+    "name": "Anthropic adds prompt caching to Claude, cutting costs for developers",
+    "snippet": "“With prompt caching, customers can provide Claude with more background knowledge and example outputs—all while reducing costs by up to 90% and ...",
+    "host_name": "www.infoworld.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/brianpetro/obsidian-smart-connections/issues/854",
+    "name": "Add Support for Claude Prompt Caching - reduce usage costs #854",
+    "snippet": "Hi there, I was wondering if it might be possible to add support for Claude's Prompt Caching feature in conversations, to reduce token usage ...",
+    "host_name": "github.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+    "name": "Prompt caching - Claude Platform Docs",
+    "snippet": "Prompt caching optimizes your API usage by allowing resuming from specific prefixes in your prompts. This significantly reduces processing time and costs for repetitive tasks or prompts with consistent elements. This feature is eligible for Zero Data Retention (ZDR).",
+    "host_name": "platform.claude.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

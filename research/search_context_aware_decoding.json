@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://aclanthology.org/2024.naacl-long.237.pdf",
+    "name": "Enhancing Contextual Understanding in Large Language Models",
+    "snippet": "This study introduces a novel decoding strategy, employing contrastive decoding to incorporate rel- evant and irrelevant context. Through diverse ex- periments and analyses across datasets and model scales, our approach consistently outperforms reg- ular decoding methods.",
+    "host_name": "aclanthology.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2405.02750v1",
+    "name": "Enhancing Contextual Understanding in Large Language Models",
+    "snippet": "This study introduces a novel decoding strategy, employing contrastive decoding to incorporate relevant and irrelevant context. Through diverse experiments and analyses across datasets and model scales, our approach consistently outperforms regular decoding methods.",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/abs/2606.10298",
+    "name": "[2606.10298] From Context-Aware to Conflict-Aware",
+    "snippet": "To evaluate both conflict directions, we propose TriState-Bench, a model-aware evaluation protocol that calibrates per-model prior knowledge to measure three conflict states: correction, resistance, and agreement.",
+    "host_name": "arxiv.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aclanthology.org/2024.naacl-long.237",
+    "name": "Enhancing Contextual Understanding in Large Language Models",
+    "snippet": "To address this issue, we introduce a novel approach integrating contrastive decoding with adversarial irrelevant passages as negative samples to enhance robust context grounding during generation. Notably, our method operates at inference time without requiring further training.",
+    "host_name": "aclanthology.org",
+    "rank": 3,
+    "date": "Jul 11, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/amazon-science/ContextualUnderstanding-ContrastiveDecoding",
+    "name": "GitHub - amazon-science/ContextualUnderstanding",
+    "snippet": "To address this issue, we introduce a novel approach integrating contrastive decoding with adversarial irrelevant passages as negative samples to enhance robust context grounding during generation. Notably, our method operates at inference time without requiring further training.",
+    "host_name": "github.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/xhan77/context-aware-decoding",
+    "name": "GitHub - xhan77/context-aware-decoding",
+    "snippet": "While context-aware decoding is based on the setup where one language model is decoded contrastively with different input contexts, our code generally supports collaborative or contrastive decoding with multiple language models with different input contexts.",
+    "host_name": "github.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.wispaper.ai/en/research/long-context-language-models-hallucinations",
+    "name": "Can long-context language models reduce hallucinations in",
+    "snippet": "Long-context models reduce but don't eliminate hallucinations; retrieval-augmented generation and context-aware decoding improve accuracy significantly.",
+    "host_name": "www.wispaper.ai",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

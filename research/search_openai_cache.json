@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "name": "Prompt caching | OpenAI API",
+    "snippet": "Prompt cache retention",
+    "host_name": "developers.openai.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.openai.com/t/prompt-caching-seems-not-working-even-if-long-common-prefix-in-the-system-prompt/1359013",
+    "name": "Prompt Caching seems not working even if long common prefix in the",
+    "snippet": "Hey, I saw many discussions about prompt caching, but when I try to use a common prefix for a better cache hit, it seems to fail every time.",
+    "host_name": "community.openai.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openai.com/index/api-prompt-caching",
+    "name": "Prompt Caching in the API - OpenAI",
+    "snippet": "The API caches the longest prefix of a prompt that has been previously computed, starting at 1,024 tokens and increasing in 128-token increments ...",
+    "host_name": "openai.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://sankalp.bearblog.dev/how-prompt-caching-works",
+    "name": "How prompt caching works - Paged Attention and Automatic Prefix",
+    "snippet": "For OpenAI, your API request needs to get routed to the same machine to hit the cache. OpenAI routes based on a hash of the initial prefix (~256 ...",
+    "host_name": "sankalp.bearblog.dev",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.openai.com/t/using-same-prompt-cache-key-in-multiple-parallel-conversations/1371443",
+    "name": "Using same prompt_cache_key in multiple parallel conversations - API",
+    "snippet": "OpenAI's prompt caching is essentially caching compute for an identical prefix (think: the KV cache / intermediate attention state for the ...",
+    "host_name": "community.openai.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/prompt-caching",
+    "name": "Prompt caching with Azure OpenAI in Microsoft Foundry Models",
+    "snippet": "Prompt caching reduces overall request latency and cost for longer prompts. All Azure OpenAI models GPT-4o or newer support in-memory prompt ...",
+    "host_name": "learn.microsoft.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/LLMDevs/comments/1p85ko5/i_tested_openais_prompt_caching_across_model",
+    "name": "I tested OpenAI's prompt caching across model generations  - Reddit",
+    "snippet": "Once your prefix exceeds 1024 tokens, OpenAI automatically caches it. After that, 80-90% hit rate. Cache discount is 50% for 4o-mini, 90% for ...",
+    "host_name": "www.reddit.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.openai.com/t/prompt-cache-documented-byte-prefix-matching-does-not-occur-on-gpt-5-4-gpt-5-5-when-trailing-user-content-exceeds-500-tokens/1384129",
+    "name": "documented byte-prefix matching does not occur on gpt-5.4 / gpt-5.5",
+    "snippet": "We have a fully reproducible setup where OpenAI's prompt cache fails to return a byte-identical prefix above the 1024-token minimum, ...",
+    "host_name": "community.openai.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.openai.com/t/prompt-caching-returns-cached-tokens-0-intermittently-same-static-prefix-same-prompt-cache-key/1386029",
+    "name": "Prompt caching returns cached_tokens=0 intermittently",
+    "snippet": "Hi — I'm using OpenAI prompt caching with a multi-agent setup and seeing inconsistent cache hits, especially on our orchestrator agent.",
+    "host_name": "community.openai.com",
+    "rank": 8,
+    "date": "Jul 8, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://portkey.ai/blog/openais-prompt-caching-a-deep-dive",
+    "name": "OpenAI's Prompt Caching: A Deep Dive - Portkey",
+    "snippet": "OpenAI's Prompt Caching introduces a mechanism to reuse recently seen input tokens, potentially slashing costs by up to 50% and dramatically ...",
+    "host_name": "portkey.ai",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

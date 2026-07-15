@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://arxiv.org/html/2507.22931v1",
+    "name": "Enhancing RAG Efficiency with Adaptive Context Compression - arXiv",
+    "snippet": "In this paper, we propose Adaptive Context Compression for RAG, a framework that dynamically adjusts compressed embeddings required during ...",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aclanthology.org/2025.findings-emnlp.1307.pdf",
+    "name": "[PDF] Enhancing RAG Efficiency with Adaptive Context Compression",
+    "snippet": "Retrieval-. Augmented Generation (RAG) addresses this limi- tation by extending the model's knowledge bound- aries through external context ...",
+    "host_name": "aclanthology.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openreview.net/forum?id=6pTlXqrO0p",
+    "name": "xRAG: Extreme Context Compression for Retrieval-augmented",
+    "snippet": "This paper introduces xRAG, an innovative context compression method tailored for retrieval-augmented generation. xRAG reinterprets document ...",
+    "host_name": "openreview.net",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://europe.naverlabs.com/blog/efficient-online-text-compression-for-rag",
+    "name": "Efficient online text compression for RAG - NAVER LABS Europe",
+    "snippet": "Retrieval-Augmented Generation (RAG) is a technique that lets LLMs pull in relevant documents to ground their responses in real-world data.",
+    "host_name": "europe.naverlabs.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/jain-hitesh_smarter-context-compression-in-rag-preserving-activity-7371740364749250560-TNJy",
+    "name": "Smarter Context Compression in RAG: Preserving What Matters",
+    "snippet": "REFRAG uses perplexity to decide what's essential. The result: more context, faster results, and important details saved. Smart and practical!",
+    "host_name": "www.linkedin.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://towardsdatascience.com/rag-isnt-enough-i-built-the-missing-context-layer-that-makes-llm-systems-work",
+    "name": "RAG Isn't Enough — I Built the Missing Context Layer That Makes",
+    "snippet": "RAG systems break when context grows beyond a few turns. The real problem is not retrieval — it's what actually enters the context window. A ...",
+    "host_name": "towardsdatascience.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/engineering/contextual-retrieval",
+    "name": "Contextual Retrieval in AI Systems - Anthropic",
+    "snippet": "RAG is a method that retrieves relevant information from a knowledge base and appends it to the user's prompt, significantly enhancing the ...",
+    "host_name": "www.anthropic.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@baptisteloquette.entr/training-a-contextual-compression-model-2490f974eecf",
+    "name": "Training a Contextual Compression Model - Medium",
+    "snippet": "For RAG, a Contextual Compression step can ameliorate the results in multiple ways : First by leaving more space in the prompt.",
+    "host_name": "medium.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.lancedb.com/blog/enhance-rag-integrate-contextual-compression-and-filtering-for-precision-a29d4a810301",
+    "name": "Efficient RAG with Compression and Filtering - LanceDB",
+    "snippet": "RAG (Retrieval Augmented Generation) is a technique that helps add additional data sources to our existing LLM Models; however, ...",
+    "host_name": "www.lancedb.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.sapotacorp.vn/blog/rag-contextual-compression-lost-in-the-middle",
+    "name": "Contextual Compression in RAG: Cutting Context Before It Hits the",
+    "snippet": "Contextual compression runs a fast filter pass between retrieval and generation, stripping sentences or passages unrelated to the query. LLM- ...",
+    "host_name": "www.sapotacorp.vn",
+    "rank": 9,
+    "date": "Jul 14, 2026",
+    "favicon": ""
+  }
+]

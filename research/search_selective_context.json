@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://arxiv.org/abs/2601.16746",
+    "name": "[2601.16746] SWE-Pruner: Self-Adaptive Context Pruning for",
+    "snippet": "In this paper, we propose SWE-Pruner, a self-adaptive context pruning framework tailored for coding agents. Drawing inspiration from how human programmers \"selectively skim\" source code during development and debugging, SWE-Pruner performs task-aware adaptive pruning for long contexts.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2601.16746v3",
+    "name": "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents",
+    "snippet": "In this paper, we propose SWE-Pruner, a self-adaptive context pruning framework tailored for coding agents. Drawing inspiration from how human programmers “selectively skim” source code during development and debugging, SWE-Pruner performs task-aware adaptive pruning for long contexts.",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/Ayanami1314/swe-pruner",
+    "name": "GitHub - Ayanami1314/swe-pruner",
+    "snippet": "Inspired by how human programmers \"selectively skim\" source code, SWE-Pruner enables agents to formulate explicit goals and uses a lightweight neural skimmer to dynamically select relevant code lines.",
+    "host_name": "github.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openreview.net/pdf?id=SVjPFnLBig",
+    "name": "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents",
+    "snippet": "“selectively skim” source code during devel-opment and debugging, SWE-Pruner performs task-aware adaptive pruning for long contexts. Given the current task, the agent formulates an explicit goal (e.g., “focus on error han-dling”) as a hint to guide the pruning targets.",
+    "host_name": "openreview.net",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/liyucheng09/Selective_Context",
+    "name": "GitHub - liyucheng09/Selective_Context: Compress your input",
+    "snippet": "Selective Context compresses your prompt and context to allows LLMs (such as ChatGPT) to process 2x more content. It is especially useful in dealing with long documents and maintaining long conversations without compromising their performance on various tasks!",
+    "host_name": "github.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://codex.danielvaughan.com/2026/06/17/context-pruning-research-swe-pruner-pichay-contextbudget-codex-cli-token-management-compaction",
+    "name": "Context Pruning for Coding Agents: What SWE-Pruner, Pichay",
+    "snippet": "Three independent research efforts published between January and April 2026 converge on the same conclusion: the way coding agents manage context is at least as important as the model they run.",
+    "host_name": "codex.danielvaughan.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://atlan.com/know/ai-agent/ai-agent-context/how-to-implement-context-pruning-ai-agents",
+    "name": "Context Pruning for AI Agents: Methods and Implementation [2026]",
+    "snippet": "Context pruning in AI agents uses a graduated reduction framework: monitor token utilization at 70/85/95% thresholds, prune stale tool outputs at 85%, apply observation masking to replace older tool outputs with compact placeholders, and use LLM summarization only at 95% overflow.",
+    "host_name": "atlan.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  }
+]

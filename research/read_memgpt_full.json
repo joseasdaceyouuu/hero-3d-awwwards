@@ -1,0 +1,54 @@
+{
+  "code": 200,
+  "data": {
+    "description": "",
+    "external": {
+      "apple-touch-icon": {
+        "https://arxiv.org/static/base/1.0.1/images/icons/apple-touch-icon.png": {
+          "sizes": "180x180"
+        }
+      },
+      "icon": {
+        "https://arxiv.org/static/base/1.0.1/images/icons/favicon-16x16.png": {
+          "sizes": "16x16",
+          "type": "image/png"
+        },
+        "https://arxiv.org/static/base/1.0.1/images/icons/favicon-32x32.png": {
+          "sizes": "32x32",
+          "type": "image/png"
+        },
+        "https://arxiv.org/static/base/1.0.1/images/icons/favicon.ico": {}
+      },
+      "manifest": {
+        "https://arxiv.org/static/base/1.0.1/images/icons/site.webmanifest": {}
+      },
+      "mask-icon": {
+        "https://arxiv.org/static/base/1.0.1/images/icons/safari-pinned-tab.svg": {
+          "color": "#b31b1b"
+        }
+      }
+    },
+    "html": "<html lang=\"en\" class=\"js\"><head>\n<script>document.documentElement.classList.add('js');</script>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- new favicon config and versions by realfavicongenerator.net -->\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/static/base/1.0.1/images/icons/apple-touch-icon.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/static/base/1.0.1/images/icons/favicon-32x32.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/static/base/1.0.1/images/icons/favicon-16x16.png\">\n<link rel=\"manifest\" href=\"/static/base/1.0.1/images/icons/site.webmanifest\">\n<link rel=\"mask-icon\" href=\"/static/base/1.0.1/images/icons/safari-pinned-tab.svg\" color=\"#b31b1b\">\n<link rel=\"shortcut icon\" href=\"/static/base/1.0.1/images/icons/favicon.ico\">\n<meta name=\"msapplication-TileColor\" content=\"#b31b1b\">\n<meta name=\"msapplication-config\" content=\"images/icons/browserconfig.xml\">\n<meta name=\"theme-color\" content=\"#b31b1b\">\n<!-- end favicon config -->\n<title> | arXiv e-print repository</title>\n<script defer=\"\" src=\"/static/base/1.0.1/fontawesome-free-5.11.2-web/js/all.js\"></script>\n<link rel=\"stylesheet\" href=\"/static/base/1.0.1/css/arxivstyle.css\">\n<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"/static/base/1.0.1/css/arxiv-header-footer.css?v=20260624c\">\n<script type=\"text/x-mathjax-config;executed=true\">\n  MathJax.Hub.Config({\n    messageStyle: \"none\",\n    extensions: [\"tex2jax.js\"],\n    jax: [\"input/TeX\", \"output/HTML-CSS\"],\n    tex2jax: {\n      inlineMath: [ ['$','$'], [\"\\\\(\",\"\\\\)\"] ],\n      displayMath: [ ['$$','$$'], [\"\\\\[\",\"\\\\]\"] ],\n      processEscapes: true,\n      ignoreClass: '.*',\n      processClass: 'mathjax.*'\n    },\n    TeX: {\n        extensions: [\"AMSmath.js\", \"AMSsymbols.js\", \"noErrors.js\"],\n        noErrors: {\n          inlineDelimiters: [\"$\",\"$\"],\n          multiLine: false,\n          style: {\n            \"font-size\": \"normal\",\n            \"border\": \"\"\n          }\n        }\n    },\n    \"HTML-CSS\": { availableFonts: [\"TeX\"] }\n  });\n</script>\n<script src=\"//static.arxiv.org/MathJax-2.7.3/MathJax.js\"></script><style type=\"text/css\">.MathJax_Preview {color: #888}\n#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}\n#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}\n.MathJax_Error {color: #CC0000; font-style: italic}\n</style>\n<script src=\"/static/base/1.0.1/js/notification.js\"></script>\n  </head>\n  <body>\n  <header><a href=\"#main-container\" class=\"ds-skip-link\">Skip to main content</a>\n<header class=\"ds-site-header is-collapsible\">\n  <a aria-hidden=\"true\" tabindex=\"-1\" href=\"https://arxiv.org/IgnoreMe\" class=\"is-sr-only\"></a>\n\n  <a href=\"https://arxiv.org/\" class=\"ds-site-header-logo\" aria-label=\"archive home\">\n    <img src=\"/static/base/1.0.1/images/arxiv-logo-primary-light.svg\" alt=\"archive\">\n  </a>\n\n  <button type=\"button\" id=\"ds-nav-toggle\" class=\"ds-site-header-nav-toggle\" aria-label=\"Open menu\" aria-controls=\"ds-site-header-nav\" aria-expanded=\"false\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\">\n      <line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"></line>\n      <line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"></line>\n      <line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"></line>\n    </svg>\n  </button>\n\n  <nav class=\"ds-site-header-nav\" id=\"ds-site-header-nav\" aria-label=\"Main navigation\"><a id=\"arxiv-search-toggle\" href=\"https://arxiv.org/search\" aria-controls=\"arxiv-search-overlay\" aria-expanded=\"false\">\n      <svg class=\"ds-nav-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\">\n        <circle cx=\"11\" cy=\"11\" r=\"8\"></circle>\n        <line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line>\n      </svg>\n      Search\n    </a>\n    <a href=\"https://arxiv.org/user/create\">Submit</a>\n    <a href=\"https://info.arxiv.org/about/donate.html\">Donate</a>\n    <span class=\"ds-site-header-divider\" aria-hidden=\"true\"></span>\n      <a href=\"https://arxiv.org/login\" class=\"ds-site-header-login\">Log in</a>\n  </nav>\n</header>\n\n<div class=\"arxiv-search-overlay\" id=\"arxiv-search-overlay\" hidden=\"\">\n  <div class=\"arxiv-search-panel\" role=\"search\">\n    <form method=\"GET\" action=\"https://arxiv.org/search\">\n      <label for=\"arxiv-search-input\" class=\"is-sr-only\">Search arXiv</label>\n      <input type=\"text\" name=\"query\" id=\"arxiv-search-input\" autocomplete=\"off\" placeholder=\"Search papers by title, author, abstract, or ID...\">\n      <input type=\"hidden\" name=\"searchtype\" value=\"all\">\n      <input type=\"hidden\" name=\"source\" value=\"header\">\n    </form>\n    <div class=\"arxiv-search-hint\">\n      Press Enter to search · <a href=\"https://arxiv.org/search/advanced\">Advanced search</a>\n    </div>\n  </div>\n</div>  </header>\n  <main class=\"container\" id=\"main-container\">\n<h1>No HTML for '2310.08560v2'</h1>\n<p>HTML is not available for the source.</p>\n<p>This could be due to the source files not being HTML, LaTeX, or a conversion failure.</p>\n<p>If you are an author, learn how you can help <a href=\"https://info.arxiv.org/about/accessibility_html_error_messages.html\">HTML conversions for your papers</a>.</p>  </main>\n  <footer>\n<footer class=\"ds-site-footer\">\n  <div class=\"ds-site-footer-grid\">\n    <div class=\"ds-site-footer-main\">\n      <div class=\"ds-site-footer-ack\">\n        We gratefully acknowledge support from\n        our <strong>major funders</strong>,\n        <a href=\"https://info.arxiv.org/about/ourmembers.html\"><strong>member institutions</strong></a><span class=\"ack-member-inline\" hidden=\"\">, <strong></strong></span>,\n        and all contributors.\n      </div>\n      <nav class=\"ds-site-footer-links\" aria-label=\"Site navigation\">\n        <a href=\"https://info.arxiv.org/about\">About</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://info.arxiv.org/help\">Help</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://info.arxiv.org/help/contact.html\">Contact</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://info.arxiv.org/help/subscribe\">Subscribe</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://info.arxiv.org/help/license/index.html\">Copyright</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://info.arxiv.org/help/policies/privacy_policy.html\">Privacy</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://info.arxiv.org/help/web_accessibility.html\">Accessibility</a>\n        <span class=\"ds-site-footer-sep\" aria-hidden=\"true\">·</span>\n        <a href=\"https://status.arxiv.org\" target=\"_blank\" rel=\"noopener noreferrer\">Operational Status<span class=\"is-sr-only\"> (opens in new tab)</span></a>\n      </nav>\n    </div>\n\n    <div class=\"ds-site-footer-funders\" aria-label=\"Major funders\">\n      <div class=\"ds-site-footer-funders-label\">Major funding support from</div>\n      <div class=\"ds-site-footer-funders-logos\">\n        <a class=\"ds-funder-link\" href=\"https://www.simonsfoundation.org/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <img class=\"ds-funder-logo\" src=\"/static/base/1.0.1/images/funders/simons-foundation.png\" alt=\"Simons Foundation\">\n        </a>\n        <a class=\"ds-funder-link\" href=\"https://www.sfi.org.bm/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <img class=\"ds-funder-logo\" src=\"/static/base/1.0.1/images/funders/simons-foundation-international.png\" alt=\"Simons Foundation International\">\n        </a>\n        <a class=\"ds-funder-link\" href=\"https://www.schmidtsciences.org/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <img class=\"ds-funder-logo\" src=\"/static/base/1.0.1/images/funders/schmidt-sciences.png\" alt=\"Schmidt Sciences\">\n        </a>\n      </div>\n    </div>\n  </div>\n</footer>  </footer>\n  <script src=\"/static/base/1.0.1/js/arxiv-header.js?v=20260624c\"></script>\n  \n</body></html>",
+    "httpStatus": 404,
+    "httpStatusText": "",
+    "metadata": {
+      "lang": "en",
+      "msapplication-TileColor": "#b31b1b",
+      "msapplication-config": "images/icons/browserconfig.xml",
+      "theme-color": "#b31b1b",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "title": "| arXiv e-print repository",
+    "url": "https://arxiv.org/html/2310.08560v2",
+    "usage": {
+      "tokens": 2421
+    },
+    "warning": "Target URL returned error 404: Not Found"
+  },
+  "meta": {
+    "usage": {
+      "tokens": 2421
+    }
+  },
+  "status": 20000
+}

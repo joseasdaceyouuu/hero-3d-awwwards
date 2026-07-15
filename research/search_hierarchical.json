@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://arxiv.org/html/2406.06124v1",
+    "name": "Enhancing Long-Term Memory using Hierarchical Aggregate Tree  - arXiv",
+    "snippet": "We propose the Hierarchical Aggregate Tree (HAT) memory structure to recursively aggregate relevant dialogue context through conditional tree traversals.",
+    "host_name": "arxiv.org",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.memoryplugin.com/wiki/hierarchical-memory.html",
+    "name": "Hierarchical Memory - MemoryPlugin",
+    "snippet": "An LLM writes one summary per cluster, that summary becomes a parent node, and the process repeats on the parents. You end up with a tree whose leaves are raw ...",
+    "host_name": "www.memoryplugin.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://openreview.net/forum?id=r2ykUnzuGt",
+    "name": "ReCAP: Recursive Context-Aware Reasoning and Planning for Large",
+    "snippet": "Summary: ReCAP introduces a hierarchical prompting framework that equips LLM agents with a dynamic context tree to record recursive subtask ...",
+    "host_name": "openreview.net",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@chipiga86/reflections-on-hierarchical-memory-and-local-contexts-in-llms-with-self-organizing-agents-md-84564139a5f7",
+    "name": "Reflections on Hierarchical Memory and Local Contexts in LLMs with",
+    "snippet": "An LLM with hierarchical AGENTS.md achieves a similar level of understanding instantly: Structured knowledge: Key goals, invariants, lessons ...",
+    "host_name": "medium.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2308.15022v3",
+    "name": "Recursively Summarizing Enables Long-Term Dialogue Memory in",
+    "snippet": "We propose to recursively generate summaries/ memory using large language models to enhance their long-term dialog ability.",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://galileo.ai/blog/llm-summarization-strategies",
+    "name": "Master LLM Summarization Strategies and their Implementations - Galileo AI",
+    "snippet": "LLM summarization is the automated process of condensing lengthy text into shorter versions while preserving key information and meaning.",
+    "host_name": "galileo.ai",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.servicenow.com/docs/r/intelligent-experiences/generative-ai-controller/enable-recursive-summarization.html",
+    "name": "Enable recursive summarization for large inputs - ServiceNow",
+    "snippet": "Recursive summarization breaks the information given to an LLM into chunks, summarizes each chunk individually, and then processes the original request",
+    "host_name": "www.servicenow.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://apxml.com/courses/agentic-llm-memory-architectures/chapter-3-designing-memory-systems/memory-consolidation-summarization",
+    "name": "Memory Consolidation and Summarization Techniques",
+    "snippet": "Hierarchical summarization creates summaries at multiple levels. Process: Divide the content into chunks (e.g., paragraphs, conversation turns). Summarize each ...",
+    "host_name": "apxml.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/LLMDevs/comments/1s8njqy/how_i_implemented_3layer_memory_for_llm_agents",
+    "name": "How I implemented 3-layer memory for LLM agents (semantic +  - Reddit",
+    "snippet": "Most agent memory systems store facts. That's one layer. Cognitive science says humans use three: semantic (what you know), episodic (what ...",
+    "host_name": "www.reddit.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://neurips.cc/virtual/2025/poster/116187",
+    "name": "Tracing Hierarchical Memory for Multi-Agent Systems - NeurIPS 2026",
+    "snippet": "Large language model (LLM)-powered multi-agent systems (MAS) have demonstrated cognitive and execution capabilities that far exceed those of single LLM agents, ...",
+    "host_name": "neurips.cc",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

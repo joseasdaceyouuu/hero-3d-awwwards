@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://llmlingua.com/llmlingua2.html",
+    "name": "Learn Compression Target via Data Distillation  - LLMLingua-2",
+    "snippet": "LLMLingua-2 employs a data distillation procedure, which involves extracting knowledge from an LLM (GPT-4) to compress texts without losing crucial information\nTo address the challenges in existing entropy-based prompt compression methods, LLMLingua-2 employs a data distillation procedure, which involves extracting knowledge from an LLM (GPT-4) to compress texts without losing crucial information or introducing hallucinated content.",
+    "host_name": "llmlingua.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aclanthology.org/2024.findings-acl.57.pdf",
+    "name": "Data Distillation for Efficient and Faithful Task-Agnostic",
+    "snippet": "by Z Pan · 2024 · Cited by 360 — We propose a data distillation procedure to derive knowledge from an LLM (GPT-4) to compress the prompts without losing crucial information.",
+    "host_name": "aclanthology.org",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ritvik19.medium.com/papers-explained-138-llmlingua-2-510c752368a8",
+    "name": "Papers Explained 138: LLMLingua-2 | by Ritvik Rastogi",
+    "snippet": "Data Distillation. The goal is to prompt GPT4 to generate compressed texts from original texts, while maintaining Informativeness and ...",
+    "host_name": "ritvik19.medium.com",
+    "rank": 2,
+    "date": "Jul 15, 2024",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/microsoft/LLMLingua",
+    "name": "microsoft/LLMLingua: [EMNLP'23, ACL'24] To",
+    "snippet": "LLMLingua-2, a small-size yet powerful prompt compression method trained via data distillation from GPT-4 for token classification with a BERT-level encoder.\nLLMLingua-2, a small-size yet powerful prompt compression method trained via data distillation from GPT-4 for token classification with a BERT-level encoder, excels in task-agnostic compression. It surpasses LLMLingua in handling out-of-domain data, offering 3x-6x faster performance.",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/abs/2403.12968",
+    "name": "[2403.12968] LLMLingua-2: Data Distillation for Efficient",
+    "snippet": "by Z Pan · 2024 · Cited by 365 — This paper focuses on task-agnostic prompt compression for better generalizability and efficiency. Considering the redundancy in natural ...\nTo address these issues, we propose a data distillation procedure to derive knowledge from an LLM to compress prompts without losing crucial information, and meantime, introduce an extractive text compression dataset.",
+    "host_name": "arxiv.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.microsoft.com/en-us/research/project/llmlingua",
+    "name": "LLMLingua Series - Microsoft Research",
+    "snippet": "LLMLingua-2 (opens in new tab), a small-size yet powerful prompt compression method trained via data distillation from GPT-4 for token classification with a ...",
+    "host_name": "www.microsoft.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://bdtechtalks.com/2024/04/01/llmlingua-2-prompt-compression",
+    "name": "Compress GPT-4 and Claude prompts with LLMLingua-2",
+    "snippet": "LLMLingua-2 is a prompt compression technique by Microsoft that can reduce the size of prompts by up to five times.",
+    "host_name": "bdtechtalks.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2403.12968v1",
+    "name": "LLMLingua-2: Data Distillation for Efficient and Faithful",
+    "snippet": "We propose a data distillation procedure to derive knowledge from an LLM (GPT-4) to compress the prompts without losing crucial information. We introduce an extractive text compression dataset, containing pairs of original texts from MeetingBank (Hu et al., 2023) and their compressed versions.",
+    "host_name": "arxiv.org",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aclanthology.org/2024.findings-acl.57",
+    "name": "LLMLingua-2: Data Distillation for Efficient and Faithful",
+    "snippet": "We formulate prompt compression as a token classification problem to guarantee the faithfulness of the compressed prompt to the original one, and use a Transformer encoder as the base architecture to capture all essential information for prompt compression from the full bidirectional context.",
+    "host_name": "aclanthology.org",
+    "rank": 8,
+    "date": "Jul 13, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.microsoft.com/en-us/research/publication/llmlingua-2-data-distillation-for-efficient-and-faithful-task-agnostic-prompt-compression",
+    "name": "LLMLingua-2: Data Distillation for Efficient and Faithful",
+    "snippet": "To address these issues, we propose a data distillation procedure to derive knowledge from an LLM to compress prompts without losing crucial information, and meantime, introduce an extractive text compression dataset.",
+    "host_name": "www.microsoft.com",
+    "rank": 9,
+    "date": "",
+    "favicon": ""
+  }
+]

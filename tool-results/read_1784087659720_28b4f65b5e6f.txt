@@ -1,0 +1,1331 @@
+     1→# GitHub - getzep/graphiti: Build Real-Time Knowledge Graphs for AI Agents
+     2→# URL: https://github.com/getzep/graphiti
+     3→# Published: N/A
+     4→
+     5→GitHub - getzep/graphiti: Build Real-Time Knowledge Graphs for AI Agents · GitHub
+     6→
+     7→Skip to content
+     8→
+     9→Navigation Menu
+    10→
+    11→Toggle navigation
+    12→
+    13→Sign in
+    14→
+    15→Appearance settings
+    16→
+    17→PlatformAI CODE CREATIONGitHub CopilotWrite better code with AI
+    18→
+    19→GitHub Copilot appDirect agents from issue to merge
+    20→
+    21→MCP RegistryNewIntegrate external tools
+    22→
+    23→DEVELOPER WORKFLOWSActionsAutomate any workflow
+    24→
+    25→CodespacesInstant dev environments
+    26→
+    27→IssuesPlan and track work
+    28→
+    29→Code ReviewManage code changes
+    30→
+    31→APPLICATION SECURITYGitHub Advanced SecurityFind and fix vulnerabilities
+    32→
+    33→Code securitySecure your code as you build
+    34→
+    35→Secret protectionStop leaks before they start
+    36→
+    37→EXPLOREWhy GitHub
+    38→Documentation
+    39→Blog
+    40→Changelog
+    41→Marketplace
+    42→
+    43→View all features
+    44→
+    45→SolutionsBY COMPANY SIZEEnterprises
+    46→Small and medium teams
+    47→Startups
+    48→Nonprofits
+    49→
+    50→BY USE CASEApp Modernization
+    51→DevSecOps
+    52→DevOps
+    53→CI/CD
+    54→View all use cases
+    55→
+    56→BY INDUSTRYHealthcare
+    57→Financial services
+    58→Manufacturing
+    59→Government
+    60→View all industries
+    61→
+    62→View all solutions
+    63→
+    64→ResourcesEXPLORE BY TOPICAI
+    65→Software Development
+    66→DevOps
+    67→Security
+    68→View all topics
+    69→
+    70→EXPLORE BY TYPECustomer stories
+    71→Events & webinars
+    72→Ebooks & reports
+    73→Business insights
+    74→GitHub Skills
+    75→
+    76→SUPPORT & SERVICESDocumentation
+    77→Customer support
+    78→Community forum
+    79→Trust center
+    80→Partners
+    81→
+    82→View all resources
+    83→
+    84→Open SourceCOMMUNITYGitHub SponsorsFund open source developers
+    85→
+    86→PROGRAMSSecurity Lab
+    87→Maintainer Community
+    88→Accelerator
+    89→GitHub Stars
+    90→Archive Program
+    91→
+    92→REPOSITORIESTopics
+    93→Trending
+    94→Collections
+    95→
+    96→EnterpriseENTERPRISE SOLUTIONSEnterprise platformAI-powered developer platform
+    97→
+    98→AVAILABLE ADD-ONSGitHub Advanced SecurityEnterprise-grade security features
+    99→
+   100→Copilot for BusinessEnterprise-grade AI features
+   101→
+   102→Premium SupportEnterprise-grade 24/7 support
+   103→
+   104→Pricing
+   105→
+   106→Search or jump to...
+   107→
+   108→Search code, repositories, users, issues, pull requests...
+   109→
+   110→Search
+   111→
+   112→Clear
+   113→
+   114→Search syntax tips 
+   115→
+   116→Provide feedback
+   117→
+   118→We read every piece of feedback, and take your input very seriously.
+   119→
+   120→Include my email address so I can be contacted
+   121→
+   122→Cancel
+   123→
+   124→Submit feedback
+   125→
+   126→Saved searches
+   127→
+   128→Use saved searches to filter your results more quickly
+   129→
+   130→Name
+   131→
+   132→Query
+   133→
+   134→To see all available qualifiers, see our documentation.
+   135→
+   136→Cancel
+   137→
+   138→Create saved search
+   139→
+   140→Sign in
+   141→
+   142→Sign up
+   143→
+   144→Appearance settings
+   145→
+   146→Resetting focus
+   147→
+   148→You signed in with another tab or window. Reload to refresh your session.
+   149→You signed out in another tab or window. Reload to refresh your session.
+   150→You switched accounts on another tab or window. Reload to refresh your session.
+   151→
+   152→Dismiss alert
+   153→
+   154→{{ message }}
+   155→
+   156→Uh oh!
+   157→
+   158→There was an error while loading. Please reload this page.
+   159→
+   160→getzep
+   161→
+   162→/
+   163→
+   164→graphiti
+   165→
+   166→Public
+   167→
+   168→Notifications
+   169→You must be signed in to change notification settings
+   170→
+   171→Fork
+   172→2.9k
+   173→
+   174→Star
+   175→28.7k
+   176→
+   177→Code
+   178→
+   179→Issues
+   180→259
+   181→
+   182→Pull requests
+   183→170
+   184→
+   185→Actions
+   186→
+   187→Security and quality
+   188→1
+   189→
+   190→Insights
+   191→
+   192→Additional navigation options
+   193→
+   194→Code
+   195→
+   196→Issues
+   197→
+   198→Pull requests
+   199→
+   200→Actions
+   201→
+   202→Security and quality
+   203→
+   204→Insights
+   205→
+   206→getzep/graphiti
+   207→
+   208→ main
+   209→
+   210→69 Branches197 Tags
+   211→
+   212→Go to file
+   213→
+   214→CodeOpen more actions menu
+   215→
+   216→Folders and files
+   217→
+   218→NameNameLast commit message
+   219→Last commit date
+   220→Latest commit
+   221→
+   222→zep-cla-assistant[bot]
+   223→
+   224→@hedging8563 has signed the CLA in #1641
+   225→success
+   226→Jul 9, 2026
+   227→526dcad · Jul 9, 2026
+   228→History
+   229→
+   230→888 CommitsOpen commit details
+   231→888 Commits
+   232→
+   233→.github
+   234→
+   235→.github
+   236→
+   237→ci: harden exit-5 handling in the live-test workflows (MCP backport +…
+   238→
+   239→Jun 9, 2026
+   240→examples
+   241→
+   242→examples
+   243→
+   244→fix(falkordblite): make embedded install work (pin redis<8) + example…
+   245→
+   246→Jun 5, 2026
+   247→graphiti_core
+   248→
+   249→graphiti_core
+   250→
+   251→fix(falkordb): make default group_id valid and escape it for RediSear…
+   252→
+   253→Jun 8, 2026
+   254→images
+   255→
+   256→images
+   257→
+   258→docs: update README to enhance clarity and add Zep Memory section (#260)
+   259→
+   260→Feb 2, 2025
+   261→mcp_server
+   262→
+   263→mcp_server
+   264→
+   265→chore(deps): fix all Dependabot security alerts (#1599)
+   266→
+   267→Jun 19, 2026
+   268→server
+   269→
+   270→server
+   271→
+   272→chore(deps): fix all Dependabot security alerts (#1599)
+   273→
+   274→Jun 19, 2026
+   275→signatures/version1
+   276→
+   277→signatures/version1
+   278→
+   279→@hedging8563 has signed the CLA in #1641
+   280→
+   281→Jul 9, 2026
+   282→spec
+   283→
+   284→spec
+   285→
+   286→feat: driver operations architecture redesign (#1232)
+   287→
+   288→Feb 16, 2026
+   289→tests
+   290→
+   291→tests
+   292→
+   293→fix(falkordb): make default group_id valid and escape it for RediSear…
+   294→
+   295→Jun 8, 2026
+   296→.env.example
+   297→
+   298→.env.example
+   299→
+   300→[REFACTOR][FIX] Move away from DEFAULT_DATABASE environment variable …
+   301→
+   302→Jul 10, 2025
+   303→.gitignore
+   304→
+   305→.gitignore
+   306→
+   307→migrate to uv (#634)
+   308→
+   309→Jun 27, 2025
+   310→AGENTS.md
+   311→
+   312→AGENTS.md
+   313→
+   314→deprecate(kuzu): mark Kuzu deprecated; drop from default test matrix (#…
+   315→
+   316→Jun 6, 2026
+   317→CLAUDE.md
+   318→
+   319→CLAUDE.md
+   320→
+   321→feat: MCP Server v1.0.0 - Modular architecture with multi-provider su…
+   322→
+   323→Oct 31, 2025
+   324→CODE_OF_CONDUCT.md
+   325→
+   326→CODE_OF_CONDUCT.md
+   327→
+   328→feat: Add CLA Assistant workflow and CONTRIBUTING guidelines (#32)
+   329→
+   330→Aug 23, 2024
+   331→CONTRIBUTING.md
+   332→
+   333→CONTRIBUTING.md
+   334→
+   335→deprecate(kuzu): mark Kuzu deprecated; drop from default test matrix (#…
+   336→
+   337→Jun 6, 2026
+   338→Dockerfile
+   339→
+   340→Dockerfile
+   341→
+   342→fix: FalkorDB profile failing to start in docker-compose (#1126)
+   343→
+   344→Jun 5, 2026
+   345→LICENSE
+   346→
+   347→LICENSE
+   348→
+   349→Add a LICENSE file containing the Apache v2 license (#29)
+   350→
+   351→Aug 23, 2024
+   352→Makefile
+   353→
+   354→Makefile
+   355→
+   356→Improve node deduplication w/ deterministic matching, LLM fallbacks (#…
+   357→
+   358→Sep 25, 2025
+   359→OTEL_TRACING.md
+   360→
+   361→OTEL_TRACING.md
+   362→
+   363→Add OpenTelemetry stdout example with Kuzu (#987)
+   364→
+   365→Oct 7, 2025
+   366→README.md
+   367→
+   368→README.md
+   369→
+   370→deprecate(kuzu): mark Kuzu deprecated; drop from default test matrix (#…
+   371→
+   372→Jun 6, 2026
+   373→SECURITY.md
+   374→
+   375→SECURITY.md
+   376→
+   377→format and linting (#18)
+   378→
+   379→Aug 22, 2024
+   380→Zep-CLA.md
+   381→
+   382→Zep-CLA.md
+   383→
+   384→[Doc]: fixing typos in various files (#1067)
+   385→
+   386→Nov 15, 2025
+   387→conftest.py
+   388→
+   389→conftest.py
+   390→
+   391→Upstream Zep internal improvements (#1361)
+   392→
+   393→Mar 31, 2026
+   394→depot.json
+   395→
+   396→depot.json
+   397→
+   398→Add Fastapi graph service (#88)
+   399→
+   400→Sep 6, 2024
+   401→docker-compose.test.yml
+   402→
+   403→docker-compose.test.yml
+   404→
+   405→Improve node deduplication w/ deterministic matching, LLM fallbacks (#…
+   406→
+   407→Sep 25, 2025
+   408→docker-compose.yml
+   409→
+   410→docker-compose.yml
+   411→
+   412→fix(docker): align FalkorDB compose service port with container (#1532)
+   413→
+   414→Jun 5, 2026
+   415→ellipsis.yaml
+   416→
+   417→ellipsis.yaml
+   418→
+   419→Add Apache License 2.0 boilerplate to all Python files (#30)
+   420→
+   421→Aug 23, 2024
+   422→py.typed
+   423→
+   424→py.typed
+   425→
+   426→add py.typed (#141)
+   427→
+   428→Sep 22, 2024
+   429→pyproject.toml
+   430→
+   431→pyproject.toml
+   432→
+   433→chore(deps-dev): update redis requirement from <8 to <9 (#1561)
+   434→
+   435→Jun 8, 2026
+   436→pytest.ini
+   437→
+   438→pytest.ini
+   439→
+   440→Add support for Kuzu as the graph driver (#799)
+   441→
+   442→Aug 27, 2025
+   443→uv.lock
+   444→
+   445→uv.lock
+   446→
+   447→chore(deps): fix all Dependabot security alerts (#1599)
+   448→
+   449→Jun 19, 2026
+   450→View all files
+   451→
+   452→Repository files navigation
+   453→
+   454→README
+   455→Code of conduct
+   456→Contributing
+   457→Apache-2.0 license
+   458→Security
+   459→
+   460→More items
+   461→
+   462→Graphiti
+   463→
+   464→Build Temporal Context Graphs for AI Agents
+   465→
+   466→Note
+   467→
+   468→We're Hiring! Build context graphs that power reliable, personalized, fast production AI agents.
+   469→Come build with us — we're hiring Engineers and Developer Relations folks. View open roles.
+   470→
+   471→⭐ Help us reach more developers and grow the Graphiti community. Star this repo!
+   472→
+   473→ 
+   474→
+   475→Tip
+   476→
+   477→Check out the new MCP server for Graphiti! Give Claude, Cursor, and other MCP clients powerful
+   478→context graph-based memory with temporal awareness.
+   479→
+   480→Graphiti is a framework for building and querying temporal context graphs for AI agents. Unlike static knowledge graphs,
+   481→Graphiti's context graphs track how facts change over time, maintain provenance to source data, and support both
+   482→prescribed and learned ontology — making them purpose-built for agents operating on evolving, real-world data.
+   483→
+   484→Unlike traditional retrieval-augmented generation (RAG) methods, Graphiti continuously integrates user interactions,
+   485→structured and unstructured enterprise data, and external information into a coherent, queryable graph. The framework
+   486→supports incremental data updates, efficient retrieval, and precise historical queries without requiring complete graph
+   487→recomputation, making it suitable for developing interactive, context-aware AI applications.
+   488→
+   489→Use Graphiti to:
+   490→
+   491→Build context graphs that evolve with every interaction — tracking what's true now and what was true before.
+   492→
+   493→Give agents rich, structured context instead of flat document chunks or raw chat history.
+   494→
+   495→Query across time, meaning, and relationships with hybrid retrieval (semantic + keyword + graph traversal).
+   496→
+   497→ 
+   498→
+   499→ 
+   500→
+   501→What is a Context Graph?
+   502→
+   503→A context graph is a temporal graph of entities, relationships, and facts — like "Kendra loves Adidas shoes (as of
+   504→March 2026)." Unlike traditional knowledge graphs, each fact in a context graph has a validity window: when it became
+   505→true, and when (if ever) it was superseded. Entities evolve over time with updated summaries. Everything traces back to
+   506→episodes — the raw data that produced it.
+   507→
+   508→What makes Graphiti unique is its ability to autonomously build context graphs from unstructured and structured data,
+   509→handling changing relationships while preserving full temporal history.
+   510→
+   511→A context graph contains:
+   512→
+   513→Component
+   514→What it stores
+   515→
+   516→Entities (nodes)
+   517→People, products, policies, concepts — with summaries that evolve over time
+   518→
+   519→Facts / Relationships (edges)
+   520→Triplets (Entity → Relationship → Entity) with temporal validity windows
+   521→
+   522→Episodes (provenance)
+   523→Raw data as ingested — the ground truth stream. Every derived fact traces back here
+   524→
+   525→Custom Types (ontology)
+   526→Developer-defined entity and edge types via Pydantic models
+   527→
+   528→Graphiti and Zep
+   529→
+   530→Graphiti is the open-source temporal context graph engine at the core of
+   531→Zep's context infrastructure for AI agents. Zep manages context graphs at scale, providing
+   532→governed, low-latency context retrieval and assembly for production agent deployments.
+   533→
+   534→Using Graphiti, we've demonstrated Zep is
+   535→the State of the Art in Agent Memory.
+   536→
+   537→Read our paper: Zep: A Temporal Knowledge Graph Architecture for Agent Memory.
+   538→
+   539→We're excited to open-source Graphiti, believing its potential as a context graph engine reaches far beyond memory
+   540→applications.
+   541→
+   542→Zep vs Graphiti
+   543→
+   544→Aspect
+   545→Zep
+   546→Graphiti
+   547→
+   548→What they are
+   549→Managed context graph infrastructure for AI agents
+   550→Open-source temporal context graph engine
+   551→
+   552→Context graphs
+   553→Manages vast numbers of per-user/entity context graphs with governance
+   554→Build and query individual context graphs
+   555→
+   556→User & conversation management
+   557→Built-in users, threads, and message storage
+   558→Build your own
+   559→
+   560→Retrieval & performance
+   561→Pre-configured, production-ready retrieval with sub-200ms performance at scale
+   562→Custom implementation required; performance depends on your setup
+   563→
+   564→Developer tools
+   565→Dashboard with graph visualization, debug logs, API logs; SDKs for Python, TypeScript, and Go
+   566→Build your own tools
+   567→
+   568→Enterprise features
+   569→SLAs, support, security guarantees
+   570→Self-managed
+   571→
+   572→Deployment
+   573→Fully managed or in your cloud
+   574→Self-hosted only
+   575→
+   576→When to choose which
+   577→
+   578→Choose Zep if you want a turnkey, enterprise-grade platform with security, performance, and support baked in.
+   579→
+   580→Choose Graphiti if you want a flexible OSS core and you're comfortable building/operating the surrounding system.
+   581→
+   582→Why Graphiti?
+   583→
+   584→Traditional RAG approaches often rely on batch processing and static data summarization, making them inefficient for
+   585→frequently changing data. Graphiti addresses these challenges by providing:
+   586→
+   587→Temporal Fact Management: Facts have validity windows. When information changes, old facts are
+   588→invalidated — not deleted. Query what's true now, or what was true at any point in time.
+   589→
+   590→Episodes & Provenance: Every entity and relationship traces back to the episodes (raw data) that produced it.
+   591→Full lineage from derived fact to source.
+   592→
+   593→Prescribed & Learned Ontology: Define entity and edge types upfront via Pydantic models (prescribed), or let
+   594→structure emerge from your data (learned). Start simple, evolve as patterns appear.
+   595→
+   596→Incremental Graph Construction: New data integrates immediately without batch recomputation. The graph evolves
+   597→in real-time as episodes are ingested.
+   598→
+   599→Hybrid Retrieval: Combines semantic embeddings, keyword (BM25), and graph traversal for low-latency,
+   600→high-precision queries without reliance on LLM summarization.
+   601→
+   602→Scalability: Efficiently manages large datasets with parallel processing, pluggable graph backends, suitable
+   603→for enterprise workloads.
+   604→
+   605→Graphiti vs. GraphRAG
+   606→
+   607→Aspect
+   608→GraphRAG
+   609→Graphiti
+   610→
+   611→Primary Use
+   612→Static document summarization
+   613→Dynamic, evolving context for agents
+   614→
+   615→Data Handling
+   616→Batch-oriented processing
+   617→Continuous, incremental updates
+   618→
+   619→Knowledge Structure
+   620→Entity clusters & community summaries
+   621→Temporal context graph — entities, facts with validity windows, episodes, communities
+   622→
+   623→Retrieval Method
+   624→Sequential LLM summarization
+   625→Hybrid semantic, keyword, and graph-based search
+   626→
+   627→Adaptability
+   628→Low
+   629→High
+   630→
+   631→Temporal Handling
+   632→Basic timestamp tracking
+   633→Explicit bi-temporal tracking with automatic fact invalidation
+   634→
+   635→Contradiction Handling
+   636→LLM-driven summarization judgments
+   637→Automatic fact invalidation with temporal history preserved
+   638→
+   639→Query Latency
+   640→Seconds to tens of seconds
+   641→Typically sub-second latency
+   642→
+   643→Custom Entity Types
+   644→No
+   645→Yes, customizable via Pydantic models
+   646→
+   647→Scalability
+   648→Moderate
+   649→High, optimized for large datasets
+   650→
+   651→Graphiti is specifically designed to address the challenges of dynamic and frequently updated datasets, making it
+   652→particularly suitable for applications requiring real-time interaction and precise historical queries.
+   653→
+   654→Installation
+   655→
+   656→Requirements:
+   657→
+   658→Python 3.10 or higher
+   659→
+   660→Neo4j 5.26 / FalkorDB 1.1.2 / Amazon Neptune Database Cluster or Neptune Analytics Graph + Amazon OpenSearch
+   661→Serverless collection (serves as the full text search backend) / Kuzu 0.11.2 (deprecated, see below)
+   662→
+   663→OpenAI API key (Graphiti defaults to OpenAI for LLM inference and embedding)
+   664→
+   665→Important
+   666→
+   667→Graphiti works best with LLM services that support Structured Output (such as OpenAI, Anthropic, and Gemini).
+   668→Using other services may result in incorrect output schemas and ingestion failures. This is particularly
+   669→problematic when using smaller models.
+   670→
+   671→Optional:
+   672→
+   673→Google Gemini, Anthropic, or Groq API key (for alternative LLM providers)
+   674→
+   675→Tip
+   676→
+   677→The simplest way to install Neo4j is via Neo4j Desktop. It provides a user-friendly
+   678→interface to manage Neo4j instances and databases.
+   679→Alternatively, you can use FalkorDB on-premises via Docker and instantly start with the quickstart example:
+   680→
+   681→docker run -p 6379:6379 -p 3000:3000 -it --rm falkordb/falkordb:latest
+   682→
+   683→pip install graphiti-core
+   684→
+   685→or
+   686→
+   687→uv add graphiti-core
+   688→
+   689→Installing with FalkorDB Support
+   690→
+   691→If you plan to use FalkorDB as your graph database backend, install with the FalkorDB extra:
+   692→
+   693→pip install graphiti-core[falkordb]
+   694→
+   695→# or with uv
+   696→uv add graphiti-core[falkordb]
+   697→
+   698→# or embedded version (requires Python 3.12+)
+   699→pip install graphiti-core[falkordblite]
+   700→# or with uv
+   701→uv add graphiti-core[falkordblite]
+   702→
+   703→Installing with Kuzu Support
+   704→
+   705→Warning
+   706→
+   707→Kuzu is deprecated and will be removed in a future release — the upstream Kuzu project is no longer
+   708→maintained. New projects should use Neo4j or FalkorDB. The driver still ships for now but emits a
+   709→DeprecationWarning.
+   710→
+   711→If you plan to use Kuzu as your graph database backend, install with the Kuzu extra:
+   712→
+   713→pip install graphiti-core[kuzu]
+   714→
+   715→# or with uv
+   716→uv add graphiti-core[kuzu]
+   717→
+   718→Installing with Amazon Neptune Support
+   719→
+   720→If you plan to use Amazon Neptune as your graph database backend, install with the Amazon Neptune extra:
+   721→
+   722→pip install graphiti-core[neptune]
+   723→
+   724→# or with uv
+   725→uv add graphiti-core[neptune]
+   726→
+   727→You can also install optional LLM providers as extras:
+   728→
+   729→# Install with Anthropic support
+   730→pip install graphiti-core[anthropic]
+   731→
+   732→# Install with Groq support
+   733→pip install graphiti-core[groq]
+   734→
+   735→# Install with Google Gemini support
+   736→pip install graphiti-core[google-genai]
+   737→
+   738→# Install with multiple providers
+   739→pip install graphiti-core[anthropic,groq,google-genai]
+   740→
+   741→# Install with FalkorDB and LLM providers
+   742→pip install graphiti-core[falkordb,anthropic,google-genai]
+   743→
+   744→# Install with Amazon Neptune
+   745→pip install graphiti-core[neptune]
+   746→
+   747→Default to Low Concurrency; LLM Provider 429 Rate Limit Errors
+   748→
+   749→Graphiti's ingestion pipelines are designed for high concurrency. By default, concurrency is set low to avoid LLM
+   750→Provider 429 Rate Limit Errors. If you find Graphiti slow, please increase concurrency as described below.
+   751→
+   752→Concurrency controlled by the SEMAPHORE_LIMIT environment variable. By default, SEMAPHORE_LIMIT is set to 10
+   753→concurrent operations to help prevent 429 rate limit errors from your LLM provider. If you encounter such errors, try
+   754→lowering this value.
+   755→
+   756→If your LLM provider allows higher throughput, you can increase SEMAPHORE_LIMIT to boost episode ingestion
+   757→performance.
+   758→
+   759→Quick Start
+   760→
+   761→Important
+   762→
+   763→Graphiti defaults to using OpenAI for LLM inference and embedding. Ensure that an OPENAI_API_KEY is set in your
+   764→environment.
+   765→Support for Anthropic, Gemini, and Groq is available, too. Other LLM providers — both hosted OpenAI-compatible APIs
+   766→(DeepSeek, Together, OpenRouter, …) and local servers (Ollama, vLLM, llama.cpp, LM Studio) — may be used via their
+   767→OpenAI-compatible endpoints; see
+   768→Using Graphiti with OpenAI-compatible providers and local LLMs.
+   769→
+   770→For a complete working example, see the Quickstart Example in the examples directory.
+   771→The quickstart demonstrates:
+   772→
+   773→Connecting to a Neo4j, Amazon Neptune, FalkorDB, or Kuzu database
+   774→
+   775→Initializing Graphiti indices and constraints
+   776→
+   777→Adding episodes to the graph (both text and structured JSON)
+   778→
+   779→Searching for relationships (edges) using hybrid search
+   780→
+   781→Reranking search results using graph distance
+   782→
+   783→Searching for nodes using predefined search recipes
+   784→
+   785→The example is fully documented with clear explanations of each functionality and includes a comprehensive README with
+   786→setup instructions and next steps.
+   787→
+   788→Running with Docker Compose
+   789→
+   790→You can use Docker Compose to quickly start the required services:
+   791→
+   792→Neo4j Docker:
+   793→
+   794→docker compose up
+   795→
+   796→This will start the Neo4j Docker service and related components.
+   797→
+   798→FalkorDB Docker:
+   799→
+   800→docker compose --profile falkordb up
+   801→
+   802→This will start the FalkorDB Docker service and related components.
+   803→
+   804→MCP Server
+   805→
+   806→The mcp_server directory contains a Model Context Protocol (MCP) server implementation for Graphiti. This server
+   807→allows AI assistants to interact with Graphiti's context graph capabilities through the MCP protocol.
+   808→
+   809→Key features of the MCP server include:
+   810→
+   811→Episode management (add, retrieve, delete)
+   812→
+   813→Entity management and relationship handling
+   814→
+   815→Semantic and hybrid search capabilities
+   816→
+   817→Group management for organizing related data
+   818→
+   819→Graph maintenance operations
+   820→
+   821→The MCP server can be deployed using Docker with Neo4j, making it easy to integrate Graphiti into your AI assistant
+   822→workflows.
+   823→
+   824→For detailed setup instructions and usage examples, see the MCP server README.
+   825→
+   826→REST Service
+   827→
+   828→The server directory contains an API service for interacting with the Graphiti API. It is built using FastAPI.
+   829→
+   830→Please see the server README for more information.
+   831→
+   832→Optional Environment Variables
+   833→
+   834→In addition to the Neo4j and OpenAi-compatible credentials, Graphiti also has a few optional environment variables.
+   835→If you are using one of our supported models, such as Anthropic or Voyage models, the necessary environment variables
+   836→must be set.
+   837→
+   838→Database Configuration
+   839→
+   840→Database names are configured directly in the driver constructors:
+   841→
+   842→Neo4j: Database name defaults to neo4j (hardcoded in Neo4jDriver)
+   843→
+   844→FalkorDB: Database name defaults to default_db (hardcoded in FalkorDriver)
+   845→
+   846→As of v0.17.0, if you need to customize your database configuration, you can instantiate a database driver and pass it
+   847→to the Graphiti constructor using the graph_driver parameter.
+   848→
+   849→Neo4j with Custom Database Name
+   850→
+   851→from graphiti_core import Graphiti
+   852→from graphiti_core.driver.neo4j_driver import Neo4jDriver
+   853→
+   854→# Create a Neo4j driver with custom database name
+   855→driver = Neo4jDriver(
+   856→uri="bolt://localhost:7687",
+   857→user="neo4j",
+   858→password="password",
+   859→database="my_custom_database" # Custom database name
+   860→)
+   861→
+   862→# Pass the driver to Graphiti
+   863→graphiti = Graphiti(graph_driver=driver)
+   864→
+   865→FalkorDB with Custom Database Name
+   866→
+   867→from graphiti_core import Graphiti
+   868→from graphiti_core.driver.falkordb_driver import FalkorDriver
+   869→
+   870→# Create a FalkorDB driver with custom database name
+   871→driver = FalkorDriver(
+   872→host="localhost",
+   873→port=6379,
+   874→username="falkor_user", # Optional
+   875→password="falkor_password", # Optional
+   876→database="my_custom_graph" # Custom database name
+   877→)
+   878→
+   879→# Or use embedded FalkorDB Lite (requires Python 3.12+)
+   880→# from redislite.async_falkordb_client import AsyncFalkorDB
+   881→# falkordb_client = AsyncFalkorDB(dbfilename='/path/to/database.db')
+   882→# driver = FalkorDriver(falkor_db=falkordb_client)
+   883→
+   884→# Pass the driver to Graphiti
+   885→graphiti = Graphiti(graph_driver=driver)
+   886→
+   887→Kuzu
+   888→
+   889→Warning
+   890→
+   891→Kuzu is deprecated (upstream project unmaintained) and will be removed in a future release. Prefer Neo4j or
+   892→FalkorDB.
+   893→
+   894→from graphiti_core import Graphiti
+   895→from graphiti_core.driver.kuzu_driver import KuzuDriver
+   896→
+   897→# Create a Kuzu driver
+   898→driver = KuzuDriver(db="/tmp/graphiti.kuzu")
+   899→
+   900→# Pass the driver to Graphiti
+   901→graphiti = Graphiti(graph_driver=driver)
+   902→
+   903→Amazon Neptune
+   904→
+   905→from graphiti_core import Graphiti
+   906→from graphiti_core.driver.neptune_driver import NeptuneDriver
+   907→
+   908→# Create a Neptune driver
+   909→driver = NeptuneDriver(
+   910→host='<NEPTUNE_ENDPOINT>',
+   911→aoss_host='<AMAZON_OPENSEARCH_SERVERLESS_HOST>',
+   912→port=8182, # Optional, defaults to 8182
+   913→aoss_port=443, # Optional, defaults to 443
+   914→)
+   915→
+   916→# Pass the driver to Graphiti
+   917→graphiti = Graphiti(graph_driver=driver)
+   918→
+   919→Contributing a new graph backend? See Adding a graph driver.
+   920→
+   921→Using Graphiti with Azure OpenAI
+   922→
+   923→Graphiti supports Azure OpenAI for both LLM inference and embeddings using Azure's OpenAI v1 API compatibility layer.
+   924→
+   925→Quick Start
+   926→
+   927→from openai import AsyncOpenAI
+   928→from graphiti_core import Graphiti
+   929→from graphiti_core.llm_client.azure_openai_client import AzureOpenAILLMClient
+   930→from graphiti_core.llm_client.config import LLMConfig
+   931→from graphiti_core.embedder.azure_openai import AzureOpenAIEmbedderClient
+   932→
+   933→# Initialize Azure OpenAI client using the standard OpenAI client
+   934→# with Azure's v1 API endpoint
+   935→azure_client = AsyncOpenAI(
+   936→base_url="https://your-resource-name.openai.azure.com/openai/v1/",
+   937→api_key="your-api-key",
+   938→)
+   939→
+   940→# Create LLM and Embedder clients
+   941→llm_client = AzureOpenAILLMClient(
+   942→azure_client=azure_client,
+   943→config=LLMConfig(model="gpt-5-mini", small_model="gpt-5-mini") # Your Azure deployment name
+   944→)
+   945→embedder_client = AzureOpenAIEmbedderClient(
+   946→azure_client=azure_client,
+   947→model="text-embedding-3-small" # Your Azure embedding deployment name
+   948→)
+   949→
+   950→# Initialize Graphiti with Azure OpenAI clients
+   951→graphiti = Graphiti(
+   952→"bolt://localhost:7687",
+   953→"neo4j",
+   954→"password",
+   955→llm_client=llm_client,
+   956→embedder=embedder_client,
+   957→)
+   958→
+   959→# Now you can use Graphiti with Azure OpenAI
+   960→
+   961→Key Points:
+   962→
+   963→Use the standard AsyncOpenAI client with Azure's v1 API endpoint format:
+   964→https://your-resource-name.openai.azure.com/openai/v1/
+   965→
+   966→The deployment names (e.g., gpt-5-mini, text-embedding-3-small) should match your Azure OpenAI deployment names
+   967→
+   968→See examples/azure-openai/ for a complete working example
+   969→
+   970→Make sure to replace the placeholder values with your actual Azure OpenAI credentials and deployment names.
+   971→
+   972→Using Graphiti with Google Gemini
+   973→
+   974→Graphiti supports Google's Gemini models for LLM inference, embeddings, and cross-encoding/reranking. To use Gemini,
+   975→you'll need to configure the LLM client, embedder, and the cross-encoder with your Google API key.
+   976→
+   977→Install Graphiti:
+   978→
+   979→uv add "graphiti-core[google-genai]"
+   980→
+   981→# or
+   982→
+   983→pip install "graphiti-core[google-genai]"
+   984→
+   985→from graphiti_core import Graphiti
+   986→from graphiti_core.llm_client.gemini_client import GeminiClient, LLMConfig
+   987→from graphiti_core.embedder.gemini import GeminiEmbedder, GeminiEmbedderConfig
+   988→from graphiti_core.cross_encoder.gemini_reranker_client import GeminiRerankerClient
+   989→
+   990→# Google API key configuration
+   991→api_key = "<your-google-api-key>"
+   992→
+   993→# Initialize Graphiti with Gemini clients
+   994→graphiti = Graphiti(
+   995→"bolt://localhost:7687",
+   996→"neo4j",
+   997→"password",
+   998→llm_client=GeminiClient(
+   999→config=LLMConfig(
+  1000→api_key=api_key,
+  1001→model="gemini-2.0-flash"
+  1002→)
+  1003→),
+  1004→embedder=GeminiEmbedder(
+  1005→config=GeminiEmbedderConfig(
+  1006→api_key=api_key,
+  1007→embedding_model="embedding-001"
+  1008→)
+  1009→),
+  1010→cross_encoder=GeminiRerankerClient(
+  1011→config=LLMConfig(
+  1012→api_key=api_key,
+  1013→model="gemini-2.5-flash-lite"
+  1014→)
+  1015→)
+  1016→)
+  1017→
+  1018→# Now you can use Graphiti with Google Gemini for all components
+  1019→
+  1020→The Gemini reranker uses the gemini-2.5-flash-lite model by default, which is optimized for
+  1021→cost-effective and low-latency classification tasks. It uses the same boolean classification approach as the OpenAI
+  1022→reranker, leveraging Gemini's log probabilities feature to rank passage relevance.
+  1023→
+  1024→Using Graphiti with OpenAI-compatible providers and local LLMs
+  1025→
+  1026→Graphiti can use any OpenAI-compatible /v1 endpoint for LLM inference via OpenAIGenericClient — both hosted
+  1027→providers (DeepSeek, Together, OpenRouter, Fireworks, etc.) and local servers (Ollama, vLLM, llama.cpp, LM
+  1028→Studio). Local servers are ideal for privacy-focused applications or avoiding API costs. The example below uses Ollama;
+  1029→for any other provider, point base_url at its endpoint and set the appropriate api_key and model.
+  1030→
+  1031→Note: Use OpenAIGenericClient (not OpenAIClient) for these endpoints. It is optimized for local models with a
+  1032→higher default max token limit (16K vs 8K) and handles structured outputs across compatible providers.
+  1033→
+  1034→Install the models:
+  1035→
+  1036→ollama pull deepseek-r1:7b # LLM
+  1037→ollama pull nomic-embed-text # embeddings
+  1038→
+  1039→from graphiti_core import Graphiti
+  1040→from graphiti_core.llm_client.config import LLMConfig
+  1041→from graphiti_core.llm_client.openai_generic_client import OpenAIGenericClient
+  1042→from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
+  1043→from graphiti_core.cross_encoder.openai_reranker_client import OpenAIRerankerClient
+  1044→
+  1045→# Configure Ollama LLM client
+  1046→llm_config = LLMConfig(
+  1047→api_key="ollama", # Ollama doesn't require a real API key, but some placeholder is needed
+  1048→model="deepseek-r1:7b",
+  1049→small_model="deepseek-r1:7b",
+  1050→base_url="http://localhost:11434/v1", # Ollama's OpenAI-compatible endpoint
+  1051→)
+  1052→
+  1053→llm_client = OpenAIGenericClient(config=llm_config)
+  1054→
+  1055→# Initialize Graphiti with Ollama clients
+  1056→graphiti = Graphiti(
+  1057→"bolt://localhost:7687",
+  1058→"neo4j",
+  1059→"password",
+  1060→llm_client=llm_client,
+  1061→embedder=OpenAIEmbedder(
+  1062→config=OpenAIEmbedderConfig(
+  1063→api_key="ollama", # Placeholder API key
+  1064→embedding_model="nomic-embed-text",
+  1065→embedding_dim=768,
+  1066→base_url="http://localhost:11434/v1",
+  1067→)
+  1068→),
+  1069→cross_encoder=OpenAIRerankerClient(client=llm_client, config=llm_config),
+  1070→)
+  1071→
+  1072→# Now you can use Graphiti with local Ollama models
+  1073→
+  1074→Ensure Ollama is running (ollama serve) and that you have pulled the models you want to use.
+  1075→
+  1076→Structured output and small models
+  1077→
+  1078→Graphiti depends on structured (JSON) output for entity/edge extraction and deduplication, and works best with models
+  1079→and providers that reliably honor it (OpenAI, Anthropic, Gemini). Reliability varies across OpenAI-compatible providers and
+  1080→especially on smaller or local models, so OpenAIGenericClient exposes a structured_output_mode:
+  1081→
+  1082→"json_schema" (default): requests native structured output via response_format. Best on capable models and
+  1083→providers that enforce the schema via constrained decoding.
+  1084→
+  1085→"json_object": requests plain-JSON mode and injects the schema into the prompt instead. Use this for
+  1086→providers/models that don't reliably honor json_schema — including some local servers that accept the json_schema
+  1087→request but don't actually constrain output to it, where json_object can be more reliable.
+  1088→
+  1089→When using smaller or local models:
+  1090→
+  1091→Prefer the most capable model you can run. Very small models frequently emit JSON that doesn't match the requested
+  1092→schema, which surfaces as extraction failures.
+  1093→
+  1094→Responses wrapped in Markdown ```json code fences are stripped automatically.
+  1095→
+  1096→Keep SEMAPHORE_LIMIT low (see above) — local
+  1097→servers and some providers have limited concurrency.
+  1098→
+  1099→Documentation
+  1100→
+  1101→Guides and API documentation.
+  1102→
+  1103→Quick Start
+  1104→
+  1105→Building an agent with LangChain's LangGraph and Graphiti
+  1106→
+  1107→Telemetry
+  1108→
+  1109→Graphiti collects anonymous usage statistics to help us understand how the framework is being used and improve it for
+  1110→everyone. We believe transparency is important, so here's exactly what we collect and why.
+  1111→
+  1112→What We Collect
+  1113→
+  1114→When you initialize a Graphiti instance, we collect:
+  1115→
+  1116→Anonymous identifier: A randomly generated UUID stored locally in ~/.cache/graphiti/telemetry_anon_id
+  1117→
+  1118→System information: Operating system, Python version, and system architecture
+  1119→
+  1120→Graphiti version: The version you're using
+  1121→
+  1122→Configuration choices:
+  1123→
+  1124→LLM provider type (OpenAI, Azure, Anthropic, etc.)
+  1125→
+  1126→Database backend (Neo4j, FalkorDB, Kuzu, Amazon Neptune Database or Neptune Analytics)
+  1127→
+  1128→Embedder provider (OpenAI, Azure, Voyage, etc.)
+  1129→
+  1130→What We Don't Collect
+  1131→
+  1132→We are committed to protecting your privacy. We never collect:
+  1133→
+  1134→Personal information or identifiers
+  1135→
+  1136→API keys or credentials
+  1137→
+  1138→Your actual data, queries, or graph content
+  1139→
+  1140→IP addresses or hostnames
+  1141→
+  1142→File paths or system-specific information
+  1143→
+  1144→Any content from your episodes, nodes, or edges
+  1145→
+  1146→Why We Collect This Data
+  1147→
+  1148→This information helps us:
+  1149→
+  1150→Understand which configurations are most popular to prioritize support and testing
+  1151→
+  1152→Identify which LLM and database providers to focus development efforts on
+  1153→
+  1154→Track adoption patterns to guide our roadmap
+  1155→
+  1156→Ensure compatibility across different Python versions and operating systems
+  1157→
+  1158→By sharing this anonymous information, you help us make Graphiti better for everyone in the community.
+  1159→
+  1160→View the Telemetry Code
+  1161→
+  1162→The Telemetry code may be found here.
+  1163→
+  1164→How to Disable Telemetry
+  1165→
+  1166→Telemetry is opt-out and can be disabled at any time. To disable telemetry collection:
+  1167→
+  1168→Option 1: Environment Variable
+  1169→
+  1170→export GRAPHITI_TELEMETRY_ENABLED=false
+  1171→
+  1172→Option 2: Set in your shell profile
+  1173→
+  1174→# For bash users (~/.bashrc or ~/.bash_profile)
+  1175→echo 'export GRAPHITI_TELEMETRY_ENABLED=false' >> ~/.bashrc
+  1176→
+  1177→# For zsh users (~/.zshrc)
+  1178→echo 'export GRAPHITI_TELEMETRY_ENABLED=false' >> ~/.zshrc
+  1179→
+  1180→Option 3: Set for a specific Python session
+  1181→
+  1182→import os
+  1183→
+  1184→os.environ['GRAPHITI_TELEMETRY_ENABLED'] = 'false'
+  1185→
+  1186→# Then initialize Graphiti as usual
+  1187→from graphiti_core import Graphiti
+  1188→
+  1189→graphiti = Graphiti(...)
+  1190→
+  1191→Telemetry is automatically disabled during test runs (when pytest is detected).
+  1192→
+  1193→Technical Details
+  1194→
+  1195→Telemetry uses PostHog for anonymous analytics collection
+  1196→
+  1197→All telemetry operations are designed to fail silently - they will never interrupt your application or affect Graphiti
+  1198→functionality
+  1199→
+  1200→The anonymous ID is stored locally and is not tied to any personal information
+  1201→
+  1202→Contributing
+  1203→
+  1204→We encourage and appreciate all forms of contributions, whether it's code, documentation, addressing GitHub Issues, or
+  1205→answering questions in the Graphiti Discord channel. For detailed guidelines on code contributions, please refer
+  1206→to CONTRIBUTING.
+  1207→
+  1208→Support
+  1209→
+  1210→Join the Zep Discord server and make your way to the #Graphiti channel!
+  1211→
+  1212→About
+  1213→
+  1214→Build Real-Time Knowledge Graphs for AI Agents
+  1215→
+  1216→help.getzep.com/graphiti
+  1217→
+  1218→Topics
+  1219→
+  1220→graph
+  1221→
+  1222→agents
+  1223→
+  1224→rag
+  1225→
+  1226→llms
+  1227→
+  1228→Resources
+  1229→
+  1230→Readme
+  1231→
+  1232→License
+  1233→
+  1234→Apache-2.0 license
+  1235→
+  1236→Code of conduct
+  1237→
+  1238→Code of conduct
+  1239→
+  1240→Contributing
+  1241→
+  1242→Contributing
+  1243→
+  1244→Security policy
+  1245→
+  1246→Security policy
+  1247→
+  1248→Uh oh!
+  1249→
+  1250→There was an error while loading. Please reload this page.
+  1251→
+  1252→Activity 
+  1253→
+  1254→Custom properties 
+  1255→
+  1256→Stars
+  1257→
+  1258→28.7k
+  1259→stars
+  1260→
+  1261→Watchers
+  1262→
+  1263→163
+  1264→watching
+  1265→
+  1266→Forks
+  1267→
+  1268→2.9k
+  1269→forks 
+  1270→
+  1271→Report repository
+  1272→
+  1273→Releases
+  1274→196
+  1275→
+  1276→v0.29.2 - FalkorDB Bug Fixes
+  1277→
+  1278→Latest
+  1279→
+  1280→Jun 8, 2026
+  1281→
+  1282→+ 195 releases
+  1283→
+  1284→Packages
+  1285→0
+  1286→
+  1287→No packages published 
+  1288→
+  1289→Used by 328 
+  1290→
+  1291→+ 320
+  1292→
+  1293→Contributors
+  1294→52
+  1295→
+  1296→+ 38 contributors
+  1297→
+  1298→Languages
+  1299→
+  1300→Python
+  1301→99.4%
+  1302→
+  1303→Other
+  1304→0.6%
+  1305→
+  1306→Footer
+  1307→
+  1308→© 2026 GitHub, Inc.
+  1309→
+  1310→Footer navigation
+  1311→
+  1312→Terms
+  1313→
+  1314→Privacy
+  1315→
+  1316→Security
+  1317→
+  1318→Status
+  1319→
+  1320→Community
+  1321→
+  1322→Docs
+  1323→
+  1324→Contact
+  1325→
+  1326→Manage cookies
+  1327→
+  1328→Do not share my personal information
+  1329→
+  1330→You can’t perform that action at this time.
+  1331→
