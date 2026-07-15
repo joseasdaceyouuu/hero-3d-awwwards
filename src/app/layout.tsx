@@ -16,19 +16,21 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "FLUX — Creative Hero",
+  title: "COSMIC RESONANCE — Generative Hero",
   description:
-    "Awwwards-level hero section with animated shader background, cinematic typography, and mouse-driven parallax. Built with the hero-3d-awwwards skill.",
+    "Awwwards-level hero with curl noise shader, 2000 GPU particles, and SVG-distorted typography that reacts to your cursor. Built with the hero-3d-awwwards skill.",
   keywords: [
     "Awwwards",
     "hero section",
     "3D web",
     "WebGL",
     "shaders",
+    "curl noise",
+    "particles",
     "GSAP",
     "React Three Fiber",
   ],
-  authors: [{ name: "hero-3d-awwwards skill" }],
+  authors: [{ name: "hero-3d-awwwards skill v5" }],
 };
 
 export default function RootLayout({
@@ -40,7 +42,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${playfair.variable} antialiased`}
-        style={{ background: "#05050f", color: "#ffffff" }}
+        style={{ background: "#030014", color: "#ffffff" }}
       >
         <LenisProvider>{children}</LenisProvider>
         <Toaster />

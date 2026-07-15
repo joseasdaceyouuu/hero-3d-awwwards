@@ -1,56 +1,64 @@
 "use client";
 
 /**
- * Hero section nivel Awwwards.
+ * COSMIC RESONANCE — Hero nivel Awwwards SOTD
  *
- * Stack: Next.js 16 + R3F + GSAP + Lenis (skill hero-3d-awwwards)
- * Arquetipo: 3 (Shaders GLSL) + 5 (Tipografía cinemática)
+ * Combina 3 técnicas avanzadas simultáneamente:
+ *   1. Shader procedural con curl noise (CosmicBackground) — fondo tipo fluid
+ *   2. 2000 partículas instanced siguiendo curl noise (ParticleField)
+ *   3. Tipografía con SVG displacement filter que reacciona al mouse (DistortedText)
  *
- * Principios aplicados del skill:
- *   - C9: Una idea dominante (el shader fluid es el foco)
- *   - C10: Paleta ≤ 3 colores (#05050f, #ffffff, #ff0040)
- *   - C11: Timing cinematográfico (1.2s, power4.out)
+ * Stack: Next.js 16 + R3F + GSAP + Lenis + SVG filters
+ * Paleta: #030014 (deep) + #ffffff (stars) + #00d4ff (cyan accent)
+ *
+ * Principios del skill aplicados:
+ *   - C9: Una idea dominante — el curl noise conecta fondo + partículas + texto
+ *   - C10: Paleta ≤ 3 colores
+ *   - C11: Timing cinematográfico (1.4s, power4.out)
+ *   - C7: prefers-reduced-motion respetado
  *   - C12: WebGL fallback (radial gradient)
  *   - C13: Cursor custom
- *   - C15: Contraste WCAG AA (texto blanco sobre navy oscuro)
- *   - C16: Texto semántico (h1, p, a)
- *   - C18: Keyboard nav (focus-visible en CTA)
- *   - C7: prefers-reduced-motion respetado (en ShaderBackground)
+ *   - C15: Contraste WCAG AA
+ *   - C16: HTML semántico
+ *   - C18: focus-visible
  */
 
-import { ShaderBackground } from "@/components/hero/ShaderBackground";
-import { CinematicText } from "@/components/hero/CinematicText";
-import { CustomCursor } from "@/components/hero/CustomCursor";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { CosmicBackground } from "@/components/hero/CosmicBackground";
+import { ParticleField } from "@/components/hero/ParticleField";
+import { DistortedText } from "@/components/hero/DistortedText";
+import { CustomCursor } from "@/components/hero/CustomCursor";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
   }, []);
 
-  // Subtle parallax on overlay text as user scrolls
+  // Scroll-driven parallax sobre overlay
   useEffect(() => {
-    if (!heroRef.current || !overlayRef.current) return;
+    if (!overlayRef.current) return;
 
     const onScroll = () => {
       const scrollY = window.scrollY;
       const heroHeight = window.innerHeight;
       const progress = Math.min(scrollY / heroHeight, 1);
 
-      if (overlayRef.current) {
-        gsap.to(overlayRef.current, {
-          y: progress * -100,
-          opacity: 1 - progress * 1.2,
-          duration: 0.3,
-          ease: "none",
-          overwrite: true,
-        });
-      }
+      gsap.to(overlayRef.current, {
+        y: -progress * 150,
+        opacity: 1 - progress * 1.5,
+        scale: 1 - progress * 0.08,
+        duration: 0.3,
+        ease: "none",
+        overwrite: true,
+      });
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -62,28 +70,31 @@ export default function Home() {
       <CustomCursor />
 
       {/* ========================================
-          HERO SECTION
+          HERO SECTION — Cosmic Resonance
           ======================================== */}
       <section
         ref={heroRef}
         id="hero"
         className="relative h-screen w-full overflow-hidden"
-        aria-label="Hero"
+        aria-label="Cosmic Resonance Hero"
       >
-        {/* Shader background (WebGL) */}
-        {mounted && <ShaderBackground />}
+        {/* Layer 1: Cosmic shader background */}
+        {mounted && <CosmicBackground />}
 
-        {/* Overlay gradient para legibilidad */}
+        {/* Layer 2: 2000 particles following curl noise */}
+        {mounted && !reducedMotion && <ParticleField reducedMotion={reducedMotion} />}
+
+        {/* Layer 3: Gradient overlay para legibilidad */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 100%, rgba(5,5,15,0.4) 0%, transparent 60%)",
+              "radial-gradient(ellipse at 50% 100%, rgba(3,0,20,0.5) 0%, transparent 60%)",
           }}
           aria-hidden
         />
 
-        {/* Hero content */}
+        {/* Layer 4: Hero content */}
         <div
           ref={overlayRef}
           className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
@@ -91,54 +102,52 @@ export default function Home() {
           {/* Top label */}
           <div
             className="mb-8 opacity-0"
-            style={{
-              animation: "fadeInUp 0.8s ease-out 0.2s forwards",
-            }}
+            style={{ animation: "fadeInUp 0.8s ease-out 0.2s forwards" }}
           >
             <span
-              className="text-xs uppercase tracking-[0.3em] font-light"
-              style={{ color: "#ff0040", letterSpacing: "0.4em" }}
+              className="text-xs uppercase font-light"
+              style={{ color: "#00d4ff", letterSpacing: "0.5em" }}
             >
-              Creative Studio · 2026
+              Generative · Interactive · 2026
             </span>
           </div>
 
-          {/* Main headline */}
-          <CinematicText
-            text="FLOW STATE"
+          {/* Main headline with SVG distortion */}
+          <DistortedText
+            text="COSMIC RESONANCE"
             className="font-playfair"
             delay={0.4}
-            stagger={0.12}
-            duration={1.4}
+            stagger={0.1}
+            duration={1.6}
+            accentColor="#00d4ff"
           />
 
           {/* Tagline */}
           <p
-            className="mt-8 max-w-xl text-base md:text-lg font-light opacity-0"
+            className="mt-10 max-w-2xl text-base md:text-lg font-light opacity-0"
             style={{
-              animation: "fadeInUp 0.8s ease-out 1.2s forwards",
+              animation: "fadeInUp 0.8s ease-out 1.4s forwards",
               color: "rgba(255,255,255,0.7)",
-              lineHeight: 1.6,
+              lineHeight: 1.7,
+              letterSpacing: "0.02em",
             }}
           >
-            We craft digital experiences where motion meets meaning.
+            Two thousand particles dancing through curl noise fields.
             <br />
-            Built for brands that refuse to be invisible.
+            Type that breathes with your cursor. A web that feels alive.
           </p>
 
           {/* CTA buttons */}
           <div
-            className="mt-12 flex flex-col sm:flex-row gap-4 opacity-0"
-            style={{
-              animation: "fadeInUp 0.8s ease-out 1.6s forwards",
-            }}
+            className="mt-14 flex flex-col sm:flex-row gap-6 opacity-0"
+            style={{ animation: "fadeInUp 0.8s ease-out 1.8s forwards" }}
           >
             <a
-              href="#work"
+              href="#experience"
               data-hover
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-sm font-medium uppercase tracking-wider transition-all"
+              className="group relative inline-flex items-center justify-center px-10 py-4 text-sm font-medium uppercase tracking-wider transition-all"
               style={{
-                border: "1px solid #ff0040",
+                border: "1px solid #00d4ff",
                 color: "#ffffff",
                 background: "transparent",
                 overflow: "hidden",
@@ -146,21 +155,23 @@ export default function Home() {
             >
               <span
                 className="absolute inset-0 transform translate-y-full transition-transform duration-500 group-hover:translate-y-0"
-                style={{ background: "#ff0040" }}
+                style={{ background: "#00d4ff" }}
                 aria-hidden
               />
-              <span className="relative z-10">View Work</span>
+              <span className="relative z-10 group-hover:text-[#030014] transition-colors duration-300">
+                Begin Experience
+              </span>
             </a>
             <a
-              href="#contact"
+              href="#tech"
               data-hover
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium uppercase tracking-wider transition-colors"
+              className="inline-flex items-center justify-center px-10 py-4 text-sm font-medium uppercase tracking-wider transition-colors hover:text-[#00d4ff]"
               style={{
-                color: "rgba(255,255,255,0.7)",
-                borderBottom: "1px solid rgba(255,255,255,0.3)",
+                color: "rgba(255,255,255,0.6)",
+                borderBottom: "1px solid rgba(255,255,255,0.2)",
               }}
             >
-              Get in touch
+              The Technology
             </a>
           </div>
         </div>
@@ -168,198 +179,237 @@ export default function Home() {
         {/* Scroll indicator */}
         <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0"
-          style={{
-            animation: "fadeIn 1s ease-out 2.4s forwards",
-          }}
+          style={{ animation: "fadeIn 1s ease-out 2.6s forwards" }}
           aria-hidden
         >
           <div
             className="flex flex-col items-center gap-2"
-            style={{ color: "rgba(255,255,255,0.5)" }}
+            style={{ color: "rgba(255,255,255,0.4)" }}
           >
             <span className="text-[10px] uppercase tracking-[0.3em]">
-              Scroll
+              Explore
             </span>
             <div
               className="h-12 w-px"
               style={{
                 background:
-                  "linear-gradient(to bottom, rgba(255,0,64,0.8), transparent)",
+                  "linear-gradient(to bottom, rgba(0,212,255,0.8), transparent)",
                 animation: "scrollLine 2s ease-in-out infinite",
               }}
             />
           </div>
         </div>
-      </section>
 
-      {/* ========================================
-          ABOUT SECTION
-          ======================================== */}
-      <section
-        id="about"
-        className="relative py-32 px-6"
-        style={{ background: "#05050f" }}
-      >
-        <div className="mx-auto max-w-4xl">
-          <span
-            className="text-xs uppercase tracking-[0.4em] mb-8 block"
-            style={{ color: "#ff0040" }}
+        {/* Corner HUD elements — Awwwards detail */}
+        <div
+          className="absolute top-6 left-6 opacity-0"
+          style={{ animation: "fadeIn 1s ease-out 0.4s forwards" }}
+          aria-hidden
+        >
+          <div
+            className="text-[10px] uppercase tracking-widest"
+            style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            01 — About
-          </span>
-          <h2
-            className="font-playfair text-4xl md:text-6xl font-bold leading-tight mb-8"
-            style={{ letterSpacing: "-0.02em" }}
+            <div>LAT 51.5074° N</div>
+            <div>LON 0.1278° W</div>
+          </div>
+        </div>
+        <div
+          className="absolute top-6 right-6 opacity-0 text-right"
+          style={{ animation: "fadeIn 1s ease-out 0.4s forwards" }}
+          aria-hidden
+        >
+          <div
+            className="text-[10px] uppercase tracking-widest"
+            style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            We design the
-            <br />
-            <span style={{ color: "#ff0040" }}>in-between</span> moments.
-          </h2>
-          <p
-            className="text-lg md:text-xl font-light leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            Between the click and the conversion. Between the scroll and the
-            story. Between what users expect and what they remember. Our work
-            lives in those spaces — the microseconds where attention is won or
-            lost, where brands become experiences.
-          </p>
+            <div>SYS · ONLINE</div>
+            <div>FPS · 60</div>
+          </div>
         </div>
       </section>
 
       {/* ========================================
-          WORK SECTION
+          TECHNOLOGY SECTION
           ======================================== */}
       <section
-        id="work"
+        id="tech"
         className="relative py-32 px-6"
-        style={{ background: "#0a0a14" }}
+        style={{ background: "#030014" }}
       >
         <div className="mx-auto max-w-6xl">
           <span
             className="text-xs uppercase tracking-[0.4em] mb-8 block"
-            style={{ color: "#ff0040" }}
+            style={{ color: "#00d4ff" }}
           >
-            02 — Selected Work
+            01 — The Technology
           </span>
           <h2
             className="font-playfair text-4xl md:text-6xl font-bold leading-tight mb-16"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Recent projects
+            Three layers,
+            <br />
+            <span style={{ color: "#00d4ff" }}>one vision.</span>
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                title: "Aurora Labs",
-                cat: "Brand · Web",
-                year: "2026",
-                desc: "Identity system and immersive site for a synthetic biology startup.",
+                num: "01",
+                title: "Curl Noise Field",
+                tech: "WebGL · GLSL",
+                desc: "Procedural shader computing curl noise in real-time. Creates a divergence-free vector field that drives the entire visual — the same mathematics used in fluid dynamics simulations.",
               },
               {
-                title: "Monolith",
-                cat: "Product · 3D",
-                year: "2025",
-                desc: "Configurator with real-time WebGL rendering for architectural studio.",
+                num: "02",
+                title: "Particle System",
+                tech: "GPU Instancing",
+                desc: "2,000 particles, one draw call. Each particle samples the curl noise in its vertex shader and flows independently. Mouse position exerts radial repulsion force.",
               },
               {
-                title: "Vessel",
-                cat: "Editorial",
-                year: "2025",
-                desc: "Long-form storytelling platform with scroll-driven narrative.",
+                num: "03",
+                title: "Distorted Type",
+                tech: "SVG Filters",
+                desc: "feTurbulence + feDisplacementMap applied to typography. The displacement scale and frequency react to mouse position — the text literally breathes with your cursor.",
               },
-              {
-                title: "Echo",
-                cat: "Mobile · Motion",
-                year: "2024",
-                desc: "Audio-reactive installation app for contemporary art museum.",
-              },
-            ].map((project, i) => (
-              <a
+            ].map((item, i) => (
+              <div
                 key={i}
-                href="#"
-                data-hover
-                className="group block p-8 transition-all duration-500"
-                style={{
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  background: "rgba(255,255,255,0.02)",
-                }}
+                className="p-8 transition-all duration-500 hover:bg-white/5"
+                style={{ border: "1px solid rgba(255,255,255,0.08)" }}
               >
-                <div className="flex items-baseline justify-between mb-4">
-                  <span
-                    className="text-xs uppercase tracking-wider"
-                    style={{ color: "rgba(255,255,255,0.4)" }}
-                  >
-                    {project.cat}
-                  </span>
-                  <span
-                    className="text-xs"
-                    style={{ color: "rgba(255,255,255,0.4)" }}
-                  >
-                    {project.year}
-                  </span>
+                <div
+                  className="text-xs uppercase tracking-widest mb-4"
+                  style={{ color: "rgba(255,255,255,0.4)" }}
+                >
+                  {item.tech}
+                </div>
+                <div
+                  className="font-playfair text-5xl font-bold mb-4"
+                  style={{ color: "#00d4ff", opacity: 0.3 }}
+                >
+                  {item.num}
                 </div>
                 <h3
-                  className="font-playfair text-2xl md:text-3xl font-bold mb-3 transition-colors duration-300 group-hover:text-[#ff0040]"
+                  className="text-xl font-bold mb-4"
                   style={{ letterSpacing: "-0.01em" }}
                 >
-                  {project.title}
+                  {item.title}
                 </h3>
                 <p
-                  className="text-sm font-light"
+                  className="text-sm font-light leading-relaxed"
                   style={{ color: "rgba(255,255,255,0.6)" }}
                 >
-                  {project.desc}
+                  {item.desc}
                 </p>
-              </a>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* ========================================
-          CONTACT / FOOTER
+          EXPERIENCE SECTION
           ======================================== */}
-      <footer
-        id="contact"
-        className="relative py-32 px-6 text-center"
-        style={{ background: "#05050f" }}
+      <section
+        id="experience"
+        className="relative py-32 px-6"
+        style={{ background: "#08001c" }}
       >
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-4xl text-center">
           <span
             className="text-xs uppercase tracking-[0.4em] mb-8 block"
-            style={{ color: "#ff0040" }}
+            style={{ color: "#00d4ff" }}
           >
-            03 — Let&apos;s talk
+            02 — The Experience
           </span>
           <h2
             className="font-playfair text-4xl md:text-7xl font-bold leading-tight mb-12"
             style={{ letterSpacing: "-0.03em" }}
           >
-            Have a project
+            Move your cursor.
             <br />
-            <span style={{ color: "#ff0040" }}>in mind?</span>
+            <span style={{ color: "#00d4ff" }}>Watch it respond.</span>
+          </h2>
+          <p
+            className="text-lg md:text-xl font-light leading-relaxed mb-12"
+            style={{ color: "rgba(255,255,255,0.7)" }}
+          >
+            Every pixel is computed. Every particle has a trajectory. Every
+            letter has a force field. This is not video. This is not
+            animation. This is mathematics, rendered live, in your browser,
+            at sixty frames per second.
+          </p>
+          <div
+            className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "2rem" }}
+          >
+            {[
+              { val: "2000", label: "Particles" },
+              { val: "60", label: "FPS Target" },
+              { val: "1", label: "Draw Call" },
+            ].map((stat, i) => (
+              <div key={i}>
+                <div
+                  className="font-playfair text-4xl md:text-5xl font-bold mb-2"
+                  style={{ color: "#00d4ff" }}
+                >
+                  {stat.val}
+                </div>
+                <div
+                  className="text-xs uppercase tracking-widest"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                >
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================
+          FOOTER
+          ======================================== */}
+      <footer
+        className="relative py-32 px-6 text-center"
+        style={{ background: "#030014" }}
+      >
+        <div className="mx-auto max-w-2xl">
+          <span
+            className="text-xs uppercase tracking-[0.4em] mb-8 block"
+            style={{ color: "#00d4ff" }}
+          >
+            03 — Connect
+          </span>
+          <h2
+            className="font-playfair text-4xl md:text-7xl font-bold leading-tight mb-12"
+            style={{ letterSpacing: "-0.03em" }}
+          >
+            Let&apos;s build
+            <br />
+            <span style={{ color: "#00d4ff" }}>the impossible.</span>
           </h2>
           <a
-            href="mailto:hello@flux.studio"
+            href="mailto:hello@cosmic.studio"
             data-hover
-            className="inline-block text-xl md:text-2xl font-light border-b pb-1 transition-colors hover:text-[#ff0040]"
+            className="inline-block text-xl md:text-2xl font-light border-b pb-1 transition-colors hover:text-[#00d4ff]"
             style={{ borderColor: "rgba(255,255,255,0.3)" }}
           >
-            hello@flux.studio
+            hello@cosmic.studio
           </a>
           <p
             className="mt-16 text-xs uppercase tracking-[0.3em]"
             style={{ color: "rgba(255,255,255,0.3)" }}
           >
-            © 2026 FLUX Studio · Built with hero-3d-awwwards skill
+            © 2026 Cosmic Resonance · Built with hero-3d-awwwards skill v5
           </p>
         </div>
       </footer>
 
       {/* ========================================
-          GLOBAL STYLES (injected)
+          GLOBAL STYLES
           ======================================== */}
       <style jsx global>{`
         * {
@@ -368,7 +418,7 @@ export default function Home() {
 
         body {
           font-family: var(--font-inter), system-ui, sans-serif;
-          background: #05050f;
+          background: #030014;
           overflow-x: hidden;
         }
 
@@ -408,27 +458,23 @@ export default function Home() {
           }
         }
 
-        /* Hide default cursor on desktop */
         @media (pointer: fine) {
           * {
             cursor: none !important;
           }
         }
 
-        /* Focus visible para accesibilidad (C18) */
         a:focus-visible,
         button:focus-visible {
-          outline: 2px solid #ff0040;
+          outline: 2px solid #00d4ff;
           outline-offset: 4px;
         }
 
-        /* Selection color */
         ::selection {
-          background: #ff0040;
-          color: #ffffff;
+          background: #00d4ff;
+          color: #030014;
         }
 
-        /* Smooth scroll fallback (Lenis handles modern browsers) */
         @media (prefers-reduced-motion: no-preference) {
           html {
             scroll-behavior: smooth;
