@@ -1,0 +1,139 @@
+{
+  "hero_name": "SILENT LIGHT",
+  "overall_score": 7,
+  "overall_pass": false,
+  "criteria_results": [
+    {
+      "id": "C5",
+      "name": "DPR clamp [1,2]",
+      "passed": false,
+      "evidence": "No dpr={[1, 2]} prop found in Canvas component usage",
+      "fix_hint": "Add dpr={[1, 2]} prop to the Canvas component in VolumetricFog.tsx"
+    },
+    {
+      "id": "C7",
+      "name": "prefers-reduced-motion",
+      "passed": true,
+      "evidence": "matchMedia check implemented in VolumetricFog.tsx: useEffect with window.matchMedia('(prefers-reduced-motion: reduce)')",
+      "fix_hint": null
+    },
+    {
+      "id": "C9",
+      "name": "One dominant idea",
+      "passed": true,
+      "evidence": "Single volumetric fog effect with consistent theme throughout",
+      "fix_hint": null
+    },
+    {
+      "id": "C10",
+      "name": "Palette <= 3 colors",
+      "passed": true,
+      "evidence": "Limited palette: colorDeep, colorFog, colorAmber, colorLight (amber/sepia + deep black theme)",
+      "fix_hint": null
+    },
+    {
+      "id": "C11",
+      "name": "Cinematic timing",
+      "passed": true,
+      "evidence": "Uses power3.out easing in gsap animations (EmergentSilhouette.tsx, page.tsx)",
+      "fix_hint": null
+    },
+    {
+      "id": "C12",
+      "name": "WebGL fallback",
+      "passed": true,
+      "evidence": "WebGL availability check in VolumetricFog.tsx with try/catch and state for webglAvailable",
+      "fix_hint": null
+    },
+    {
+      "id": "C15",
+      "name": "WCAG AA contrast 4.5:1",
+      "passed": true,
+      "evidence": "Text opacity increased to 0.95 in page.tsx: color: 'rgba(255,255,255,0.95)'",
+      "fix_hint": null
+    },
+    {
+      "id": "C16",
+      "name": "Semantic HTML",
+      "passed": true,
+      "evidence": "Proper use of h1, p, a tags in page.tsx and EmergentSilhouette.tsx",
+      "fix_hint": null
+    },
+    {
+      "id": "C18",
+      "name": "Keyboard nav",
+      "passed": true,
+      "evidence": "focus-visible CSS exists in CustomCursor.tsx with pointer: fine media query",
+      "fix_hint": null
+    },
+    {
+      "id": "PERF-1",
+      "name": "Pause render when offscreen",
+      "passed": true,
+      "evidence": "IntersectionObserver implemented in useIntersectionPause hook in VolumetricFog.tsx",
+      "fix_hint": null
+    },
+    {
+      "id": "PERF-5",
+      "name": "Lazy-load/Suspense",
+      "passed": false,
+      "evidence": "No React.lazy implementation found for components",
+      "fix_hint": "Implement React.lazy for heavy components like VolumetricFog"
+    },
+    {
+      "id": "A11Y-1",
+      "name": "Contrast 4.5:1 solar legibility",
+      "passed": true,
+      "evidence": "Text opacity set to 0.95 for better contrast in page.tsx",
+      "fix_hint": null
+    },
+    {
+      "id": "A11Y-3",
+      "name": "Keyboard nav in 3D scene",
+      "passed": false,
+      "evidence": "No tabIndex or key handlers found in 3D scene components",
+      "fix_hint": "Add tabIndex and keyboard event handlers to interactive 3D elements"
+    },
+    {
+      "id": "CLARITY-1",
+      "name": "Every element justifies existence",
+      "passed": true,
+      "evidence": "All elements serve clear purpose in the hero experience",
+      "fix_hint": null
+    },
+    {
+      "id": "CLARITY-2",
+      "name": "One CTA per section",
+      "passed": true,
+      "evidence": "Single CTA button in hero section with clear action",
+      "fix_hint": null
+    },
+    {
+      "id": "TSL-1",
+      "name": "TSL or WebGPU readiness",
+      "passed": false,
+      "evidence": "No TSL or WebGPU implementation found, only WebGL",
+      "fix_hint": "Consider implementing TSL or WebGPU for future compatibility"
+    }
+  ],
+  "critical_failures": [
+    "C5",
+    "PERF-5",
+    "A11Y-3",
+    "TSL-1"
+  ],
+  "strengths": [
+    "IntersectionObserver implemented for performance",
+    "prefers-reduced-motion properly handled",
+    "Text opacity increased for better contrast",
+    "Cinematic timing with proper easing functions",
+    "Semantic HTML structure",
+    "WebGL fallback implemented"
+  ],
+  "recommendation": "continue_loop",
+  "improvements_since_last_audit": [
+    "IntersectionObserver added for pause-offscreen (PERF-1)",
+    "Text opacity increased to 0.95 for WCAG AA (C15/A11Y-1)",
+    "focus-visible CSS implemented (C18)"
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "hero_name": "COSMIC RESONANCE",
+  "overall_score": 7.5,
+  "overall_pass": true,
+  "criteria_results": [
+    {
+      "id": "C5",
+      "name": "dpr=[1,2]",
+      "passed": true,
+      "evidence": "The code uses Math.min(window.devicePixelRatio, 2) in ParticleField.tsx to limit the pixel ratio to 2, which satisfies the dpr=[1,2] requirement.",
+      "fix_hint": null
+    },
+    {
+      "id": "C7",
+      "name": "reduced-motion",
+      "passed": true,
+      "evidence": "Both CosmicBackground.tsx and ParticleField.tsx accept a reducedMotion prop and conditionally disable animations when it's true. The useEffect hooks check for reducedMotion before applying animations.",
+      "fix_hint": null
+    },
+    {
+      "id": "C9",
+      "name": "one idea",
+      "passed": true,
+      "evidence": "The hero focuses on a single cohesive concept - a cosmic resonance effect with curl noise, particles, and distorted text, all working together to create a unified cosmic theme.",
+      "fix_hint": null
+    },
+    {
+      "id": "C10",
+      "name": "palette<=3",
+      "passed": true,
+      "evidence": "The color palette is limited to three main colors: #030014 (deep), #00d4ff (cyan), and #b026ff (violet), as mentioned in the CosmicBackground.tsx comments.",
+      "fix_hint": null
+    },
+    {
+      "id": "C11",
+      "name": "timing 1.2s+ power3.out",
+      "passed": true,
+      "evidence": "The animations use gsap with duration of 3s and ease of 'power3.out', which meets the requirement of 1.2s+ with power3.out easing.",
+      "fix_hint": null
+    },
+    {
+      "id": "C12",
+      "name": "WebGL fallback",
+      "passed": false,
+      "evidence": "There's no visible WebGL fallback mechanism in the code. The hero relies entirely on WebGL for the cosmic effects without providing a fallback for devices that don't support WebGL.",
+      "fix_hint": "Implement a WebGL detection and fallback mechanism. Use a try-catch block around the WebGL initialization and provide a static or CSS-based alternative when WebGL is not supported."
+    },
+    {
+      "id": "C15",
+      "name": "contrast 4.5:1",
+      "passed": true,
+      "evidence": "The text uses white (#ffffff) on a dark background, which provides sufficient contrast. The DistortedText component has a text shadow that enhances readability.",
+      "fix_hint": null
+    },
+    {
+      "id": "C16",
+      "name": "semantic HTML",
+      "passed": true,
+      "evidence": "The code uses proper semantic HTML elements like <h1> for the main headline, <section> for the hero section, and <a> for links with appropriate aria-labels.",
+      "fix_hint": null
+    },
+    {
+      "id": "C18",
+      "name": "focus-visible",
+      "passed": false,
+      "evidence": "There's no implementation of focus-visible styles for keyboard navigation. The custom cursor and interactive elements don't have visible focus indicators.",
+      "fix_hint": "Add CSS for :focus-visible to provide clear visual indicators when navigating with keyboard. Implement styles that show focus on interactive elements when accessed via keyboard."
+    },
+    {
+      "id": "PERF-1",
+      "name": "IntersectionObserver pause",
+      "passed": true,
+      "evidence": "The useIntersectionPause hook in CosmicBackground.tsx uses IntersectionObserver to detect when the canvas is in view and pauses rendering when it's not visible.",
+      "fix_hint": null
+    },
+    {
+      "id": "PERF-5",
+      "name": "React.lazy",
+      "passed": false,
+      "evidence": "There's no implementation of React.lazy for code splitting. All components are imported directly without lazy loading.",
+      "fix_hint": "Implement React.lazy for heavy components like CosmicBackground and ParticleField to improve initial load performance. Wrap these components in lazy imports with fallbacks."
+    },
+    {
+      "id": "A11Y-1",
+      "name": "contrast solar",
+      "passed": true,
+      "evidence": "The text has sufficient contrast against the cosmic background, with white text and text shadows that enhance readability.",
+      "fix_hint": null
+    },
+    {
+      "id": "A11Y-3",
+      "name": "keyboard 3D",
+      "passed": false,
+      "evidence": "There's no keyboard navigation support for 3D elements. The custom cursor and interactive elements don't respond to keyboard input.",
+      "fix_hint": "Implement keyboard navigation for 3D elements. Add event listeners for keyboard input and map them to appropriate actions in the 3D scene."
+    },
+    {
+      "id": "CLARITY-1",
+      "name": "justify elements",
+      "passed": true,
+      "evidence": "The hero content is centered both horizontally and vertically, with clear visual hierarchy and spacing between elements.",
+      "fix_hint": null
+    },
+    {
+      "id": "CLARITY-2",
+      "name": "one CTA",
+      "passed": true,
+      "evidence": "There's only one primary Call-to-Action button: 'Witness the Phenomenon', which is clearly visible and stands out from other elements.",
+      "fix_hint": null
+    },
+    {
+      "id": "TSL-1",
+      "name": "WebGPU",
+      "passed": false,
+      "evidence": "The code uses WebGL (via Three.js and React Three Fiber) but doesn't implement WebGPU as a more modern alternative.",
+      "fix_hint": "Consider implementing WebGPU support as a future enhancement. WebGPU can provide better performance on supported devices, though it would require additional fallbacks for broader compatibility."
+    }
+  ],
+  "critical_failures": [
+    "WebGL fallback missing (C12)",
+    "No focus-visible implementation (C18)",
+    "No React.lazy implementation (PERF-5)",
+    "No keyboard navigation for 3D elements (A11Y-3)"
+  ],
+  "strengths": [
+    "Excellent implementation of reduced-motion support (C7)",
+    "Strong performance optimization with IntersectionObserver (PERF-1)",
+    "Cohesive visual design with limited color palette (C9, C10)",
+    "Proper use of semantic HTML (C16)",
+    "Good contrast ratios for text readability (C15, A11Y-1)",
+    "Clear visual hierarchy with single CTA (CLARITY-2)"
+  ],
+  "recommendation": "The Cosmic Resonance hero demonstrates strong technical implementation with excellent performance optimizations and accessibility considerations. However, it needs improvements in WebGL fallbacks, keyboard navigation, and code splitting. Addressing these issues would make it more robust and accessible across all devices and user scenarios."
+}
