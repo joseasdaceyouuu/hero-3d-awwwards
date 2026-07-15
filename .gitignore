@@ -1,54 +1,68 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# dependencies
-node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Next.js
+.next/
+out/
+build/
+dist/
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-
-# typescript
+# Production
 *.tsbuildinfo
 next-env.d.ts
-local-*
-.claude
-.z-ai-config
+
+# Runtime data
+memory-data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.lancedb/
+
+# Download artifacts (large files)
+download/
+
+# Skill packages (regenerated)
+*.skill
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
 *.log
 dev.log
-dev.out.log
-test
-prompt
-
 server.log
-# Skills directory
-/skills/
+
+# Agent browser
+agent-browser-*
+
+# Backup files
+*.bak
+*-backup.*
+
+# Temp
+tmp/
+temp/
+.cache/
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+
+# Z-scripts
+.zscripts/*.pid

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARAGAL — Mario Aravena | Compositor & Productor Musical</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B6914;
+      --black: #0A0A0A;
+      --black-soft: #111111;
+      --black-elevated: #161616;
+      --white: #F5F0E8;
+      --white-dim: #B8B0A0;
+      --white-muted: #6A6358;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+    }
+
+    /* Canvas for particles */
+    #particleCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Golden dust overlay */
+    .dust-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.03) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.02) 0%, transparent 40%);
+    }
+
+    /* Vignette */
+    .vignette {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);
+    }
+
+    /* Content container */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 40px;
+    }
+
+    /* Monogram */
+    .monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+
+    /* Main title */
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(60px, 12vw, 140px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+      text-shadow: 0 0 80px rgba(201,168,76,0.15);
+    }
+
+    .hero-title .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(60px) rotateX(-40deg);
+      animation: letterReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Subtitle name */
+    .hero-name {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(11px, 1.5vw, 14px);
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+    }
+
+    /* Decorative line */
+    .deco-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 40px;
+      opacity: 0;
+      transform: scaleX(0);
+      animation: lineExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards;
+    }
+
+    /* Roles */
+    .hero-roles {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+    }
+
+    .hero-roles span {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      position: relative;
+    }
+
+    .hero-roles span:not(:last-child)::after {
+      content: '•';
+      position: absolute;
+      right: -20px;
+      color: var(--gold-dark);
+    }
+
+    /* Quote */
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white-dim);
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto 50px;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2s forwards;
+    }
+
+    .hero-quote::before {
+      content: '"';
+      font-size: 60px;
+      color: var(--gold-dark);
+      opacity: 0.3;
+      line-height: 0;
+      vertical-align: -20px;
+      margin-right: 5px;
+    }
+
+    /* CTA Buttons */
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+    }
+
+    .btn {
+      position: relative;
+      padding: 16px 40px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      background: transparent;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 30px rgba(201,168,76,0.15);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      box-shadow: 0 0 40px rgba(201,168,76,0.3);
+    }
+
+    /* Social icons */
+    .social-bar {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+      z-index: 10;
+      opacity: 0;
+      animation: fadeUp 1s ease 2.8s forwards;
+    }
+
+    .social-bar a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 50%;
+      color: var(--white-muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.4s ease;
+    }
+
+    .social-bar a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(201,168,76,0.2);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeUp 1s ease 3s forwards;
+    }
+
+    .scroll-indicator span {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white-muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes letterReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+      }
+    }
+
+    @keyframes lineExpand {
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* Mouse glow effect */
+    .mouse-glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 5;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s;
+      mix-blend-mode: screen;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { min-height: 600px; }
+      .hero-roles { gap: 15px; }
+      .hero-roles span { font-size: 10px; }
+      .hero-roles span:not(:last-child)::after { right: -12px; }
+      .social-bar { gap: 20px; }
+      .btn { padding: 14px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mouse glow -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="dust-overlay"></div>
+    <div class="vignette"></div>
+
+    <div class="hero-content">
+      <div class="monogram">A</div>
+      <h1 class="hero-title" id="heroTitle">ARAGAL</h1>
+      <p class="hero-name">Mario Aravena</p>
+      <div class="deco-line"></div>
+      <div class="hero-roles">
+        <span>Autor</span>
+        <span>Compositor</span>
+        <span>Productor Chileno</span>
+      </div>
+      <p class="hero-quote">La música donde la emoción se convierte en eternidad.</p>
+      <div class="hero-cta">
+        <a href="#discografia" class="btn btn-primary">Escuchar Ahora</a>
+        <a href="#biografia" class="btn">Conocer Más</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Descubrir</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <div class="social-bar">
+      <a href="#" aria-label="Spotify">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="#" aria-label="Apple Music">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.2.364-1.29.436-2.27 1.293-2.84 2.57-.19.426-.317.876-.376 1.354-.026.2-.046.403-.046.606-.006 4.612.003 9.223-.01 13.834 0 .13.01.263.03.393.066.434.18.852.364 1.246.556 1.16 1.476 2.003 2.697 2.45.43.16.88.26 1.343.31.26.03.52.05.78.05h13.36c.383-.01.766-.04 1.14-.1.55-.09 1.073-.26 1.56-.51.97-.51 1.64-1.33 2.04-2.35.17-.44.27-.9.31-1.37.02-.26.03-.52.03-.78.007-4.617-.004-9.235.01-13.852zM12 15.535a3.535 3.535 0 110-7.07 3.535 3.535 0 010 7.07z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    // ===== LETTER-BY-LETTER REVEAL =====
+    const title = document.getElementById('heroTitle');
+    const text = title.textContent;
+    title.innerHTML = '';
+    text.split('').forEach((char, i) => {
+      const span = document.createElement('span');
+      span.className = 'letter';
+      span.textContent = char;
+      span.style.animationDelay = (0.8 + i * 0.08) + 's';
+      title.appendChild(span);
+    });
+
+    // ===== MOUSE GLOW =====
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', (e) => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top = e.clientY + 'px';
+      mouseGlow.style.opacity = '1';
+    });
+    document.addEventListener('mouseleave', () => {
+      mouseGlow.style.opacity = '0';
+    });
+
+    // ===== CANVAS PARTICLES =====
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let mouse = { x: -1000, y: -1000 };
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    document.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.baseOpacity = this.opacity;
+        this.hue = 40 + Math.random() * 20; // Gold range
+        this.life = 0;
+        this.maxLife = 200 + Math.random() * 300;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.life++;
+
+        // Mouse interaction
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 150) {
+          const force = (150 - dist) / 150;
+          this.speedX -= (dx / dist) * force * 0.5;
+          this.speedY -= (dy / dist) * force * 0.5;
+          this.opacity = Math.min(1, this.baseOpacity + force * 0.5);
+        } else {
+          this.opacity = this.baseOpacity;
+        }
+
+        // Gentle drift upward like smoke
+        this.speedY -= 0.005;
+
+        // Reset if out of bounds or old
+        if (this.x < -50 || this.x > width + 50 || this.y < -50 || this.y > height + 50 || this.life > this.maxLife) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    // Create particles
+    for (let i = 0; i < 150; i++) {
+      particles.push(new Particle());
+    }
+
+    // Connection lines between nearby particles
+    function drawConnections() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 100) {
+            const opacity = (1 - dist / 100) * 0.08;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `hsla(45, 60%, 50%, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      drawConnections();
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // ===== GOLDEN DUST ON CLICK =====
+    document.addEventListener('click', (e) => {
+      for (let i = 0; i < 12; i++) {
+        const dust = document.createElement('div');
+        dust.style.cssText = `
+          position: fixed;
+          left: ${e.clientX}px;
+          top: ${e.clientY}px;
+          width: ${3 + Math.random() * 4}px;
+          height: ${3 + Math.random() * 4}px;
+          background: hsl(${40 + Math.random() * 20}, 70%, 60%);
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 100;
+          box-shadow: 0 0 10px hsl(${40 + Math.random() * 20}, 70%, 60%);
+        `;
+        document.body.appendChild(dust);
+
+        const angle = (Math.PI * 2 * i) / 12;
+        const velocity = 80 + Math.random() * 120;
+        const vx = Math.cos(angle) * velocity;
+        const vy = Math.sin(angle) * velocity;
+
+        dust.animate([
+          { transform: 'translate(0,0) scale(1)', opacity: 1 },
+          { transform: `translate(${vx}px, ${vy}px) scale(0)`, opacity: 0 }
+        ], {
+          duration: 800 + Math.random() * 400,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+        }).onfinish = () => dust.remove();
+      }
+    });
+
+    // ===== PARALLAX ON SCROLL =====
+    let scrollY = 0;
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      const hero = document.querySelector('.hero-content');
+      const opacity = Math.max(0, 1 - scrollY / 500);
+      const translate = scrollY * 0.4;
+      hero.style.transform = `translateY(${translate}px)`;
+      hero.style.opacity = opacity;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "skill_name": "hero-3d-awwwards",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Quiero crear un hero para un portfolio de fotógrafo de bodas. Necesito que tenga parallax 2.5D con capas, que sea elegante, monocromo con un accent sutil. Usar Next.js. El cliente quiere que sea 'nivel Awwwards' pero que también cargue rápido para SEO. ¿Me ayudas?",
+      "expected_output": "El skill debe activarse. Debe rutar a CSS 3D + GSAP (por SEO y la ausencia de WebGL necesario). Debe sugerir 3-5 capas PNG, paleta monocroma, stagger de entrada, lenis smooth scroll. NO debe saltar a R3F o Three.js vanilla porque el caso es claramente marketing + SEO.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Estoy haciendo una landing para una marca de zapatillas deportivas. Necesito un hero 3D con el modelo GLB de la zapatilla orbitando, con cámara reactiva al mouse, iluminación cinematográfica y un look tipo Nike/Adidas premium. Stack: Next.js + React Three Fiber. Tengo el GLB listo (2.4MB). ¿Cómo lo construyo?",
+      "expected_output": "El skill debe activarse. Debe identificar Arquetipo 2 (3D Scene con GLB), usar Hero3DScene.tsx como base, sugerir Draco compression del GLB, configurar luces de 3 puntos + Environment preset, ContactShadows, mouse-driven camera orbit sutil (no OrbitControls invasivo). Debe mencionar performance budget (dpr clamp, lazy-load, LOD si necesario).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Tengo que diseñar un hero para una agencia creativa. La idea es una tipografía gigante 3D que monta desde el fondo al cargar, con mouse parallax sutil y bloom. Estilo Active Theory. Stack: React Three Fiber + drei. La marca se llama 'STUDIO VOLT'. Color accent: rojo #ff0040.",
+      "expected_output": "El skill debe activarse. Debe identificar Arquetipo 5 (Tipografía 3D cinemática), sugerir Cinematic3DText.tsx (variante troika), entryFrom='depth', stagger por palabra, color #ffffff con emissive #ff0040 + bloom para glow. Mouse parallax habilitado. Float opcional. Background negro monocromo. NO debe sugerir Text3D de drei (más pesado) a menos que la fuente sea crítica.",
+      "files": []
+    }
+  ]
+}
