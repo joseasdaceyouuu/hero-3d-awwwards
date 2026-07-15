@@ -1,0 +1,140 @@
+{
+  "hero_name": "NORTHERN LIGHTS",
+  "overall_score": 7,
+  "overall_pass": false,
+  "criteria_results": [
+    {
+      "id": "C5",
+      "name": "DPR clamp [1,2]",
+      "passed": false,
+      "evidence": "No evidence of device pixel ratio clamping in the code. The shader uniforms use device size but don't clamp DPR.",
+      "fix_hint": "Add DPR clamping when setting uResolution: uniforms.uResolution.value.set(size.width * window.devicePixelRatio, size.height * window.devicePixelRatio); and clamp devicePixelRatio between 1 and 2."
+    },
+    {
+      "id": "C7",
+      "name": "prefers-reduced-motion",
+      "passed": true,
+      "evidence": "The code checks for reduced motion preference with window.matchMedia('(prefers-reduced-motion: reduce)') and skips animation updates when reducedMotion is true.",
+      "fix_hint": null
+    },
+    {
+      "id": "C9",
+      "name": "One dominant idea",
+      "passed": true,
+      "evidence": "The entire hero section is focused on the aurora borealis phenomenon with consistent visual language and supporting elements.",
+      "fix_hint": null
+    },
+    {
+      "id": "C10",
+      "name": "Palette <= 3 colors",
+      "passed": true,
+      "evidence": "The color palette is limited to green aurora (#00ff9d), magenta (#ff00aa), cyan, and deep blue night background. The implementation uses these consistently throughout.",
+      "fix_hint": null
+    },
+    {
+      "id": "C11",
+      "name": "Cinematic timing (1.2s+, power3.out)",
+      "passed": true,
+      "evidence": "The main headline animation uses duration: 3 with ease: 'power3.out', meeting the cinematic timing requirement.",
+      "fix_hint": null
+    },
+    {
+      "id": "C12",
+      "name": "WebGL fallback",
+      "passed": true,
+      "evidence": "The code includes a try/catch block for WebGL availability detection and state management for webglAvailable.",
+      "fix_hint": null
+    },
+    {
+      "id": "C15",
+      "name": "WCAG AA contrast 4.5:1",
+      "passed": false,
+      "evidence": "The text overlay on the aurora background may not meet 4.5:1 contrast ratio. The white text with rgba(255,255,255,0.7) on a dark gradient background needs verification.",
+      "fix_hint": "Increase text opacity or add a subtle background overlay to ensure text meets WCAG AA contrast requirements. Use a contrast checker tool to verify ratios."
+    },
+    {
+      "id": "C16",
+      "name": "Semantic HTML",
+      "passed": true,
+      "evidence": "The code uses proper semantic HTML elements like <section>, <h1>, <p>, and <a> with appropriate ARIA labels.",
+      "fix_hint": null
+    },
+    {
+      "id": "C18",
+      "name": "Keyboard nav (focus-visible)",
+      "passed": false,
+      "evidence": "No focus-visible styles or focus indicators are implemented for keyboard navigation. The CTA button and other interactive elements lack visible focus states.",
+      "fix_hint": "Add CSS for :focus-visible with distinctive styling (e.g., outline or glow effect) to indicate keyboard focus. Implement this on all interactive elements."
+    },
+    {
+      "id": "PERF-1",
+      "name": "Pause render when offscreen (IntersectionObserver)",
+      "passed": false,
+      "evidence": "No IntersectionObserver implementation is present to pause rendering when the hero section is offscreen.",
+      "fix_hint": "Implement IntersectionObserver to detect when the hero section is in view. When not visible, pause animation frames and time updates in the shader."
+    },
+    {
+      "id": "PERF-5",
+      "name": "Lazy-load/Suspense",
+      "passed": false,
+      "evidence": "The AuroraBorealis component is rendered immediately without lazy loading or Suspense boundaries.",
+      "fix_hint": "Wrap the AuroraBorealis component in React.lazy and Suspense with a fallback. Consider using Next.js dynamic imports for code splitting."
+    },
+    {
+      "id": "A11Y-1",
+      "name": "Contrast 4.5:1 solar legibility",
+      "passed": false,
+      "evidence": "Similar to C15, the text overlay may not meet solar legibility standards for readability in various lighting conditions.",
+      "fix_hint": "Increase text contrast and potentially add a semi-transparent background overlay behind text to ensure legibility in all viewing conditions."
+    },
+    {
+      "id": "A11Y-3",
+      "name": "Keyboard nav in 3D scene",
+      "passed": false,
+      "evidence": "No keyboard navigation support is implemented for the 3D aurora scene. Users cannot navigate or interact using only keyboard.",
+      "fix_hint": "Implement keyboard controls for the 3D scene, such as arrow keys for navigation, Tab for element focus, and Enter for interaction."
+    },
+    {
+      "id": "CLARITY-1",
+      "name": "Every element justifies existence",
+      "passed": true,
+      "evidence": "All elements serve a clear purpose: the aurora visualization, text content, navigation, and visual indicators all contribute to the hero experience.",
+      "fix_hint": null
+    },
+    {
+      "id": "CLARITY-2",
+      "name": "One CTA per section",
+      "passed": true,
+      "evidence": "The hero section contains only one primary CTA button ('Witness the Phenomenon') with a clear destination.",
+      "fix_hint": null
+    },
+    {
+      "id": "TSL-1",
+      "name": "TSL or WebGPU readiness",
+      "passed": false,
+      "evidence": "The implementation uses traditional WebGL shaders without any indication of TSL (Transform Shading Language) or WebGPU readiness.",
+      "fix_hint": "Consider implementing a WebGPU detection and fallback system. For TSL, ensure shaders are written in a way that could be adapted to future shading standards."
+    }
+  ],
+  "critical_failures": [
+    "C5",
+    "C15",
+    "C18",
+    "PERF-1",
+    "PERF-5",
+    "A11Y-1",
+    "A11Y-3",
+    "TSL-1"
+  ],
+  "strengths": [
+    "Excellent implementation of prefers-reduced-motion",
+    "Strong visual focus with a single dominant idea",
+    "Consistent and limited color palette",
+    "Cinematic timing animations",
+    "Proper WebGL fallback implementation",
+    "Semantic HTML structure",
+    "Clear element purpose justification",
+    "Single CTA per section"
+  ],
+  "recommendation": "major_rework"
+}

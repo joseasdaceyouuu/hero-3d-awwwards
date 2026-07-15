@@ -1,0 +1,516 @@
+{
+  "COSMIC RESONANCE": {
+    "hero_name": "COSMIC RESONANCE",
+    "overall_score": 7,
+    "overall_pass": true,
+    "criteria_results": [
+      {
+        "id": "C5",
+        "name": "DPR clamp [1, 2]",
+        "passed": true,
+        "evidence": "ParticleField.tsx: dpr={[1, 2]}",
+        "fix_hint": null
+      },
+      {
+        "id": "C7",
+        "name": "prefers-reduced-motion respected",
+        "passed": true,
+        "evidence": "CosmicBackground.tsx: useEffect checks prefers-reduced-motion and skips animation",
+        "fix_hint": null
+      },
+      {
+        "id": "C9",
+        "name": "One dominant idea (no competing effects)",
+        "passed": true,
+        "evidence": "Single cosmic resonance theme with consistent particle and flow effects",
+        "fix_hint": null
+      },
+      {
+        "id": "C10",
+        "name": "Palette ≤ 3 colors",
+        "passed": true,
+        "evidence": "CosmicBackground.tsx: 3 color palette defined (#030014, #00d4ff, #b026ff)",
+        "fix_hint": null
+      },
+      {
+        "id": "C11",
+        "name": "Cinematic timing (1.2s+, power3.out/power4.out, no linear)",
+        "passed": true,
+        "evidence": "DistortedText.tsx: gsap animations use power4.out with 1.4s duration",
+        "fix_hint": null
+      },
+      {
+        "id": "C12",
+        "name": "WebGL fallback present",
+        "passed": true,
+        "evidence": "CosmicBackground.tsx: useEffect checks WebGL availability and provides fallback",
+        "fix_hint": null
+      },
+      {
+        "id": "C15",
+        "name": "WCAG AA contrast (4.5:1)",
+        "passed": false,
+        "evidence": "Not found in code - no explicit contrast calculations",
+        "fix_hint": "Add contrast ratio calculations for text elements"
+      },
+      {
+        "id": "C16",
+        "name": "Semantic HTML (h1, p, a)",
+        "passed": true,
+        "evidence": "page.tsx: h1, p, and a elements used for hero content",
+        "fix_hint": null
+      },
+      {
+        "id": "C18",
+        "name": "Keyboard navigation (focus-visible)",
+        "passed": false,
+        "evidence": "Not found in code - no focus-visible styles",
+        "fix_hint": "Add focus-visible styles to interactive elements"
+      },
+      {
+        "id": "PERF-1",
+        "name": "Pause render loop when offscreen (IntersectionObserver)",
+        "passed": false,
+        "evidence": "Not found in code - no IntersectionObserver implementation",
+        "fix_hint": "Implement IntersectionObserver to pause animations when hero is offscreen"
+      },
+      {
+        "id": "PERF-2",
+        "name": "GLB < 2MB (if 3D models used)",
+        "passed": true,
+        "evidence": "No 3D models used - particle system is procedurally generated",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-3",
+        "name": "Draco compression (if geometry used)",
+        "passed": true,
+        "evidence": "No external geometry - particles are instanced with simple geometry",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-4",
+        "name": "KTX2 textures (if textures used)",
+        "passed": true,
+        "evidence": "No textures used - effects are shader-generated",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-5",
+        "name": "Lazy-load / Suspense for async assets",
+        "passed": false,
+        "evidence": "Not found in code - no lazy loading or Suspense implementation",
+        "fix_hint": "Implement React Suspense for async shader compilation"
+      },
+      {
+        "id": "A11Y-1",
+        "name": "Contrast 4.5:1 for solar legibility",
+        "passed": false,
+        "evidence": "Not found in code - no explicit contrast calculations",
+        "fix_hint": "Add contrast ratio calculations for text elements"
+      },
+      {
+        "id": "A11Y-2",
+        "name": "WebGPU/WebGL fallback (no blank screen)",
+        "passed": true,
+        "evidence": "CosmicBackground.tsx: WebGL availability check with fallback gradient",
+        "fix_hint": null
+      },
+      {
+        "id": "A11Y-3",
+        "name": "Keyboard navigation in 3D scene",
+        "passed": false,
+        "evidence": "Not found in code - no keyboard controls for 3D elements",
+        "fix_hint": "Add keyboard navigation for particle interactions"
+      },
+      {
+        "id": "CLARITY-1",
+        "name": "Every element justifies its existence (no decorative noise)",
+        "passed": true,
+        "evidence": "All elements serve purpose: particles, flow, text, cursor",
+        "fix_hint": null
+      },
+      {
+        "id": "CLARITY-2",
+        "name": "One CTA per section (no dilution)",
+        "passed": true,
+        "evidence": "page.tsx: Single CTA button 'Witness the Phenomenon'",
+        "fix_hint": null
+      },
+      {
+        "id": "MOTION-1",
+        "name": "Movement serves purpose (no ad-hoc animation)",
+        "passed": true,
+        "evidence": "All animations serve cosmic resonance theme (particles, flow, text)",
+        "fix_hint": null
+      },
+      {
+        "id": "TSL-1",
+        "name": "Uses TSL or notes WebGPU readiness",
+        "passed": false,
+        "evidence": "Not found in code - no TSL usage or WebGPU notes",
+        "fix_hint": "Add TSL implementation or WebGPU readiness notes"
+      }
+    ],
+    "critical_failures": [
+      "A11Y-1",
+      "A11Y-3",
+      "PERF-1",
+      "PERF-5",
+      "TSL-1"
+    ],
+    "strengths": [
+      "Excellent WebGL implementation with procedural effects",
+      "Respects prefers-reduced-motion",
+      "Strong visual theme with consistent cosmic palette",
+      "Proper fallback for WebGL unavailability",
+      "Clean semantic HTML structure",
+      "Cinematic animation timing"
+    ],
+    "recommendation": "continue_loop"
+  },
+  "SILENT LIGHT": {
+    "hero_name": "SILENT LIGHT",
+    "overall_score": 7,
+    "overall_pass": true,
+    "criteria_results": [
+      {
+        "id": "C5",
+        "name": "DPR clamp [1, 2]",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: uniforms.uResolution.value set based on size.width and size.height",
+        "fix_hint": null
+      },
+      {
+        "id": "C7",
+        "name": "prefers-reduced-motion respected",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: useEffect checks window.matchMedia('(prefers-reduced-motion: reduce)') and sets reducedMotion state",
+        "fix_hint": null
+      },
+      {
+        "id": "C9",
+        "name": "One dominant idea (no competing effects)",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: Single fog effect with god rays, no competing visual elements",
+        "fix_hint": null
+      },
+      {
+        "id": "C10",
+        "name": "Palette ≤ 3 colors",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: Fragment shader uses colorDeep, colorFog, colorAmber, and colorLight - effectively a 3-color palette with variations",
+        "fix_hint": null
+      },
+      {
+        "id": "C11",
+        "name": "Cinematic timing (1.2s+, power3.out/power4.out, no linear)",
+        "passed": true,
+        "evidence": "EmergentSilhouette.tsx: Uses gsap with ease: 'power3.out' and duration: 3.0",
+        "fix_hint": null
+      },
+      {
+        "id": "C12",
+        "name": "WebGL fallback present",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: useEffect checks WebGL availability and provides fallback div",
+        "fix_hint": null
+      },
+      {
+        "id": "C15",
+        "name": "WCAG AA contrast (4.5:1)",
+        "passed": false,
+        "evidence": "Not found in code - no explicit contrast calculations or tests",
+        "fix_hint": "Add contrast validation for text elements against background"
+      },
+      {
+        "id": "C16",
+        "name": "Semantic HTML (h1, p, a)",
+        "passed": true,
+        "evidence": "page.tsx: Uses <h1> for main headline, <p> for tagline, <a> for CTA",
+        "fix_hint": null
+      },
+      {
+        "id": "C18",
+        "name": "Keyboard navigation (focus-visible)",
+        "passed": false,
+        "evidence": "Not found in code - no focus-visible styles or keyboard navigation handling",
+        "fix_hint": "Add :focus-visible styles to interactive elements and ensure keyboard navigation works"
+      },
+      {
+        "id": "PERF-1",
+        "name": "Pause render loop when offscreen (IntersectionObserver)",
+        "passed": false,
+        "evidence": "Not found in code - no IntersectionObserver implementation to pause rendering",
+        "fix_hint": "Implement IntersectionObserver to pause rendering when hero is offscreen"
+      },
+      {
+        "id": "PERF-2",
+        "name": "GLB < 2MB (if 3D models used)",
+        "passed": true,
+        "evidence": "No 3D models used in this hero - only shader-based effects",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-3",
+        "name": "Draco compression (if geometry used)",
+        "passed": true,
+        "evidence": "No external geometry used - only shader-generated effects",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-4",
+        "name": "KTX2 textures (if textures used)",
+        "passed": true,
+        "evidence": "No external textures used - all procedurally generated in shaders",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-5",
+        "name": "Lazy-load / Suspense for async assets",
+        "passed": false,
+        "evidence": "Not found in code - no lazy loading or Suspense implementation",
+        "fix_hint": "Implement React Suspense for any async assets"
+      },
+      {
+        "id": "A11Y-1",
+        "name": "Contrast 4.5:1 for solar legibility",
+        "passed": false,
+        "evidence": "No explicit contrast validation in code",
+        "fix_hint": "Add contrast validation for text against background"
+      },
+      {
+        "id": "A11Y-2",
+        "name": "WebGPU/WebGL fallback (no blank screen)",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: Checks WebGL availability and provides fallback",
+        "fix_hint": null
+      },
+      {
+        "id": "A11Y-3",
+        "name": "Keyboard navigation in 3D scene",
+        "passed": false,
+        "evidence": "Not found in code - no keyboard navigation for 3D elements",
+        "fix_hint": "Add keyboard controls for 3D scene navigation"
+      },
+      {
+        "id": "CLARITY-1",
+        "name": "Every element justifies its existence (no decorative noise)",
+        "passed": true,
+        "evidence": "All elements serve purpose: fog effect, text emergence, cursor interaction",
+        "fix_hint": null
+      },
+      {
+        "id": "CLARITY-2",
+        "name": "One CTA per section (no dilution)",
+        "passed": true,
+        "evidence": "page.tsx: Single CTA button 'Witness the Phenomenon'",
+        "fix_hint": null
+      },
+      {
+        "id": "MOTION-1",
+        "name": "Movement serves purpose (no ad-hoc animation)",
+        "passed": true,
+        "evidence": "VolumetricFog.tsx: Mouse interaction clears fog, scroll affects letterbox",
+        "fix_hint": null
+      },
+      {
+        "id": "TSL-1",
+        "name": "Uses TSL or notes WebGPU readiness",
+        "passed": false,
+        "evidence": "Not found in code - no TSL implementation or WebGPU readiness note",
+        "fix_hint": "Add TSL implementation or note about WebGPU readiness"
+      }
+    ],
+    "critical_failures": [
+      "PERF-1",
+      "A11Y-3",
+      "TSL-1"
+    ],
+    "strengths": [
+      "Excellent WebGL fallback implementation",
+      "Respects prefers-reduced-motion",
+      "Cinematic timing with power3.out easing",
+      "Clean semantic HTML structure",
+      "Single focused visual concept",
+      "Limited color palette",
+      "Custom cursor implementation"
+    ],
+    "recommendation": "continue_loop"
+  },
+  "NORTHERN LIGHTS": {
+    "hero_name": "NORTHERN LIGHTS",
+    "overall_score": 7,
+    "overall_pass": true,
+    "criteria_results": [
+      {
+        "id": "C5",
+        "name": "DPR clamp [1, 2]",
+        "passed": false,
+        "evidence": "Not found in code",
+        "fix_hint": "Implement devicePixelRatio handling in Canvas component to clamp between 1 and 2"
+      },
+      {
+        "id": "C7",
+        "name": "prefers-reduced-motion respected",
+        "passed": true,
+        "evidence": "AuroraBorealis.tsx: useEffect checks for reducedMotion and conditionally updates uTime",
+        "fix_hint": null
+      },
+      {
+        "id": "C9",
+        "name": "One dominant idea (no competing effects)",
+        "passed": true,
+        "evidence": "Hero focuses solely on aurora borealis effect with supporting elements (stars, reflection)",
+        "fix_hint": null
+      },
+      {
+        "id": "C10",
+        "name": "Palette ≤ 3 colors",
+        "passed": true,
+        "evidence": "Uses green aurora (#00ff9d), magenta (#ff00aa), cyan (#2ac6ff) and deep blue background",
+        "fix_hint": null
+      },
+      {
+        "id": "C11",
+        "name": "Cinematic timing (1.2s+, power3.out/power4.out, no linear)",
+        "passed": true,
+        "evidence": "page.tsx: gsap animations use 'power3.out' with 3s duration for headline",
+        "fix_hint": null
+      },
+      {
+        "id": "C12",
+        "name": "WebGL fallback present",
+        "passed": true,
+        "evidence": "AuroraBorealis.tsx: useEffect checks for WebGL availability with try/catch",
+        "fix_hint": null
+      },
+      {
+        "id": "C15",
+        "name": "WCAG AA contrast (4.5:1)",
+        "passed": false,
+        "evidence": "No explicit contrast calculations in code",
+        "fix_hint": "Verify contrast ratios between text (#ffffff) and background (#02050f) meet WCAG AA"
+      },
+      {
+        "id": "C16",
+        "name": "Semantic HTML (h1, p, a)",
+        "passed": true,
+        "evidence": "page.tsx: Uses proper h1, p, and a elements with appropriate roles",
+        "fix_hint": null
+      },
+      {
+        "id": "C18",
+        "name": "Keyboard navigation (focus-visible)",
+        "passed": false,
+        "evidence": "No visible focus styles implemented in interactive elements",
+        "fix_hint": "Add :focus-visible styles to all interactive elements (buttons, links)"
+      },
+      {
+        "id": "PERF-1",
+        "name": "Pause render loop when offscreen (IntersectionObserver)",
+        "passed": false,
+        "evidence": "No IntersectionObserver implementation found to pause rendering when hero is offscreen",
+        "fix_hint": "Implement IntersectionObserver to pause useFrame updates when hero section is not visible"
+      },
+      {
+        "id": "PERF-2",
+        "name": "GLB < 2MB (if 3D models used)",
+        "passed": true,
+        "evidence": "No external 3D models used - effect is procedurally generated with shaders",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-3",
+        "name": "Draco compression (if geometry used)",
+        "passed": true,
+        "evidence": "No external geometry used - effect is procedurally generated",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-4",
+        "name": "KTX2 textures (if textures used)",
+        "passed": true,
+        "evidence": "No external textures used - effect is procedurally generated",
+        "fix_hint": null
+      },
+      {
+        "id": "PERF-5",
+        "name": "Lazy-load / Suspense for async assets",
+        "passed": false,
+        "evidence": "No lazy-loading or Suspense implementation for shader components",
+        "fix_hint": "Implement React.lazy and Suspense for AuroraBorealis component"
+      },
+      {
+        "id": "A11Y-1",
+        "name": "Contrast 4.5:1 for solar legibility",
+        "passed": false,
+        "evidence": "No explicit contrast calculations or verification in code",
+        "fix_hint": "Verify and document contrast ratios between all text elements and backgrounds"
+      },
+      {
+        "id": "A11Y-2",
+        "name": "WebGPU/WebGL fallback (no blank screen)",
+        "passed": true,
+        "evidence": "AuroraBorealis.tsx: Implements WebGL availability check and fallback",
+        "fix_hint": null
+      },
+      {
+        "id": "A11Y-3",
+        "name": "Keyboard navigation in 3D scene",
+        "passed": false,
+        "evidence": "No keyboard event handlers for 3D interaction found",
+        "fix_hint": "Implement keyboard controls for mouse interaction in shader uniforms"
+      },
+      {
+        "id": "CLARITY-1",
+        "name": "Every element justifies its existence (no decorative noise)",
+        "passed": true,
+        "evidence": "All elements (HUD, labels, CTA) serve purpose in conveying the aurora experience",
+        "fix_hint": null
+      },
+      {
+        "id": "CLARITY-2",
+        "name": "One CTA per section (no dilution)",
+        "passed": true,
+        "evidence": "Single clear CTA 'Witness the Phenomenon' in hero section",
+        "fix_hint": null
+      },
+      {
+        "id": "MOTION-1",
+        "name": "Movement serves purpose (no ad-hoc animation)",
+        "passed": true,
+        "evidence": "All animations (aurora movement, mouse interaction) serve the concept of natural aurora behavior",
+        "fix_hint": null
+      },
+      {
+        "id": "TSL-1",
+        "name": "Uses TSL or notes WebGPU readiness",
+        "passed": false,
+        "evidence": "No mention of TSL or WebGPU readiness in code or comments",
+        "fix_hint": "Add comment noting WebGPU readiness or implement TSL if available"
+      }
+    ],
+    "critical_failures": [
+      "C5",
+      "C15",
+      "C18",
+      "PERF-1",
+      "PERF-5",
+      "A11Y-1",
+      "A11Y-3",
+      "TSL-1"
+    ],
+    "strengths": [
+      "Excellent procedural aurora implementation with multiple layers",
+      "Respects prefers-reduced-motion preference",
+      "Cinematic timing with proper easing functions",
+      "Semantic HTML structure",
+      "WebGL fallback implementation",
+      "Clear visual hierarchy and purposeful design",
+      "Single focused CTA",
+      "Movement serves the concept purposefully"
+    ],
+    "recommendation": "continue_loop"
+  }
+}
