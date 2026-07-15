@@ -28,6 +28,7 @@ import gsap from "gsap";
 import { VolumetricFog } from "@/components/hero/VolumetricFog";
 import { EmergentSilhouette } from "@/components/hero/EmergentSilhouette";
 import { CustomCursor } from "@/components/hero/CustomCursor";
+import { FlyingBirds } from "@/components/hero/FlyingBirds";
 import { MemoryDashboard } from "@/components/dashboard/MemoryDashboard";
 
 export default function Home() {
@@ -124,6 +125,9 @@ export default function Home() {
           >
             {/* Shader background */}
             {mounted && <VolumetricFog />}
+
+            {/* Aves volando — siluetas que cruzan periódicamente */}
+            {mounted && <FlyingBirds />}
 
             {/* Letterbox bars — CSS overlay (cinematográfico) */}
             <div

@@ -125,10 +125,20 @@ const FRAGMENT_SHADER = `
 
     float t = uTime * 0.04;
 
-    // === 1 capa simple (test) ===
-    float fog = fbm(vec3(uv * 3.0, t));
-    fog = fog * 0.5 + 0.5;
+    // === 2 capas de niebla: 1 lenta + 1 viva ===
+    // Capa lenta (fondo, profundidad)
+    float fogSlow = fbm(vec3(uv * 2.0 + vec2(t * 0.3, t * 0.2), t * 0.5));
+    // Capa viva (frente, se mueve más rápido con variación)
+    float fogFast = fbm(vec3(uv * 4.0 + vec2(t * 1.5, t * 0.8), t * 1.2 + 5.0));
+
+    // Combinar: la capa viva tiene menos peso pero más movimiento
+    float fog = fogSlow * 0.7 + fogFast * 0.3;
+    fog = fog * 0.5 + 0.5; // [-1,1] -> [0,1]
     fog = clamp(fog, 0.0, 1.0);
+
+    // Boost: hacer la capa viva más visible en zonas
+    float fastBoost = smoothstep(0.4, 0.9, fogFast * 0.5 + 0.5);
+    fog = mix(fog, fog * 1.2, fastBoost * 0.3);
 
     // === Mouse aparta la niebla ===
     vec2 mousePos = uMouse * vec2(uResolution.x / uResolution.y, 1.0) * 0.5;
