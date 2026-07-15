@@ -1,33 +1,32 @@
 "use client";
 
 /**
- * COSMIC RESONANCE — Hero nivel Awwwards SOTD
+ * VOLUMETRIC FOG — Hero atmosférico cinematográfico inmersivo
  *
- * Combina 3 técnicas avanzadas simultáneamente:
- *   1. Shader procedural con curl noise (CosmicBackground) — fondo tipo fluid
- *   2. 2000 partículas instanced siguiendo curl noise (ParticleField)
- *   3. Tipografía con SVG displacement filter que reacciona al mouse (DistortedText)
+ * Inspiración: Blade Runner 2049, Active Theory.
  *
- * Stack: Next.js 16 + R3F + GSAP + Lenis + SVG filters
- * Paleta: #030014 (deep) + #ffffff (stars) + #00d4ff (cyan accent)
+ * Técnica:
+ *   - 4 capas de niebla procedural en fragment shader (parallax depth)
+ *   - God rays simulados vía ray-marching simplificado (16 samples)
+ *   - Mouse "aparta" la niebla radialmente
+ *   - Letterbox bars animadas por scroll (cinematográfico)
+ *   - Texto emerge de la bruma con CSS mask + GSAP
+ *   - Paleta amber/sepia + deep black
  *
- * Principios del skill aplicados:
- *   - C9: Una idea dominante — el curl noise conecta fondo + partículas + texto
- *   - C10: Paleta ≤ 3 colores
- *   - C11: Timing cinematográfico (1.4s, power4.out)
+ * Principios del skill:
+ *   - C9: Una idea dominante (la niebla volumétrica)
+ *   - C10: Paleta 3 colores (#05050a + #d4a574 + #f5e6d3)
+ *   - C11: Timing cinematográfico (3s, power3.out)
  *   - C7: prefers-reduced-motion respetado
- *   - C12: WebGL fallback (radial gradient)
- *   - C13: Cursor custom
+ *   - C12: WebGL fallback
  *   - C15: Contraste WCAG AA
  *   - C16: HTML semántico
- *   - C18: focus-visible
  */
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { CosmicBackground } from "@/components/hero/CosmicBackground";
-import { ParticleField } from "@/components/hero/ParticleField";
-import { DistortedText } from "@/components/hero/DistortedText";
+import { VolumetricFog } from "@/components/hero/VolumetricFog";
+import { EmergentSilhouette } from "@/components/hero/EmergentSilhouette";
 import { CustomCursor } from "@/components/hero/CustomCursor";
 import { MemoryDashboard } from "@/components/dashboard/MemoryDashboard";
 
@@ -35,16 +34,13 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
   const [view, setView] = useState<"hero" | "dashboard">("hero");
 
   useEffect(() => {
     setMounted(true);
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
   }, []);
 
-  // Scroll-driven parallax sobre overlay
+  // Scroll-driven overlay parallax + letterbox animation
   useEffect(() => {
     if (!overlayRef.current) return;
 
@@ -54,13 +50,23 @@ export default function Home() {
       const progress = Math.min(scrollY / heroHeight, 1);
 
       gsap.to(overlayRef.current, {
-        y: -progress * 150,
-        opacity: 1 - progress * 1.5,
-        scale: 1 - progress * 0.08,
+        y: -progress * 100,
+        opacity: 1 - progress * 1.3,
+        scale: 1 - progress * 0.05,
         duration: 0.3,
         ease: "none",
         overwrite: true,
       });
+
+      // Animate letterbox bars — open as user scrolls
+      const topBar = document.getElementById("letterbox-top");
+      const bottomBar = document.getElementById("letterbox-bottom");
+      if (topBar) {
+        topBar.style.transform = `translateY(-${progress * 100}%)`;
+      }
+      if (bottomBar) {
+        bottomBar.style.transform = `translateY(${progress * 100}%)`;
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -69,16 +75,16 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      {/* View toggle — fixed top-right */}
+      {/* View toggle */}
       <div
         className="fixed top-4 right-4 z-50 flex gap-1 p-1 border border-white/10"
-        style={{ background: "rgba(3,0,20,0.8)", backdropFilter: "blur(10px)" }}
+        style={{ background: "rgba(5,5,10,0.8)", backdropFilter: "blur(10px)" }}
       >
         <button
           onClick={() => setView("hero")}
           className={`px-3 py-1.5 text-[10px] uppercase tracking-widest transition-colors ${
             view === "hero"
-              ? "bg-[#00d4ff] text-[#030014]"
+              ? "bg-[#d4a574] text-[#05050a]"
               : "text-white/50 hover:text-white"
           }`}
         >
@@ -88,7 +94,7 @@ export default function Home() {
           onClick={() => setView("dashboard")}
           className={`px-3 py-1.5 text-[10px] uppercase tracking-widest transition-colors ${
             view === "dashboard"
-              ? "bg-[#00d4ff] text-[#030014]"
+              ? "bg-[#d4a574] text-[#05050a]"
               : "text-white/50 hover:text-white"
           }`}
         >
@@ -100,420 +106,380 @@ export default function Home() {
         <MemoryDashboard />
       ) : (
         <>
-          <CustomCursor />
+          <CustomCursor cursorColor="#d4a574" />
 
-      {/* ========================================
-          HERO SECTION — Cosmic Resonance
-          ======================================== */}
-      <section
-        ref={heroRef}
-        id="hero"
-        className="relative h-screen w-full overflow-hidden"
-        aria-label="Cosmic Resonance Hero"
-      >
-        {/* Layer 1: Cosmic shader background */}
-        {mounted && <CosmicBackground />}
-
-        {/* Layer 2: 2000 particles following curl noise */}
-        {mounted && !reducedMotion && <ParticleField reducedMotion={reducedMotion} />}
-
-        {/* Layer 3: Gradient overlay para legibilidad */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 100%, rgba(3,0,20,0.5) 0%, transparent 60%)",
-          }}
-          aria-hidden
-        />
-
-        {/* Layer 4: Hero content */}
-        <div
-          ref={overlayRef}
-          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
-        >
-          {/* Top label */}
-          <div
-            className="mb-8 opacity-0"
-            style={{ animation: "fadeInUp 0.8s ease-out 0.2s forwards" }}
+          {/* ========================================
+              HERO SECTION — Volumetric Fog
+              ======================================== */}
+          <section
+            ref={heroRef}
+            id="hero"
+            className="relative h-screen w-full overflow-hidden"
+            aria-label="Volumetric Fog Hero"
           >
-            <span
-              className="text-xs uppercase font-light"
-              style={{ color: "#00d4ff", letterSpacing: "0.5em" }}
-            >
-              Generative · Interactive · 2026
-            </span>
-          </div>
+            {/* Shader background */}
+            {mounted && <VolumetricFog />}
 
-          {/* Main headline with SVG distortion */}
-          <DistortedText
-            text="COSMIC RESONANCE"
-            className="font-playfair"
-            delay={0.4}
-            stagger={0.1}
-            duration={1.6}
-            accentColor="#00d4ff"
-          />
-
-          {/* Tagline */}
-          <p
-            className="mt-10 max-w-2xl text-base md:text-lg font-light opacity-0"
-            style={{
-              animation: "fadeInUp 0.8s ease-out 1.4s forwards",
-              color: "rgba(255,255,255,0.7)",
-              lineHeight: 1.7,
-              letterSpacing: "0.02em",
-            }}
-          >
-            Two thousand particles dancing through curl noise fields.
-            <br />
-            Type that breathes with your cursor. A web that feels alive.
-          </p>
-
-          {/* CTA buttons */}
-          <div
-            className="mt-14 flex flex-col sm:flex-row gap-6 opacity-0"
-            style={{ animation: "fadeInUp 0.8s ease-out 1.8s forwards" }}
-          >
-            <a
-              href="#experience"
-              data-hover
-              className="group relative inline-flex items-center justify-center px-10 py-4 text-sm font-medium uppercase tracking-wider transition-all"
-              style={{
-                border: "1px solid #00d4ff",
-                color: "#ffffff",
-                background: "transparent",
-                overflow: "hidden",
-              }}
-            >
-              <span
-                className="absolute inset-0 transform translate-y-full transition-transform duration-500 group-hover:translate-y-0"
-                style={{ background: "#00d4ff" }}
-                aria-hidden
-              />
-              <span className="relative z-10 group-hover:text-[#030014] transition-colors duration-300">
-                Begin Experience
-              </span>
-            </a>
-            <a
-              href="#tech"
-              data-hover
-              className="inline-flex items-center justify-center px-10 py-4 text-sm font-medium uppercase tracking-wider transition-colors hover:text-[#00d4ff]"
-              style={{
-                color: "rgba(255,255,255,0.6)",
-                borderBottom: "1px solid rgba(255,255,255,0.2)",
-              }}
-            >
-              The Technology
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0"
-          style={{ animation: "fadeIn 1s ease-out 2.6s forwards" }}
-          aria-hidden
-        >
-          <div
-            className="flex flex-col items-center gap-2"
-            style={{ color: "rgba(255,255,255,0.4)" }}
-          >
-            <span className="text-[10px] uppercase tracking-[0.3em]">
-              Explore
-            </span>
+            {/* Letterbox bars — CSS overlay (cinematográfico) */}
             <div
-              className="h-12 w-px"
+              className="absolute top-0 left-0 right-0 z-20 pointer-events-none transition-all duration-700"
               style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,212,255,0.8), transparent)",
-                animation: "scrollLine 2s ease-in-out infinite",
+                height: "8vh",
+                background: "#000",
+                transform: "translateY(0)",
               }}
+              aria-hidden
+              id="letterbox-top"
             />
-          </div>
-        </div>
+            <div
+              className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none transition-all duration-700"
+              style={{
+                height: "8vh",
+                background: "#000",
+                transform: "translateY(0)",
+              }}
+              aria-hidden
+              id="letterbox-bottom"
+            />
 
-        {/* Corner HUD elements — Awwwards detail */}
-        <div
-          className="absolute top-6 left-6 opacity-0"
-          style={{ animation: "fadeIn 1s ease-out 0.4s forwards" }}
-          aria-hidden
-        >
-          <div
-            className="text-[10px] uppercase tracking-widest"
-            style={{ color: "rgba(255,255,255,0.4)" }}
-          >
-            <div>LAT 51.5074° N</div>
-            <div>LON 0.1278° W</div>
-          </div>
-        </div>
-        <div
-          className="absolute top-6 right-6 opacity-0 text-right"
-          style={{ animation: "fadeIn 1s ease-out 0.4s forwards" }}
-          aria-hidden
-        >
-          <div
-            className="text-[10px] uppercase tracking-widest"
-            style={{ color: "rgba(255,255,255,0.4)" }}
-          >
-            <div>SYS · ONLINE</div>
-            <div>FPS · 60</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================
-          TECHNOLOGY SECTION
-          ======================================== */}
-      <section
-        id="tech"
-        className="relative py-32 px-6"
-        style={{ background: "#030014" }}
-      >
-        <div className="mx-auto max-w-6xl">
-          <span
-            className="text-xs uppercase tracking-[0.4em] mb-8 block"
-            style={{ color: "#00d4ff" }}
-          >
-            01 — The Technology
-          </span>
-          <h2
-            className="font-playfair text-4xl md:text-6xl font-bold leading-tight mb-16"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Three layers,
-            <br />
-            <span style={{ color: "#00d4ff" }}>one vision.</span>
-          </h2>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                num: "01",
-                title: "Curl Noise Field",
-                tech: "WebGL · GLSL",
-                desc: "Procedural shader computing curl noise in real-time. Creates a divergence-free vector field that drives the entire visual — the same mathematics used in fluid dynamics simulations.",
-              },
-              {
-                num: "02",
-                title: "Particle System",
-                tech: "GPU Instancing",
-                desc: "2,000 particles, one draw call. Each particle samples the curl noise in its vertex shader and flows independently. Mouse position exerts radial repulsion force.",
-              },
-              {
-                num: "03",
-                title: "Distorted Type",
-                tech: "SVG Filters",
-                desc: "feTurbulence + feDisplacementMap applied to typography. The displacement scale and frequency react to mouse position — the text literally breathes with your cursor.",
-              },
-            ].map((item, i) => (
+            {/* Hero content */}
+            <div
+              ref={overlayRef}
+              className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+            >
+              {/* Top label */}
               <div
-                key={i}
-                className="p-8 transition-all duration-500 hover:bg-white/5"
-                style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+                className="mb-10 opacity-0"
+                style={{ animation: "fadeIn 1.5s ease-out 0.3s forwards" }}
               >
-                <div
-                  className="text-xs uppercase tracking-widest mb-4"
-                  style={{ color: "rgba(255,255,255,0.4)" }}
+                <span
+                  className="text-[10px] uppercase font-light"
+                  style={{
+                    color: "rgba(212,165,116,0.7)",
+                    letterSpacing: "0.6em",
+                  }}
                 >
-                  {item.tech}
-                </div>
-                <div
-                  className="font-playfair text-5xl font-bold mb-4"
-                  style={{ color: "#00d4ff", opacity: 0.3 }}
-                >
-                  {item.num}
-                </div>
-                <h3
-                  className="text-xl font-bold mb-4"
-                  style={{ letterSpacing: "-0.01em" }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-sm font-light leading-relaxed"
-                  style={{ color: "rgba(255,255,255,0.6)" }}
-                >
-                  {item.desc}
-                </p>
+                  Atmospheric · Cinematic · 2026
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ========================================
-          EXPERIENCE SECTION
-          ======================================== */}
-      <section
-        id="experience"
-        className="relative py-32 px-6"
-        style={{ background: "#08001c" }}
-      >
-        <div className="mx-auto max-w-4xl text-center">
-          <span
-            className="text-xs uppercase tracking-[0.4em] mb-8 block"
-            style={{ color: "#00d4ff" }}
-          >
-            02 — The Experience
-          </span>
-          <h2
-            className="font-playfair text-4xl md:text-7xl font-bold leading-tight mb-12"
-            style={{ letterSpacing: "-0.03em" }}
-          >
-            Move your cursor.
-            <br />
-            <span style={{ color: "#00d4ff" }}>Watch it respond.</span>
-          </h2>
-          <p
-            className="text-lg md:text-xl font-light leading-relaxed mb-12"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            Every pixel is computed. Every particle has a trajectory. Every
-            letter has a force field. This is not video. This is not
-            animation. This is mathematics, rendered live, in your browser,
-            at sixty frames per second.
-          </p>
-          <div
-            className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "2rem" }}
-          >
-            {[
-              { val: "2000", label: "Particles" },
-              { val: "60", label: "FPS Target" },
-              { val: "1", label: "Draw Call" },
-            ].map((stat, i) => (
-              <div key={i}>
-                <div
-                  className="font-playfair text-4xl md:text-5xl font-bold mb-2"
-                  style={{ color: "#00d4ff" }}
+              {/* Main headline — emerges from fog */}
+              <EmergentSilhouette
+                text="SILENT LIGHT"
+                className="font-playfair"
+                delay={1.2}
+                duration={3.0}
+              />
+
+              {/* Tagline */}
+              <p
+                className="mt-10 max-w-xl text-base md:text-lg font-light opacity-0"
+                style={{
+                  animation: "fadeIn 2s ease-out 3s forwards",
+                  color: "rgba(245,230,211,0.6)",
+                  lineHeight: 1.8,
+                  letterSpacing: "0.04em",
+                }}
+              >
+                Light through matter. Silence through form.
+                <br />
+                A study in atmospheric depth.
+              </p>
+
+              {/* CTA */}
+              <div
+                className="mt-14 opacity-0"
+                style={{ animation: "fadeIn 1.5s ease-out 3.8s forwards" }}
+              >
+                <a
+                  href="#depth"
+                  data-hover
+                  className="group relative inline-flex items-center justify-center px-10 py-4 text-xs font-light uppercase tracking-wider transition-all"
+                  style={{
+                    border: "1px solid rgba(212,165,116,0.4)",
+                    color: "#f5e6d3",
+                    background: "transparent",
+                    overflow: "hidden",
+                  }}
                 >
-                  {stat.val}
-                </div>
-                <div
-                  className="text-xs uppercase tracking-widest"
-                  style={{ color: "rgba(255,255,255,0.5)" }}
-                >
-                  {stat.label}
-                </div>
+                  <span
+                    className="absolute inset-0 transform translate-y-full transition-transform duration-700 group-hover:translate-y-0"
+                    style={{ background: "rgba(212,165,116,0.15)" }}
+                    aria-hidden
+                  />
+                  <span className="relative z-10">Enter the Mist</span>
+                </a>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* ========================================
-          FOOTER
-          ======================================== */}
-      <footer
-        className="relative py-32 px-6 text-center"
-        style={{ background: "#030014" }}
-      >
-        <div className="mx-auto max-w-2xl">
-          <span
-            className="text-xs uppercase tracking-[0.4em] mb-8 block"
-            style={{ color: "#00d4ff" }}
+            {/* Scroll indicator */}
+            <div
+              className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-0"
+              style={{ animation: "fadeIn 2s ease-out 4.5s forwards" }}
+              aria-hidden
+            >
+              <div
+                className="flex flex-col items-center gap-3"
+                style={{ color: "rgba(245,230,211,0.3)" }}
+              >
+                <span className="text-[10px] uppercase tracking-[0.4em]">
+                  Descend
+                </span>
+                <div
+                  className="h-16 w-px"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(212,165,116,0.6), transparent)",
+                    animation: "scrollLine 2.5s ease-in-out infinite",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* HUD corners */}
+            <div
+              className="absolute top-6 left-6 opacity-0"
+              style={{ animation: "fadeIn 2s ease-out 1s forwards" }}
+              aria-hidden
+            >
+              <div
+                className="text-[9px] uppercase tracking-widest"
+                style={{ color: "rgba(245,230,211,0.3)" }}
+              >
+                <div>FOG DENSITY · 0.847</div>
+                <div>LIGHT ANGLE · 32°</div>
+              </div>
+            </div>
+            <div
+              className="absolute top-6 right-6 opacity-0 text-right"
+              style={{ animation: "fadeIn 2s ease-out 1s forwards" }}
+              aria-hidden
+            >
+              <div
+                className="text-[9px] uppercase tracking-widest"
+                style={{ color: "rgba(245,230,211,0.3)" }}
+              >
+                <div>SCENE · 01</div>
+                <div>TAKE · 04</div>
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================
+              DEPTH SECTION
+              ======================================== */}
+          <section
+            id="depth"
+            className="relative py-40 px-6"
+            style={{ background: "#05050a" }}
           >
-            03 — Connect
-          </span>
-          <h2
-            className="font-playfair text-4xl md:text-7xl font-bold leading-tight mb-12"
-            style={{ letterSpacing: "-0.03em" }}
+            <div className="mx-auto max-w-4xl">
+              <span
+                className="text-[10px] uppercase tracking-[0.5em] mb-10 block opacity-0"
+                style={{
+                  animation: "fadeIn 1.5s ease-out 0.2s forwards",
+                  color: "rgba(212,165,116,0.7)",
+                }}
+              >
+                01 — The Technique
+              </span>
+              <h2
+                className="font-playfair text-4xl md:text-7xl font-light leading-tight mb-12 opacity-0"
+                style={{
+                  animation: "fadeIn 2s ease-out 0.4s forwards",
+                  letterSpacing: "-0.02em",
+                  color: "#f5e6d3",
+                }}
+              >
+                Four layers of
+                <br />
+                <span style={{ color: "#d4a574", fontStyle: "italic" }}>
+                  calculated haze.
+                </span>
+              </h2>
+              <p
+                className="text-lg md:text-xl font-light leading-relaxed mb-8 opacity-0"
+                style={{
+                  animation: "fadeIn 2s ease-out 0.6s forwards",
+                  color: "rgba(245,230,211,0.6)",
+                }}
+              >
+                Each layer of fog drifts at its own velocity, sampled from a
+                four-octave simplex noise field. Sixteen ray-marched samples
+                simulate the scattering of light through the volume — a
+                technique borrowed from offline rendering, collapsed into a
+                single fragment shader that runs at sixty frames per second.
+              </p>
+              <p
+                className="text-base font-light leading-relaxed opacity-0"
+                style={{
+                  animation: "fadeIn 2s ease-out 0.8s forwards",
+                  color: "rgba(245,230,211,0.4)",
+                }}
+              >
+                Move your cursor. The mist parts around it — not a sprite
+                effect, but a radial density subtraction computed per-pixel.
+              </p>
+            </div>
+          </section>
+
+          {/* ========================================
+              CINEMA SECTION
+              ======================================== */}
+          <section
+            className="relative py-40 px-6"
+            style={{ background: "#08080d" }}
           >
-            Let&apos;s build
-            <br />
-            <span style={{ color: "#00d4ff" }}>the impossible.</span>
-          </h2>
-          <a
-            href="mailto:hello@cosmic.studio"
-            data-hover
-            className="inline-block text-xl md:text-2xl font-light border-b pb-1 transition-colors hover:text-[#00d4ff]"
-            style={{ borderColor: "rgba(255,255,255,0.3)" }}
+            <div className="mx-auto max-w-4xl text-center">
+              <span
+                className="text-[10px] uppercase tracking-[0.5em] mb-10 block opacity-0"
+                style={{
+                  animation: "fadeIn 1.5s ease-out 0.2s forwards",
+                  color: "rgba(212,165,116,0.7)",
+                }}
+              >
+                02 — The Feel
+              </span>
+              <h2
+                className="font-playfair text-4xl md:text-7xl font-light leading-tight mb-12 opacity-0"
+                style={{
+                  animation: "fadeIn 2s ease-out 0.4s forwards",
+                  letterSpacing: "-0.02em",
+                  color: "#f5e6d3",
+                }}
+              >
+                Not animation.
+                <br />
+                <span style={{ color: "#d4a574", fontStyle: "italic" }}>
+                  Atmosphere.
+                </span>
+              </h2>
+              <p
+                className="text-lg md:text-xl font-light leading-relaxed opacity-0"
+                style={{
+                  animation: "fadeIn 2s ease-out 0.6s forwards",
+                  color: "rgba(245,230,211,0.6)",
+                  lineHeight: 1.8,
+                }}
+              >
+                The difference between a website and a place is whether the air
+                has weight. This hero calculates the weight of its own light,
+                drifts at the pace of patience, and waits for you to disturb
+                it. Every pixel is a decision about what is visible and what
+                is hidden.
+              </p>
+            </div>
+          </section>
+
+          {/* ========================================
+              FOOTER
+              ======================================== */}
+          <footer
+            className="relative py-40 px-6 text-center"
+            style={{ background: "#05050a" }}
           >
-            hello@cosmic.studio
-          </a>
-          <p
-            className="mt-16 text-xs uppercase tracking-[0.3em]"
-            style={{ color: "rgba(255,255,255,0.3)" }}
-          >
-            © 2026 Cosmic Resonance · Built with hero-3d-awwwards skill v5
-          </p>
-        </div>
-      </footer>
+            <div className="mx-auto max-w-2xl">
+              <span
+                className="text-[10px] uppercase tracking-[0.5em] mb-10 block"
+                style={{ color: "rgba(212,165,116,0.7)" }}
+              >
+                03 — The Work
+              </span>
+              <h2
+                className="font-playfair text-4xl md:text-7xl font-light leading-tight mb-12"
+                style={{
+                  letterSpacing: "-0.02em",
+                  color: "#f5e6d3",
+                }}
+              >
+                Build something
+                <br />
+                <span style={{ color: "#d4a574", fontStyle: "italic" }}>
+                  worth the silence.
+                </span>
+              </h2>
+              <a
+                href="mailto:hello@silentlight.studio"
+                data-hover
+                className="inline-block text-lg font-light border-b pb-1 transition-colors hover:text-[#d4a574]"
+                style={{
+                  borderColor: "rgba(212,165,116,0.3)",
+                  color: "rgba(245,230,211,0.7)",
+                }}
+              >
+                hello@silentlight.studio
+              </a>
+              <p
+                className="mt-20 text-[10px] uppercase tracking-[0.4em]"
+                style={{ color: "rgba(245,230,211,0.2)" }}
+              >
+                © 2026 Silent Light · Built with hero-3d-awwwards skill v5
+              </p>
+            </div>
+          </footer>
 
-      {/* ========================================
-          GLOBAL STYLES
-          ======================================== */}
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
+          {/* ========================================
+              GLOBAL STYLES
+              ======================================== */}
+          <style jsx global>{`
+            * {
+              box-sizing: border-box;
+            }
 
-        body {
-          font-family: var(--font-inter), system-ui, sans-serif;
-          background: #030014;
-          overflow-x: hidden;
-        }
+            body {
+              font-family: var(--font-inter), system-ui, sans-serif;
+              background: #05050a;
+              overflow-x: hidden;
+            }
 
-        .font-playfair {
-          font-family: var(--font-playfair), serif;
-        }
+            .font-playfair {
+              font-family: var(--font-playfair), serif;
+            }
 
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+            @keyframes fadeIn {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
+            @keyframes scrollLine {
+              0%,
+              100% {
+                transform: scaleY(1);
+                transform-origin: top;
+              }
+              50% {
+                transform: scaleY(0.2);
+                transform-origin: bottom;
+              }
+            }
 
-        @keyframes scrollLine {
-          0%,
-          100% {
-            transform: scaleY(1);
-            transform-origin: top;
-          }
-          50% {
-            transform: scaleY(0.3);
-            transform-origin: bottom;
-          }
-        }
+            @media (pointer: fine) {
+              * {
+                cursor: none !important;
+              }
+            }
 
-        @media (pointer: fine) {
-          * {
-            cursor: none !important;
-          }
-        }
+            a:focus-visible,
+            button:focus-visible {
+              outline: 2px solid #d4a574;
+              outline-offset: 4px;
+            }
 
-        a:focus-visible,
-        button:focus-visible {
-          outline: 2px solid #00d4ff;
-          outline-offset: 4px;
-        }
+            ::selection {
+              background: #d4a574;
+              color: #05050a;
+            }
 
-        ::selection {
-          background: #00d4ff;
-          color: #030014;
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-          html {
-            scroll-behavior: smooth;
-          }
-        }
-      `}</style>
+            @media (prefers-reduced-motion: no-preference) {
+              html {
+                scroll-behavior: smooth;
+              }
+            }
+          `}</style>
         </>
       )}
     </main>

@@ -16,18 +16,17 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "COSMIC RESONANCE — Generative Hero",
+  title: "SILENT LIGHT — Volumetric Fog Hero",
   description:
-    "Awwwards-level hero with curl noise shader, 2000 GPU particles, and SVG-distorted typography that reacts to your cursor. Built with the hero-3d-awwwards skill.",
+    "Atmospheric cinematic hero with volumetric fog, god rays, and emergent typography. Blade Runner 2049 inspired. Built with the hero-3d-awwwards skill.",
   keywords: [
     "Awwwards",
-    "hero section",
-    "3D web",
+    "volumetric fog",
+    "god rays",
+    "atmospheric",
+    "cinematic",
     "WebGL",
     "shaders",
-    "curl noise",
-    "particles",
-    "GSAP",
     "React Three Fiber",
   ],
   authors: [{ name: "hero-3d-awwwards skill v5" }],
@@ -42,7 +41,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${playfair.variable} antialiased`}
-        style={{ background: "#030014", color: "#ffffff" }}
+        style={{ background: "#05050a", color: "#f5e6d3" }}
       >
         <LenisProvider>{children}</LenisProvider>
         <Toaster />

@@ -10,7 +10,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function CustomCursor() {
+export function CustomCursor({ cursorColor = "#ff0040" }: { cursorColor?: string }) {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -83,14 +83,14 @@ export function CustomCursor() {
         left: 0,
         width: isHovering ? "48px" : "24px",
         height: isHovering ? "48px" : "24px",
-        border: "1px solid #ff0040",
+        border: `1px solid ${cursorColor}`,
         borderRadius: "50%",
         pointerEvents: "none",
         zIndex: 9999,
         mixBlendMode: "difference",
         transition: "width 0.3s ease, height 0.3s ease, opacity 0.3s ease",
         opacity: isVisible ? 0.8 : 0,
-        backgroundColor: isHovering ? "rgba(255, 0, 64, 0.1)" : "transparent",
+        backgroundColor: isHovering ? `${cursorColor}1a` : "transparent",
       }}
     />
   );
