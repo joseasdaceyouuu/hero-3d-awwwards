@@ -1,32 +1,30 @@
 "use client";
 
 /**
- * VOLUMETRIC FOG — Hero atmosférico cinematográfico inmersivo
+ * AURORA — Hero con aurora boreal procedural
  *
- * Inspiración: Blade Runner 2049, Active Theory.
+ * Cortinas de luz celestial + estrellas + reflejo en agua.
+ * Completamente diferente al SILENT LIGHT (fog) y COSMIC (particles).
  *
  * Técnica:
- *   - 4 capas de niebla procedural en fragment shader (parallax depth)
- *   - God rays simulados vía ray-marching simplificado (16 samples)
- *   - Mouse "aparta" la niebla radialmente
- *   - Letterbox bars animadas por scroll (cinematográfico)
- *   - Texto emerge de la bruma con CSS mask + GSAP
- *   - Paleta amber/sepia + deep black
+ *   - 3 cortinas de aurora con altitudes y velocidades distintas
+ *   - Cada cortina: fbm noise modulado por gaussiana vertical
+ *   - Stars procedurales con twinkle
+ *   - Reflejo en agua con distorsión por noise
+ *   - Mouse desplaza las cortinas (viento solar)
+ *   - Paleta: verde aurora + magenta + cyan + deep blue night
  *
  * Principios del skill:
- *   - C9: Una idea dominante (la niebla volumétrica)
- *   - C10: Paleta 3 colores (#05050a + #d4a574 + #f5e6d3)
+ *   - C9: Una idea dominante (la aurora)
+ *   - C10: Paleta natural (verde/magenta/cyan + deep blue)
  *   - C11: Timing cinematográfico (3s, power3.out)
  *   - C7: prefers-reduced-motion respetado
  *   - C12: WebGL fallback
- *   - C15: Contraste WCAG AA
- *   - C16: HTML semántico
  */
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { VolumetricFog } from "@/components/hero/VolumetricFog";
-import { EmergentSilhouette } from "@/components/hero/EmergentSilhouette";
+import { AuroraBorealis } from "@/components/hero/AuroraBorealis";
 import { CustomCursor } from "@/components/hero/CustomCursor";
 import { MemoryDashboard } from "@/components/dashboard/MemoryDashboard";
 
@@ -40,7 +38,6 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  // Scroll-driven overlay parallax + letterbox animation
   useEffect(() => {
     if (!overlayRef.current) return;
 
@@ -57,16 +54,6 @@ export default function Home() {
         ease: "none",
         overwrite: true,
       });
-
-      // Animate letterbox bars — open as user scrolls
-      const topBar = document.getElementById("letterbox-top");
-      const bottomBar = document.getElementById("letterbox-bottom");
-      if (topBar) {
-        topBar.style.transform = `translateY(-${progress * 100}%)`;
-      }
-      if (bottomBar) {
-        bottomBar.style.transform = `translateY(${progress * 100}%)`;
-      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -78,13 +65,13 @@ export default function Home() {
       {/* View toggle */}
       <div
         className="fixed top-4 right-4 z-50 flex gap-1 p-1 border border-white/10"
-        style={{ background: "rgba(5,5,10,0.8)", backdropFilter: "blur(10px)" }}
+        style={{ background: "rgba(2,5,15,0.8)", backdropFilter: "blur(10px)" }}
       >
         <button
           onClick={() => setView("hero")}
           className={`px-3 py-1.5 text-[10px] uppercase tracking-widest transition-colors ${
             view === "hero"
-              ? "bg-[#d4a574] text-[#05050a]"
+              ? "bg-[#00ff9d] text-[#02050f]"
               : "text-white/50 hover:text-white"
           }`}
         >
@@ -94,7 +81,7 @@ export default function Home() {
           onClick={() => setView("dashboard")}
           className={`px-3 py-1.5 text-[10px] uppercase tracking-widest transition-colors ${
             view === "dashboard"
-              ? "bg-[#d4a574] text-[#05050a]"
+              ? "bg-[#00ff9d] text-[#02050f]"
               : "text-white/50 hover:text-white"
           }`}
         >
@@ -106,46 +93,23 @@ export default function Home() {
         <MemoryDashboard />
       ) : (
         <>
-          <CustomCursor cursorColor="#d4a574" />
+          <CustomCursor cursorColor="#00ff9d" />
 
           {/* ========================================
-              HERO SECTION — Volumetric Fog
+              HERO SECTION — Aurora Borealis
               ======================================== */}
           <section
             ref={heroRef}
             id="hero"
             className="relative h-screen w-full overflow-hidden"
-            aria-label="Volumetric Fog Hero"
+            aria-label="Aurora Borealis Hero"
             style={{
-              // CSS fallback background — siempre visible incluso si WebGL falla
               background:
-                "radial-gradient(ellipse at 30% 75%, rgba(212,165,116,0.35) 0%, rgba(80,50,30,0.15) 35%, rgba(5,5,10,1) 75%)",
+                "linear-gradient(to bottom, #02050f 0%, #0a1a3a 40%, #050a1a 100%)",
             }}
           >
             {/* Shader background */}
-            {mounted && <VolumetricFog />}
-
-            {/* Letterbox bars — CSS overlay (cinematográfico) */}
-            <div
-              className="absolute top-0 left-0 right-0 pointer-events-none transition-transform duration-700"
-              style={{
-                height: "8vh",
-                background: "#000",
-                zIndex: 30,
-              }}
-              aria-hidden
-              id="letterbox-top"
-            />
-            <div
-              className="absolute bottom-0 left-0 right-0 pointer-events-none transition-transform duration-700"
-              style={{
-                height: "8vh",
-                background: "#000",
-                zIndex: 30,
-              }}
-              aria-hidden
-              id="letterbox-bottom"
-            />
+            {mounted && <AuroraBorealis />}
 
             {/* Hero content */}
             <div
@@ -160,35 +124,57 @@ export default function Home() {
                 <span
                   className="text-[10px] uppercase font-light"
                   style={{
-                    color: "rgba(212,165,116,0.7)",
+                    color: "#00ff9d",
                     letterSpacing: "0.6em",
                   }}
                 >
-                  Atmospheric · Cinematic · 2026
+                  69°N · Celestial · 2026
                 </span>
               </div>
 
-              {/* Main headline — emerges from fog */}
-              <EmergentSilhouette
-                text="SILENT LIGHT"
-                className="font-playfair"
-                delay={1.2}
-                duration={3.0}
-              />
+              {/* Main headline */}
+              <h1
+                className="font-playfair opacity-0"
+                style={{
+                  fontSize: "clamp(2.5rem, 11vw, 9rem)",
+                  fontWeight: 200,
+                  letterSpacing: "0.02em",
+                  lineHeight: 0.95,
+                  margin: 0,
+                  color: "#ffffff",
+                  textShadow:
+                    "0 0 30px rgba(0,255,157,0.4), 0 0 60px rgba(255,0,170,0.3), 0 0 100px rgba(0,200,255,0.2)",
+                }}
+                ref={(el) => {
+                  if (el) {
+                    gsap.set(el, { opacity: 0, y: 20 });
+                    setTimeout(() => {
+                      gsap.to(el, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 3,
+                        ease: "power3.out",
+                      });
+                    }, 1200);
+                  }
+                }}
+              >
+                NORTHERN LIGHTS
+              </h1>
 
               {/* Tagline */}
               <p
                 className="mt-10 max-w-xl text-base md:text-lg font-light opacity-0"
                 style={{
                   animation: "fadeIn 2s ease-out 3s forwards",
-                  color: "rgba(245,230,211,0.6)",
+                  color: "rgba(255,255,255,0.7)",
                   lineHeight: 1.8,
                   letterSpacing: "0.04em",
                 }}
               >
-                Light through matter. Silence through form.
+                Where the sky breathes color.
                 <br />
-                A study in atmospheric depth.
+                A moment between earth and cosmos.
               </p>
 
               {/* CTA */}
@@ -197,22 +183,22 @@ export default function Home() {
                 style={{ animation: "fadeIn 1.5s ease-out 3.8s forwards" }}
               >
                 <a
-                  href="#depth"
+                  href="#phenomenon"
                   data-hover
                   className="group relative inline-flex items-center justify-center px-10 py-4 text-xs font-light uppercase tracking-wider transition-all"
                   style={{
-                    border: "1px solid rgba(212,165,116,0.4)",
-                    color: "#f5e6d3",
+                    border: "1px solid rgba(0,255,157,0.4)",
+                    color: "#ffffff",
                     background: "transparent",
                     overflow: "hidden",
                   }}
                 >
                   <span
                     className="absolute inset-0 transform translate-y-full transition-transform duration-700 group-hover:translate-y-0"
-                    style={{ background: "rgba(212,165,116,0.15)" }}
+                    style={{ background: "rgba(0,255,157,0.15)" }}
                     aria-hidden
                   />
-                  <span className="relative z-10">Enter the Mist</span>
+                  <span className="relative z-10">Witness the Phenomenon</span>
                 </a>
               </div>
             </div>
@@ -225,7 +211,7 @@ export default function Home() {
             >
               <div
                 className="flex flex-col items-center gap-3"
-                style={{ color: "rgba(245,230,211,0.3)" }}
+                style={{ color: "rgba(255,255,255,0.3)" }}
               >
                 <span className="text-[10px] uppercase tracking-[0.4em]">
                   Descend
@@ -234,7 +220,7 @@ export default function Home() {
                   className="h-16 w-px"
                   style={{
                     background:
-                      "linear-gradient(to bottom, rgba(212,165,116,0.6), transparent)",
+                      "linear-gradient(to bottom, rgba(0,255,157,0.6), transparent)",
                     animation: "scrollLine 2.5s ease-in-out infinite",
                   }}
                 />
@@ -249,10 +235,11 @@ export default function Home() {
             >
               <div
                 className="text-[9px] uppercase tracking-widest"
-                style={{ color: "rgba(245,230,211,0.3)" }}
+                style={{ color: "rgba(255,255,255,0.3)" }}
               >
-                <div>FOG DENSITY · 0.847</div>
-                <div>LIGHT ANGLE · 32°</div>
+                <div>LAT 69.6492° N</div>
+                <div>LON 18.9553° E</div>
+                <div>KP INDEX 5.8</div>
               </div>
             </div>
             <div
@@ -262,117 +249,107 @@ export default function Home() {
             >
               <div
                 className="text-[9px] uppercase tracking-widest"
-                style={{ color: "rgba(245,230,211,0.3)" }}
+                style={{ color: "rgba(255,255,255,0.3)" }}
               >
-                <div>SCENE · 01</div>
-                <div>TAKE · 04</div>
+                <div>SOLAR WIND · 480 km/s</div>
+                <div>MAG FIELD · Bz -8</div>
+                <div>VISIBILITY · HIGH</div>
               </div>
             </div>
           </section>
 
           {/* ========================================
-              DEPTH SECTION
+              PHENOMENON SECTION
               ======================================== */}
           <section
-            id="depth"
+            id="phenomenon"
             className="relative py-40 px-6"
-            style={{ background: "#05050a" }}
+            style={{ background: "#02050f" }}
           >
             <div className="mx-auto max-w-4xl">
               <span
                 className="text-[10px] uppercase tracking-[0.5em] mb-10 block opacity-0"
                 style={{
                   animation: "fadeIn 1.5s ease-out 0.2s forwards",
-                  color: "rgba(212,165,116,0.7)",
+                  color: "#00ff9d",
                 }}
               >
-                01 — The Technique
+                01 — The Science
               </span>
               <h2
                 className="font-playfair text-4xl md:text-7xl font-light leading-tight mb-12 opacity-0"
                 style={{
                   animation: "fadeIn 2s ease-out 0.4s forwards",
                   letterSpacing: "-0.02em",
-                  color: "#f5e6d3",
+                  color: "#ffffff",
                 }}
               >
-                Four layers of
+                Solar wind meets
                 <br />
-                <span style={{ color: "#d4a574", fontStyle: "italic" }}>
-                  calculated haze.
+                <span style={{ color: "#00ff9d", fontStyle: "italic" }}>
+                  magnetic field.
                 </span>
               </h2>
               <p
                 className="text-lg md:text-xl font-light leading-relaxed mb-8 opacity-0"
                 style={{
                   animation: "fadeIn 2s ease-out 0.6s forwards",
-                  color: "rgba(245,230,211,0.6)",
+                  color: "rgba(255,255,255,0.6)",
                 }}
               >
-                Each layer of fog drifts at its own velocity, sampled from a
-                four-octave simplex noise field. Sixteen ray-marched samples
-                simulate the scattering of light through the volume — a
-                technique borrowed from offline rendering, collapsed into a
-                single fragment shader that runs at sixty frames per second.
+                Three layers of light, each at a different altitude, each moving
+                at its own velocity. Charged particles from the sun, channeled
+                by Earth&apos;s magnetic field, excite oxygen and nitrogen
+                atoms. Green at 100km. Magenta at 200km. Cyan at 300km. Every
+                pixel is a collision, rendered live.
               </p>
               <p
                 className="text-base font-light leading-relaxed opacity-0"
                 style={{
                   animation: "fadeIn 2s ease-out 0.8s forwards",
-                  color: "rgba(245,230,211,0.4)",
+                  color: "rgba(255,255,255,0.4)",
                 }}
               >
-                Move your cursor. The mist parts around it — not a sprite
-                effect, but a radial density subtraction computed per-pixel.
+                Move your cursor. The solar wind shifts. The curtains drift.
               </p>
             </div>
           </section>
 
           {/* ========================================
-              CINEMA SECTION
+              STATS SECTION
               ======================================== */}
           <section
-            className="relative py-40 px-6"
-            style={{ background: "#08080d" }}
+            className="relative py-32 px-6"
+            style={{ background: "#050a1a" }}
           >
-            <div className="mx-auto max-w-4xl text-center">
-              <span
-                className="text-[10px] uppercase tracking-[0.5em] mb-10 block opacity-0"
-                style={{
-                  animation: "fadeIn 1.5s ease-out 0.2s forwards",
-                  color: "rgba(212,165,116,0.7)",
-                }}
-              >
-                02 — The Feel
-              </span>
-              <h2
-                className="font-playfair text-4xl md:text-7xl font-light leading-tight mb-12 opacity-0"
-                style={{
-                  animation: "fadeIn 2s ease-out 0.4s forwards",
-                  letterSpacing: "-0.02em",
-                  color: "#f5e6d3",
-                }}
-              >
-                Not animation.
-                <br />
-                <span style={{ color: "#d4a574", fontStyle: "italic" }}>
-                  Atmosphere.
-                </span>
-              </h2>
-              <p
-                className="text-lg md:text-xl font-light leading-relaxed opacity-0"
-                style={{
-                  animation: "fadeIn 2s ease-out 0.6s forwards",
-                  color: "rgba(245,230,211,0.6)",
-                  lineHeight: 1.8,
-                }}
-              >
-                The difference between a website and a place is whether the air
-                has weight. This hero calculates the weight of its own light,
-                drifts at the pace of patience, and waits for you to disturb
-                it. Every pixel is a decision about what is visible and what
-                is hidden.
-              </p>
+            <div className="mx-auto max-w-4xl">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {[
+                  { val: "3", label: "Light Curtains", color: "#00ff9d" },
+                  { val: "100km", label: "Green Altitude", color: "#00ff9d" },
+                  { val: "200km", label: "Magenta Altitude", color: "#ff00aa" },
+                  { val: "300km", label: "Cyan Altitude", color: "#00c8ff" },
+                ].map((stat, i) => (
+                  <div
+                    key={i}
+                    className="text-center opacity-0"
+                    style={{ animation: `fadeIn 1.5s ease-out ${0.2 + i * 0.1}s forwards` }}
+                  >
+                    <div
+                      className="font-playfair text-3xl md:text-5xl font-bold mb-2"
+                      style={{ color: stat.color }}
+                    >
+                      {stat.val}
+                    </div>
+                    <div
+                      className="text-xs uppercase tracking-widest"
+                      style={{ color: "rgba(255,255,255,0.4)" }}
+                    >
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -381,44 +358,44 @@ export default function Home() {
               ======================================== */}
           <footer
             className="relative py-40 px-6 text-center"
-            style={{ background: "#05050a" }}
+            style={{ background: "#02050f" }}
           >
             <div className="mx-auto max-w-2xl">
               <span
                 className="text-[10px] uppercase tracking-[0.5em] mb-10 block"
-                style={{ color: "rgba(212,165,116,0.7)" }}
+                style={{ color: "#00ff9d" }}
               >
-                03 — The Work
+                02 — Experience
               </span>
               <h2
                 className="font-playfair text-4xl md:text-7xl font-light leading-tight mb-12"
                 style={{
                   letterSpacing: "-0.02em",
-                  color: "#f5e6d3",
+                  color: "#ffffff",
                 }}
               >
-                Build something
+                Chase the
                 <br />
-                <span style={{ color: "#d4a574", fontStyle: "italic" }}>
-                  worth the silence.
+                <span style={{ color: "#00ff9d", fontStyle: "italic" }}>
+                  impossible.
                 </span>
               </h2>
               <a
-                href="mailto:hello@silentlight.studio"
+                href="mailto:hello@northernlights.studio"
                 data-hover
-                className="inline-block text-lg font-light border-b pb-1 transition-colors hover:text-[#d4a574]"
+                className="inline-block text-lg font-light border-b pb-1 transition-colors hover:text-[#00ff9d]"
                 style={{
-                  borderColor: "rgba(212,165,116,0.3)",
-                  color: "rgba(245,230,211,0.7)",
+                  borderColor: "rgba(0,255,157,0.3)",
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
-                hello@silentlight.studio
+                hello@northernlights.studio
               </a>
               <p
                 className="mt-20 text-[10px] uppercase tracking-[0.4em]"
-                style={{ color: "rgba(245,230,211,0.2)" }}
+                style={{ color: "rgba(255,255,255,0.2)" }}
               >
-                © 2026 Silent Light · Built with hero-3d-awwwards skill v5
+                © 2026 Northern Lights · Built with hero-3d-awwwards skill v5
               </p>
             </div>
           </footer>
@@ -433,7 +410,7 @@ export default function Home() {
 
             body {
               font-family: var(--font-inter), system-ui, sans-serif;
-              background: #05050a;
+              background: #02050f;
               overflow-x: hidden;
             }
 
@@ -470,13 +447,13 @@ export default function Home() {
 
             a:focus-visible,
             button:focus-visible {
-              outline: 2px solid #d4a574;
+              outline: 2px solid #00ff9d;
               outline-offset: 4px;
             }
 
             ::selection {
-              background: #d4a574;
-              color: #05050a;
+              background: #00ff9d;
+              color: #02050f;
             }
 
             @media (prefers-reduced-motion: no-preference) {

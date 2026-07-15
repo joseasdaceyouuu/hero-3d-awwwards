@@ -16,15 +16,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "SILENT LIGHT — Volumetric Fog Hero",
+  title: "NORTHERN LIGHTS — Aurora Borealis Hero",
   description:
-    "Atmospheric cinematic hero with volumetric fog, god rays, and emergent typography. Blade Runner 2049 inspired. Built with the hero-3d-awwwards skill.",
+    "Procedural aurora borealis with 3 light curtains, stars, and water reflection. Iceland-inspired cinematic hero. Built with the hero-3d-awwwards skill.",
   keywords: [
     "Awwwards",
-    "volumetric fog",
-    "god rays",
-    "atmospheric",
-    "cinematic",
+    "aurora borealis",
+    "northern lights",
+    "procedural",
     "WebGL",
     "shaders",
     "React Three Fiber",
