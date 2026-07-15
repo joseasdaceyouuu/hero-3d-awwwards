@@ -27,6 +27,24 @@ import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+// Hook para pausar render cuando el canvas sale del viewport (PERF-1)
+function useIntersectionPause() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return { containerRef, isVisible };
+}
+
 const VERTEX_SHADER = `
   varying vec2 vUv;
   void main() {
@@ -287,6 +305,7 @@ function AuroraPlane({ reducedMotion }: { reducedMotion: boolean }) {
 export function AuroraBorealis() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [webglAvailable, setWebglAvailable] = useState(true);
+  const { containerRef, isVisible } = useIntersectionPause();
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -321,7 +340,7 @@ export function AuroraBorealis() {
   }
 
   return (
-    <div className="absolute inset-0" aria-hidden>
+    <div ref={containerRef} className="absolute inset-0" aria-hidden>
       <Canvas
         camera={{ position: [0, 0, 1], fov: 45 }}
         dpr={[1, 2]}
@@ -331,7 +350,7 @@ export function AuroraBorealis() {
           alpha: false,
           preserveDrawingBuffer: true,
         }}
-        frameloop={reducedMotion ? "demand" : "always"}
+        frameloop={isVisible && !reducedMotion ? "always" : "demand"}
       >
         <AuroraPlane reducedMotion={reducedMotion} />
       </Canvas>

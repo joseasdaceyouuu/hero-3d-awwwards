@@ -167,7 +167,7 @@ export default function Home() {
                 className="mt-10 max-w-xl text-base md:text-lg font-light opacity-0"
                 style={{
                   animation: "fadeIn 2s ease-out 3s forwards",
-                  color: "rgba(255,255,255,0.7)",
+                  color: "rgba(255,255,255,0.95)",
                   lineHeight: 1.8,
                   letterSpacing: "0.04em",
                 }}
@@ -294,7 +294,7 @@ export default function Home() {
                 className="text-lg md:text-xl font-light leading-relaxed mb-8 opacity-0"
                 style={{
                   animation: "fadeIn 2s ease-out 0.6s forwards",
-                  color: "rgba(255,255,255,0.6)",
+                  color: "rgba(255,255,255,0.9)",
                 }}
               >
                 Three layers of light, each at a different altitude, each moving
@@ -386,7 +386,7 @@ export default function Home() {
                 className="inline-block text-lg font-light border-b pb-1 transition-colors hover:text-[#00ff9d]"
                 style={{
                   borderColor: "rgba(0,255,157,0.3)",
-                  color: "rgba(255,255,255,0.7)",
+                  color: "rgba(255,255,255,0.95)",
                 }}
               >
                 hello@northernlights.studio
