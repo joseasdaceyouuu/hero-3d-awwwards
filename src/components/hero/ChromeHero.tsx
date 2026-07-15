@@ -1,92 +1,62 @@
 'use client'
 
-import { Suspense, useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useIntersect } from '@react-three/drei'
-import { gsap } from 'gsap'
-import Lenis from 'lenis'
+/**
+ * ChromeHero.tsx — Container for the AI-generated chrome hero.
+ *
+ * Generado por Creator agent (GLM-5.2), adaptado para funcionar con
+ * la infraestructura existente (LenisProvider en layout.tsx, ChromeShader
+ * con Canvas propio + IntersectionObserver).
+ *
+ * Cambios vs output original del Creator:
+ *   - Eliminado Lenis duplicado (ya está en layout.tsx)
+ *   - Eliminado useIntersect de drei (ChromeShader ya tiene IntersectionObserver)
+ *   - Simplificado a: ChromeShader (background) + HeroText (overlay)
+ */
+
+import { useEffect, useState } from 'react'
 import { ChromeShader } from './ChromeShader'
 import { HeroText } from './HeroText'
 
 export function ChromeHero() {
   const [isReducedMotion, setIsReducedMotion] = useState(false)
-  
+
   useEffect(() => {
-    setIsReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-    
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    })
-
-    function animate(time: number) {
-      lenis.animate(time)
-      requestAnimationFrame(animate)
-    }
-
-    requestAnimationFrame(animate)
-    
-    return () => lenis.destroy()
+    setIsReducedMotion(
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    )
   }, [])
 
+  // C7: prefers-reduced-motion fallback
   if (isReducedMotion) {
     return (
-      <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 to-black">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-300 text-center">
-            Chrome Surface
-          </h1>
-        </div>
+      <div
+        className="relative h-screen w-full overflow-hidden flex items-center justify-center"
+        style={{
+          background:
+            'linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 50%, #2a2a3e 100%)',
+        }}
+      >
+        <h1
+          className="text-5xl md:text-7xl font-bold text-center"
+          style={{ color: '#c0c0c0', letterSpacing: '-0.02em' }}
+        >
+          CHROME SURFACE
+        </h1>
       </div>
     )
   }
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
-        <Canvas
-          dpr={[1, 2]}
-          gl={{ antialias: true, alpha: true }}
-          camera={{ position: [0, 0, 5], fov: 75 }}
-        >
-          <ChromeScene />
-        </Canvas>
-        <HeroText />
-      </Suspense>
-    </div>
-  )
-}
-
-function ChromeScene() {
-  const { viewport } = useThree()
-  const ref = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  
-  // IntersectionObserver for performance (PERF-1)
-  const entry = useIntersect(ref, {
-    threshold: 0.1,
-    rootMargin: '100px',
-  })
-  
-  useEffect(() => {
-    setIsVisible(entry?.isIntersecting || false)
-  }, [entry])
-
-  useFrame((state, delta) => {
-    if (!isVisible) return
-    // Animation logic handled in ChromeShader
-  })
-
-  return (
-    <div ref={ref} className="absolute inset-0">
+    <section
+      className="relative h-screen w-full overflow-hidden"
+      aria-label="Chrome Surface Hero"
+      style={{ background: '#0a0a0f' }}
+    >
+      {/* Chrome shader background (has own Canvas + IntersectionObserver) */}
       <ChromeShader />
-    </div>
+
+      {/* Text overlay */}
+      <HeroText />
+    </section>
   )
 }
