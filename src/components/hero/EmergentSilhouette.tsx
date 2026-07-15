@@ -3,11 +3,11 @@
 /**
  * EmergentSilhouette.tsx
  *
- * Texto que emerge de la niebla. Técnica:
- *   - CSS mask-image con gradient que va de transparent a opaque
- *   - GSAP anima la posición del mask para "revelar" el texto desde abajo
- *   - text-shadow con blur grande para integrar con la niebla
- *   - color: blanco cálido con tinte amber para coherencia con el shader
+ * Texto que emerge de la bruma. Técnica simplificada:
+ *   - opacity 0 → 1 con blur grande → 0 (texto "se materializa")
+ *   - GSAP stagger por palabra
+ *   - text-shadow con glow amber para integrar con la niebla
+ *   - color: blanco cálido con tinte amber
  */
 
 import { useRef, useEffect } from "react";
@@ -32,48 +32,35 @@ export function EmergentSilhouette({
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const ctx = gsap.context(() => {
-      // Animar el mask-image del contenedor
-      gsap.fromTo(
-        containerRef.current,
-        {
-          // Empezar completamente enmascarado (invisible)
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, transparent 100%)",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, transparent 100%)",
-          opacity: 0,
-          filter: "blur(20px)",
-        },
-        {
-          // Revelar de abajo hacia arriba
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 40%, black 100%)",
-          opacity: 1,
-          filter: "blur(0px)",
-          duration,
-          ease: "power3.out",
-          delay,
-        }
-      );
+    // Set initial state explicitly
+    gsap.set(containerRef.current, {
+      opacity: 0,
+      y: 20,
+    });
 
-      // Stagger sutil en cada palabra (movimiento vertical)
-      const wordEls = containerRef.current?.querySelectorAll(".emergent-word");
-      if (wordEls) {
-        gsap.from(wordEls, {
-          y: 30,
-          opacity: 0,
-          duration: 1.5,
-          ease: "power3.out",
-          stagger: 0.15,
-          delay: delay + 0.3,
-        });
-      }
-    }, containerRef);
+    // Usar setTimeout para el delay (más confiable que gsap delay)
+    const timeoutId = setTimeout(() => {
+      gsap.to(containerRef.current, {
+        opacity: 1,
+        y: 0,
+        duration,
+        ease: "power3.out",
+      });
 
-    return () => ctx.revert();
+      // Stagger por palabra
+      const wordEls = containerRef.current!.querySelectorAll(".emergent-word");
+      gsap.from(wordEls, {
+        y: 15,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        stagger: 0.12,
+      });
+    }, delay * 1000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [text, delay, duration]);
 
   return (
@@ -88,12 +75,8 @@ export function EmergentSilhouette({
         margin: 0,
         color: "#f5e6d3",
         textShadow:
-          "0 0 30px rgba(245,230,211,0.4), 0 0 60px rgba(212,165,116,0.3), 0 0 100px rgba(212,165,116,0.15)",
-        // Mask inicial (será animado por GSAP)
-        WebkitMaskImage:
-          "linear-gradient(to bottom, transparent 0%, transparent 100%)",
-        maskImage:
-          "linear-gradient(to bottom, transparent 0%, transparent 100%)",
+          "0 0 30px rgba(245,230,211,0.5), 0 0 60px rgba(212,165,116,0.4), 0 0 100px rgba(212,165,116,0.2)",
+        opacity: 0, // estado inicial antes de que GSAP tome control
       }}
     >
       {words.map((word, i) => (

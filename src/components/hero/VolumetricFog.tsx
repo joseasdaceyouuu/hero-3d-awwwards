@@ -125,20 +125,33 @@ const FRAGMENT_SHADER = `
 
     float t = uTime * 0.04;
 
-    // === 2 capas de niebla: 1 lenta + 1 viva ===
-    // Capa lenta (fondo, profundidad)
-    float fogSlow = fbm(vec3(uv * 2.0 + vec2(t * 0.3, t * 0.2), t * 0.5));
-    // Capa viva (frente, se mueve más rápido con variación)
-    float fogFast = fbm(vec3(uv * 4.0 + vec2(t * 1.5, t * 0.8), t * 1.2 + 5.0));
+    // === 4 capas de niebla con velocidades, escalas y direcciones distintas ===
+    // Cada capa se mueve de forma independiente para crear profundidad real
 
-    // Combinar: la capa viva tiene menos peso pero más movimiento
-    float fog = fogSlow * 0.7 + fogFast * 0.3;
+    // Capa 1: FONDO LEJANO — muy lenta, escala grande, se mueve a la derecha
+    vec2 uv1 = uv * 1.5 + vec2(t * 0.4, t * 0.15);
+    float fog1 = fbm(vec3(uv1, t * 0.3));
+
+    // Capa 2: FONDO MEDIO — lenta, escala media, se mueve a la izquierda
+    vec2 uv2 = uv * 2.5 + vec2(-t * 0.8, t * 0.3);
+    float fog2 = fbm(vec3(uv2, t * 0.5 + 10.0));
+
+    // Capa 3: FRENTE — velocidad media, escala chica, se mueve a la derecha rápido
+    vec2 uv3 = uv * 4.0 + vec2(t * 2.0, -t * 0.5);
+    float fog3 = fbm(vec3(uv3, t * 0.8 + 20.0));
+
+    // Capa 4: DETALLE — muy rápida, escala muy chica, movimiento turbulento
+    vec2 uv4 = uv * 7.0 + vec2(t * 3.5, t * 1.2);
+    float fog4 = fbm(vec3(uv4, t * 1.5 + 30.0));
+
+    // Combinar capas con pesos distintos
+    // Las capas lejanas (1,2) dominan el volumen; las cercanas (3,4) añaden detalle
+    float fog = fog1 * 0.35 + fog2 * 0.30 + fog3 * 0.20 + fog4 * 0.15;
     fog = fog * 0.5 + 0.5; // [-1,1] -> [0,1]
     fog = clamp(fog, 0.0, 1.0);
 
-    // Boost: hacer la capa viva más visible en zonas
-    float fastBoost = smoothstep(0.4, 0.9, fogFast * 0.5 + 0.5);
-    fog = mix(fog, fog * 1.2, fastBoost * 0.3);
+    // Acentuar contraste para que las capas se distingan
+    fog = smoothstep(0.15, 0.95, fog);
 
     // === Mouse aparta la niebla ===
     vec2 mousePos = uMouse * vec2(uResolution.x / uResolution.y, 1.0) * 0.5;
