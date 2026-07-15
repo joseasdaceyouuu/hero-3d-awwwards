@@ -139,20 +139,20 @@ const FRAGMENT_SHADER = `
     // === God rays ===
     float rays = godRays(uv, uTime);
 
-    // === Paleta cinematográfica ===
-    vec3 colorDeep = vec3(0.04, 0.03, 0.05);
-    vec3 colorFog = vec3(0.5, 0.35, 0.2);
-    vec3 colorAmber = vec3(0.95, 0.72, 0.45);
-    vec3 colorLight = vec3(1.0, 0.88, 0.65);
+    // === Paleta cinematográfica — boost para visibilidad ===
+    vec3 colorDeep = vec3(0.08, 0.06, 0.08);
+    vec3 colorFog = vec3(0.75, 0.55, 0.32);
+    vec3 colorAmber = vec3(1.0, 0.78, 0.5);
+    vec3 colorLight = vec3(1.0, 0.9, 0.7);
 
-    vec3 finalColor = mix(colorDeep, colorFog, fog * 0.9);
-    finalColor += colorLight * rays * 1.8;
-    float highlight = fog * rays * 2.5;
+    vec3 finalColor = mix(colorDeep, colorFog, fog * 1.0);
+    finalColor += colorLight * rays * 2.5;
+    float highlight = fog * rays * 3.0;
     finalColor += colorAmber * highlight;
 
     // Vignette suave
-    float vig = 1.0 - length(centered) * 0.4;
-    finalColor *= clamp(vig, 0.6, 1.0);
+    float vig = 1.0 - length(centered) * 0.35;
+    finalColor *= clamp(vig, 0.7, 1.0);
 
     // Film grain sutil
     float grain = snoise(vec3(uv * 800.0, uTime * 20.0)) * 0.02;

@@ -116,27 +116,32 @@ export default function Home() {
             id="hero"
             className="relative h-screen w-full overflow-hidden"
             aria-label="Volumetric Fog Hero"
+            style={{
+              // CSS fallback background — siempre visible incluso si WebGL falla
+              background:
+                "radial-gradient(ellipse at 30% 75%, rgba(212,165,116,0.35) 0%, rgba(80,50,30,0.15) 35%, rgba(5,5,10,1) 75%)",
+            }}
           >
             {/* Shader background */}
             {mounted && <VolumetricFog />}
 
             {/* Letterbox bars — CSS overlay (cinematográfico) */}
             <div
-              className="absolute top-0 left-0 right-0 z-20 pointer-events-none transition-all duration-700"
+              className="absolute top-0 left-0 right-0 pointer-events-none transition-transform duration-700"
               style={{
                 height: "8vh",
                 background: "#000",
-                transform: "translateY(0)",
+                zIndex: 30,
               }}
               aria-hidden
               id="letterbox-top"
             />
             <div
-              className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none transition-all duration-700"
+              className="absolute bottom-0 left-0 right-0 pointer-events-none transition-transform duration-700"
               style={{
                 height: "8vh",
                 background: "#000",
-                transform: "translateY(0)",
+                zIndex: 30,
               }}
               aria-hidden
               id="letterbox-bottom"
