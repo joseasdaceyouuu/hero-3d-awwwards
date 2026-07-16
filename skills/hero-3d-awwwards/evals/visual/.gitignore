@@ -1,0 +1,14 @@
+# Screenshots y reportes generados por los evals visuales
+# (se suben como artifacts en CI, no se commitean)
+screenshots/
+*.png
+!assets/**/*.png
+
+# Reports: ignorar individuales pero commitear consolidados VLM (referencia)
+reports/*.json
+reports/ci-report*.json
+reports/test-*.json
+reports/v0*.json
+reports/v1*.json
+!reports/vlm-consolidado.md
+!reports/vlm-consolidado.json

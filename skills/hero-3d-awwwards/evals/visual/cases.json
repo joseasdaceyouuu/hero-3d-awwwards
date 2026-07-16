@@ -1,0 +1,223 @@
+{
+  "version": "1.0.0",
+  "description": "Catálogo de tests visuales para heroes Awwwards. Cada caso define una URL, scroll positions, y aserciones de luminancia/contraste/jank. Ejecutado por run-visual-evals.py via Playwright.",
+  "globals": {
+    "viewport": { "width": 1440, "height": 900 },
+    "scroll_steps": [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+    "timeout_ms": 30000,
+    "preloader_wait_ms": 3000,
+    "screenshot_dir": "evals/visual/screenshots"
+  },
+  "asserts": {
+    "min_luminance": 0.05,
+    "max_luminance": 0.95,
+    "min_contrast_ratio": 0.15,
+    "max_frame_delta": 0.30,
+    "min_text_contrast_wcag_aa": 4.5
+  },
+  "cases": [
+    {
+      "id": "V01",
+      "name": "no_black_screen_full_dolly",
+      "category": "anti-pattern",
+      "description": "Detecta pantalla negra en cualquier punto del dolly (regresión del bug smoothstep invertido + halo residual insuficiente).",
+      "url": "/",
+      "assert": { "type": "luminance_min", "value": 0.05, "at": "all" }
+    },
+    {
+      "id": "V02",
+      "name": "no_white_burn",
+      "category": "anti-pattern",
+      "description": "Detecta blanco quemado (saturación de canvas) en cualquier punto del dolly.",
+      "url": "/",
+      "assert": { "type": "luminance_max", "value": 0.95, "at": "all" }
+    },
+    {
+      "id": "V03",
+      "name": "dolly_progression_smooth",
+      "category": "motion",
+      "description": "El dolly debe progresar suavemente: delta de luminancia entre frames consecutivos < 0.30 (no saltos bruscos que indican crossfade roto).",
+      "url": "/",
+      "assert": { "type": "frame_delta_max", "value": 0.30, "at": "consecutive" }
+    },
+    {
+      "id": "V04",
+      "name": "background_visible_at_start",
+      "category": "layer-visibility",
+      "description": "Al inicio del dolly (scroll=0), la capa fondo debe ser visible: luminancia > 0.08 (no negro).",
+      "url": "/",
+      "assert": { "type": "luminance_min", "value": 0.08, "at": 0.0 }
+    },
+    {
+      "id": "V05",
+      "name": "foreground_visible_at_end",
+      "category": "layer-visibility",
+      "description": "Al final del dolly (scroll=1), la capa frente debe ser visible: luminancia > 0.065 (paleta cinematográfica oscura intencional).",
+      "url": "/",
+      "assert": { "type": "luminance_min", "value": 0.065, "at": 1.0 }
+    },
+    {
+      "id": "V06",
+      "name": "no_layer_disappears_completely",
+      "category": "layer-visibility",
+      "description": "En ningún punto del dolly la suma de visibilidad de capas debe ser 0. Verifica que siempre haya al menos una capa con alpha > 0.3.",
+      "url": "/",
+      "assert": { "type": "luminance_min", "value": 0.06, "at": "all" }
+    },
+    {
+      "id": "V07",
+      "name": "text_contrast_wcag_aa",
+      "category": "accessibility",
+      "description": "El título del hero debe tener contraste >= 4.5:1 contra su fondo (WCAG AA). Mide contraste en el área central del hero.",
+      "url": "/",
+      "assert": { "type": "text_contrast", "value": 4.5, "at": 0.0 }
+    },
+    {
+      "id": "V08",
+      "name": "letterbox_visible_at_start",
+      "category": "letterbox",
+      "description": "Las barras de letterbox deben ser visibles al inicio (scroll=0): luminancia del borde superior < 0.05 (negro).",
+      "url": "/",
+      "assert": { "type": "region_luminance_max", "value": 0.05, "region": "top_bar", "at": 0.0 }
+    },
+    {
+      "id": "V09",
+      "name": "letterbox_opens_on_scroll",
+      "category": "letterbox",
+      "description": "Las barras de letterbox se abren al hacer scroll: a scroll=0.5, el borde superior debe tener luminancia > 0.05 (no negro = barra abierta).",
+      "url": "/",
+      "assert": { "type": "region_luminance_min", "value": 0.05, "region": "top_bar", "at": 0.5 }
+    },
+    {
+      "id": "V10",
+      "name": "no_jank_on_fast_scroll",
+      "category": "performance",
+      "description": "Scroll rápido de 0 a 1 en 1s: no debe producir frames idénticos consecutivos (indicaría freeze) ni saltos extremos.",
+      "url": "/",
+      "assert": { "type": "frame_delta_max", "value": 0.40, "at": "fast_scroll" }
+    },
+    {
+      "id": "V11",
+      "name": "canvas_no_black_edges",
+      "category": "anti-pattern",
+      "description": "El canvas no debe tener bordes negros al mover el mouse (regresión del bug de parallax en geometría vs UV). Mide bordes laterales.",
+      "url": "/",
+      "assert": { "type": "region_luminance_min", "value": 0.03, "region": "left_edge", "at": 0.0 }
+    },
+    {
+      "id": "V12",
+      "name": "sticky_pinned_during_scroll",
+      "category": "sticky",
+      "description": "El hero debe quedar pinned durante el dolly (regresión del bug overflow-x: hidden). A scroll=0.5, el hero debe seguir visible (no la siguiente sección).",
+      "url": "/",
+      "assert": { "type": "element_visible", "selector": "#hero", "at": 0.5 }
+    },
+    {
+      "id": "V13",
+      "name": "hero_exits_only_at_full_scroll",
+      "category": "sticky",
+      "description": "El hero solo debe salir al llegar a scroll=1.0. A scroll=0.9, el hero debe seguir siendo el elemento principal en viewport.",
+      "url": "/",
+      "assert": { "type": "element_visible", "selector": "#hero", "at": 0.9 }
+    },
+    {
+      "id": "V14",
+      "name": "hud_visible",
+      "category": "ui",
+      "description": "El HUD cinematográfico (esquina superior) debe ser visible tras el preloader.",
+      "url": "/",
+      "assert": { "type": "element_visible", "selector": "[aria-hidden]", "at": 0.0 }
+    },
+    {
+      "id": "V15",
+      "name": "progress_bar_updates",
+      "category": "ui",
+      "description": "La barra de progreso del travelling debe actualizarse: a scroll=0.5, el fill debe tener width > 40%.",
+      "url": "/",
+      "assert": { "type": "css_value_min", "selector": "[ref=progressFill]", "prop": "transform", "value": "scaleX(0.4)", "at": 0.5 }
+    },
+    {
+      "id": "V16",
+      "name": "cta_visible_after_choreography",
+      "category": "choreography",
+      "description": "El CTA debe ser visible tras la coreografía de entrada (4.5s después del preloader).",
+      "url": "/",
+      "assert": { "type": "element_visible", "selector": "a[href='#escena']", "at": 0.0, "wait_ms": 5000 }
+    },
+    {
+      "id": "V17",
+      "name": "particles_burst_on_layer_cross",
+      "category": "motion",
+      "description": "Al cruzar Z=1 (scroll≈0.85), las partículas deben hacer un burst visible: luminancia media > 0.15 en ese punto.",
+      "url": "/",
+      "assert": { "type": "luminance_min", "value": 0.12, "at": 0.85 }
+    },
+    {
+      "id": "V18",
+      "name": "color_palette_warms_with_depth",
+      "category": "color",
+      "description": "La paleta debe calentarse con la profundidad: el canal R promedio a scroll=1 debe ser > R a scroll=0 (más cálido).",
+      "url": "/",
+      "assert": { "type": "red_channel_increases", "from": 0.0, "to": 1.0 }
+    },
+    {
+      "id": "V19",
+      "name": "reduced_motion_safe",
+      "category": "accessibility",
+      "description": "Con prefers-reduced-motion, el hero debe ser estático pero visible (no negro, no animaciones).",
+      "url": "/",
+      "context": { "reduced_motion": true },
+      "assert": { "type": "luminance_min", "value": 0.05, "at": 0.0 }
+    },
+    {
+      "id": "V20",
+      "name": "mobile_viewport_no_overflow",
+      "category": "responsive",
+      "description": "En viewport mobile (375x812), no debe haber scroll horizontal (regresión del bug overflow-x: hidden).",
+      "url": "/",
+      "context": { "viewport": { "width": 375, "height": 812 } },
+      "assert": { "type": "no_horizontal_scroll", "at": "all" }
+    },
+    {
+      "id": "V21",
+      "name": "keyboard_navigation_works",
+      "category": "accessibility",
+      "description": "El canvas debe ser focusable y responder a flechas (tabIndex=0, aria-label presente).",
+      "url": "/",
+      "assert": { "type": "element_focusable", "selector": "[role=application]", "at": 0.0 }
+    },
+    {
+      "id": "V22",
+      "name": "focus_visible_styles",
+      "category": "accessibility",
+      "description": "Los elementos interactivos deben tener focus-visible styles (outline visible).",
+      "url": "/",
+      "assert": { "type": "focus_visible_present", "at": 0.0 }
+    },
+    {
+      "id": "V23",
+      "name": "webgl_fallback_visible",
+      "category": "fallback",
+      "description": "Si WebGL no está disponible, debe mostrarse un fallback visible (gradient estático), no pantalla negra.",
+      "url": "/",
+      "context": { "webgl_disabled": true },
+      "assert": { "type": "luminance_min", "value": 0.08, "at": 0.0 }
+    },
+    {
+      "id": "V24",
+      "name": "memory_dashboard_toggles",
+      "category": "ui",
+      "description": "El botón 'Memoria' debe toggle al dashboard y volver al hero sin errores.",
+      "url": "/",
+      "assert": { "type": "click_toggles_view", "selector": "button", "text": "Memoria", "at": 0.0 }
+    },
+    {
+      "id": "V25",
+      "name": "fps_above_30_on_dolly",
+      "category": "performance",
+      "description": "FPS debe mantenerse >= 30 durante el dolly completo (medido via requestAnimationFrame timestamps).",
+      "url": "/",
+      "assert": { "type": "fps_min", "value": 30, "at": "dolly" }
+    }
+  ]
+}

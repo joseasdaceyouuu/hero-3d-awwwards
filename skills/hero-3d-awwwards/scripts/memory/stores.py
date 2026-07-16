@@ -80,7 +80,8 @@ def _init_schema(conn: sqlite3.Connection, schema_path: Path | None = None) -> N
 class VectorIndex:
     """Thin wrapper around LanceDB for storing/querying embeddings.
 
-    Falls back to in-memory dict if LanceDB is not installed.
+    Falls back to JSON-file-backed dict if LanceDB is not installed.
+    The JSON fallback persists across sessions (file: <db_path>/<table>.json).
     """
 
     def __init__(self, db_path: str | Path, table_name: str, dimension: int):
@@ -89,6 +90,8 @@ class VectorIndex:
         self.dimension = dimension
         self._table = None
         self._fallback: dict[str, list[float]] = {}
+        self._fallback_meta: dict[str, dict] = {}
+        self._fallback_file: Path = Path(db_path) / f"{table_name}.json"
         self._init_table()
 
     def _init_table(self) -> None:
@@ -107,8 +110,31 @@ class VectorIndex:
                 ])
                 self._table = db.create_table(self.table_name, schema=schema)
         except ImportError:
-            # Fallback: in-memory
+            # Fallback: JSON-file-backed (persistent across sessions)
             self._table = None
+            Path(self.db_path).mkdir(parents=True, exist_ok=True)
+            if self._fallback_file.exists():
+                try:
+                    data = json.loads(self._fallback_file.read_text(encoding="utf-8"))
+                    self._fallback = data.get("vectors", {})
+                    self._fallback_meta = data.get("metadata", {})
+                except Exception:
+                    self._fallback = {}
+                    self._fallback_meta = {}
+
+    def _save_fallback(self) -> None:
+        """Persist fallback to JSON file."""
+        if self._table is None:
+            try:
+                self._fallback_file.write_text(
+                    json.dumps({
+                        "vectors": self._fallback,
+                        "metadata": self._fallback_meta,
+                    }),
+                    encoding="utf-8",
+                )
+            except Exception:
+                pass
 
     def add(self, id: str, vector: list[float], metadata: dict | None = None) -> None:
         if self._table is not None:
@@ -121,6 +147,8 @@ class VectorIndex:
             self._table.add(data)
         else:
             self._fallback[id] = vector
+            self._fallback_meta[id] = metadata or {}
+            self._save_fallback()
 
     def search(
         self,
@@ -145,12 +173,13 @@ class VectorIndex:
                 out.append((r["id"], sim, metadata))
             return out
         else:
-            # Fallback: brute-force cosine similarity
+            # Fallback: brute-force cosine similarity (persistent via JSON)
             scored = []
             for id, vec in self._fallback.items():
                 sim = cosine_sim(query_vector, vec)
                 sim = max(0.0, min(1.0, (sim + 1.0) / 2.0))
-                scored.append((id, sim, {}))
+                meta = self._fallback_meta.get(id, {})
+                scored.append((id, sim, meta))
             scored.sort(key=lambda x: -x[1])
             return scored[:top_k]
 

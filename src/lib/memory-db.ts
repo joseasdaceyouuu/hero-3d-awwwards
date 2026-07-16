@@ -1,10 +1,23 @@
-import Database from "better-sqlite3";
 import path from "path";
+import fs from "fs";
 
-const DB_PATH = path.join(process.cwd(), "memory-data", "memory.db");
+// Path correcto: la DB está en skills/hero-3d-awwwards/data/memory.db
+const DB_PATH = path.join(
+  process.cwd(),
+  "skills",
+  "hero-3d-awwwards",
+  "data",
+  "memory.db"
+);
 
-export function getDb(): Database.Database {
-  return new Database(DB_PATH, { readonly: true, fileMustExist: false });
+// Lazy import de bun:sqlite (solo runtime, no build time)
+async function getDbAsync(): Promise<any> {
+  if (!fs.existsSync(DB_PATH)) {
+    throw new Error(`Memory DB not found at ${DB_PATH}`);
+  }
+  const sqlite = await import("bun:sqlite");
+  const Database = sqlite.Database ?? sqlite.default?.Database;
+  return new Database(DB_PATH, { readonly: true });
 }
 
 export interface Episode {
@@ -63,24 +76,38 @@ export interface Stats {
   top_category: string | null;
 }
 
-export function getStats(): Stats {
-  const db = getDb();
+export async function getStats(): Promise<Stats> {
+  const db = await getDbAsync();
   try {
-    const episodes = (db.prepare("SELECT COUNT(*) as n FROM episodes").get() as { n: number }).n;
-    const patterns = (db.prepare("SELECT COUNT(*) as n FROM semantic_notes").get() as { n: number }).n;
-    const skills = (db.prepare("SELECT COUNT(*) as n FROM skills").get() as { n: number }).n;
-    const anti_patterns = (db.prepare("SELECT COUNT(*) as n FROM anti_patterns").get() as { n: number }).n;
+    const episodes = (
+      db.query("SELECT COUNT(*) as n FROM episodes").get() as { n: number }
+    ).n;
+    const patterns = (
+      db.query("SELECT COUNT(*) as n FROM semantic_notes").get() as { n: number }
+    ).n;
+    const skills = (
+      db.query("SELECT COUNT(*) as n FROM skills").get() as { n: number }
+    ).n;
+    const anti_patterns = (
+      db.query("SELECT COUNT(*) as n FROM anti_patterns").get() as { n: number }
+    ).n;
 
-    const avgRow = db.prepare("SELECT AVG(final_score) as avg FROM episodes").get() as { avg: number | null };
+    const avgRow = db.query("SELECT AVG(final_score) as avg FROM episodes").get() as {
+      avg: number | null;
+    };
     const avg_score = avgRow.avg;
 
-    const topVert = db.prepare(
-      "SELECT vertical, COUNT(*) as n FROM episodes WHERE vertical != '' GROUP BY vertical ORDER BY n DESC LIMIT 1"
-    ).get() as { vertical: string } | undefined;
+    const topVert = db
+      .query(
+        "SELECT vertical, COUNT(*) as n FROM episodes WHERE vertical != '' GROUP BY vertical ORDER BY n DESC LIMIT 1"
+      )
+      .get() as { vertical: string } | undefined;
 
-    const topCat = db.prepare(
-      "SELECT category, COUNT(*) as n FROM semantic_notes WHERE category != '' GROUP BY category ORDER BY n DESC LIMIT 1"
-    ).get() as { category: string } | undefined;
+    const topCat = db
+      .query(
+        "SELECT category, COUNT(*) as n FROM semantic_notes WHERE category != '' GROUP BY category ORDER BY n DESC LIMIT 1"
+      )
+      .get() as { category: string } | undefined;
 
     return {
       episodes,
@@ -96,25 +123,27 @@ export function getStats(): Stats {
   }
 }
 
-export function getEpisodes(): Episode[] {
-  const db = getDb();
+export async function getEpisodes(): Promise<Episode[]> {
+  const db = await getDbAsync();
   try {
-    return db.prepare(
-      `SELECT id, timestamp, brief, brief_summary, vertical, archetype, stack,
-              final_score, final_subjective_score, outcome, user_feedback
-       FROM episodes ORDER BY timestamp DESC`
-    ).all() as Episode[];
+    return db
+      .query(
+        `SELECT id, timestamp, brief, brief_summary, vertical, archetype, stack,
+                final_score, final_subjective_score, outcome, user_feedback
+         FROM episodes ORDER BY timestamp DESC`
+      )
+      .all() as Episode[];
   } finally {
     db.close();
   }
 }
 
-export function getPatterns(filter?: {
+export async function getPatterns(filter?: {
   category?: string;
   vertical?: string;
   minImportance?: number;
-}): SemanticNote[] {
-  const db = getDb();
+}): Promise<SemanticNote[]> {
+  const db = await getDbAsync();
   try {
     let query = `SELECT id, content, vertical, category, importance, created_at, last_accessed, access_count
                  FROM semantic_notes WHERE 1=1`;
@@ -132,31 +161,36 @@ export function getPatterns(filter?: {
       params.push(filter.minImportance);
     }
     query += ` ORDER BY importance DESC, last_accessed DESC`;
-    return db.prepare(query).all(...params) as SemanticNote[];
+    const stmt = db.prepare(query);
+    return stmt.all(...params) as SemanticNote[];
   } finally {
     db.close();
   }
 }
 
-export function getAntiPatterns(): AntiPattern[] {
-  const db = getDb();
+export async function getAntiPatterns(): Promise<AntiPattern[]> {
+  const db = await getDbAsync();
   try {
-    return db.prepare(
-      `SELECT id, description, failure_mode, occurrence_count, created_at, last_seen, status
-       FROM anti_patterns WHERE status = 'active' ORDER BY occurrence_count DESC, last_seen DESC`
-    ).all() as AntiPattern[];
+    return db
+      .query(
+        `SELECT id, description, failure_mode, occurrence_count, created_at, last_seen, status
+         FROM anti_patterns WHERE status = 'active' ORDER BY occurrence_count DESC, last_seen DESC`
+      )
+      .all() as AntiPattern[];
   } finally {
     db.close();
   }
 }
 
-export function getSkills(): Skill[] {
-  const db = getDb();
+export async function getSkills(): Promise<Skill[]> {
+  const db = await getDbAsync();
   try {
-    return db.prepare(
-      `SELECT id, description, success_count, fail_count, last_used, valid_verticals, status, created_at
-       FROM skills WHERE status = 'active' ORDER BY success_count DESC, created_at DESC`
-    ).all() as Skill[];
+    return db
+      .query(
+        `SELECT id, description, success_count, fail_count, last_used, valid_verticals, status, created_at
+         FROM skills WHERE status = 'active' ORDER BY success_count DESC, created_at DESC`
+      )
+      .all() as Skill[];
   } finally {
     db.close();
   }

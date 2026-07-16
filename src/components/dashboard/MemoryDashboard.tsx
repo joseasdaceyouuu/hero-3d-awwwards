@@ -42,7 +42,7 @@ interface Pattern {
   category: string | null;
   importance: number;
   created_at: string;
-  last_accessed: string;
+  last_accedido: string;
   access_count: number;
 }
 
@@ -178,7 +178,7 @@ export function MemoryDashboard() {
         <div className="text-center">
           <div className="inline-block w-8 h-8 border-2 border-[#00d4ff] border-t-transparent rounded-full animate-spin mb-4" />
           <p className="text-sm uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.5)" }}>
-            Loading memory...
+            Cargando memoria...
           </p>
         </div>
       </div>
@@ -203,7 +203,7 @@ export function MemoryDashboard() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-                Memory Dashboard
+                Panel de Memoria
               </h1>
               <p className="text-xs uppercase tracking-widest mt-1" style={{ color: "#00d4ff" }}>
                 hero-3d-awwwards · skill v5
@@ -213,17 +213,17 @@ export function MemoryDashboard() {
               onClick={fetchAll}
               className="text-xs uppercase tracking-widest border border-white/10 px-4 py-2 hover:border-[#00d4ff] hover:text-[#00d4ff] transition-colors"
             >
-              ↻ Refresh
+              ↻ Actualizar
             </button>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <StatCard label="Episodes" value={stats?.episodes ?? 0} accent="#00d4ff" />
-            <StatCard label="Patterns" value={stats?.patterns ?? 0} accent="#b026ff" />
-            <StatCard label="Skills" value={stats?.skills ?? 0} accent="#00ff88" />
-            <StatCard label="Anti-patterns" value={stats?.anti_patterns ?? 0} accent="#ff0040" />
+            <StatCard label="Episodios" value={stats?.episodes ?? 0} accent="#00d4ff" />
+            <StatCard label="Patrones" value={stats?.patterns ?? 0} accent="#b026ff" />
+            <StatCard label="Habilidades" value={stats?.skills ?? 0} accent="#00ff88" />
+            <StatCard label="Anti-patrones" value={stats?.anti_patterns ?? 0} accent="#ff0040" />
             <StatCard
-              label="Avg Score"
+              label="Promedio"
               value={stats?.avg_score ? stats.avg_score.toFixed(1) : "—"}
               accent="#ffaa00"
             />
@@ -233,13 +233,13 @@ export function MemoryDashboard() {
             <div className="mt-4 flex flex-wrap gap-4 text-xs">
               {stats.top_vertical && (
                 <span style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Top vertical:{" "}
+                  Vertical principal:{" "}
                   <span style={{ color: "#00d4ff" }}>{stats.top_vertical}</span>
                 </span>
               )}
               {stats.top_category && (
                 <span style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Top category:{" "}
+                  Categoría principal:{" "}
                   <span style={{ color: "#b026ff" }}>{stats.top_category}</span>
                 </span>
               )}
@@ -251,11 +251,11 @@ export function MemoryDashboard() {
       <nav className="border-b border-white/5 sticky top-0 z-10" style={{ background: "rgba(3,0,20,0.95)", backdropFilter: "blur(10px)" }}>
         <div className="max-w-7xl mx-auto flex gap-1 px-6 md:px-8 overflow-x-auto">
           {[
-            { id: "patterns", label: `Patterns (${patterns.length})` },
-            { id: "episodes", label: `Episodes (${episodes.length})` },
-            { id: "anti", label: `Anti-patterns (${antiPatterns.length})` },
-            { id: "skills", label: `Skills (${skills.length})` },
-            { id: "simulator", label: "Retrieval Simulator" },
+            { id: "patterns", label: `Patrones (${patterns.length})` },
+            { id: "episodes", label: `Episodios (${episodes.length})` },
+            { id: "anti", label: `Anti-patrones (${antiPatterns.length})` },
+            { id: "skills", label: `Habilidades (${skills.length})` },
+            { id: "simulator", label: "Simulador de Recuperación" },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -278,7 +278,7 @@ export function MemoryDashboard() {
             <div className="flex flex-wrap gap-4 mb-8 items-center">
               <div className="flex items-center gap-2">
                 <label className="text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Category:
+                  Categoría:
                 </label>
                 <select
                   value={filterCategory}
@@ -294,7 +294,7 @@ export function MemoryDashboard() {
               </div>
               <div className="flex items-center gap-2">
                 <label className="text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Min importance:
+                  Importancia mínima:
                 </label>
                 <select
                   value={filterMinImportance}
@@ -310,12 +310,12 @@ export function MemoryDashboard() {
                 </select>
               </div>
               <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-                Showing {filteredPatterns.length} of {patterns.length}
+                Mostrando {filteredPatterns.length} of {patterns.length}
               </span>
             </div>
 
             {filteredPatterns.length === 0 ? (
-              <EmptyState message="No patterns match these filters" />
+              <EmptyState message="No hay patrones que coincidan con estos filtros" />
             ) : (
               <div className="grid gap-4 md:grid-cols-2">
                 {filteredPatterns.map((p) => (
@@ -329,7 +329,7 @@ export function MemoryDashboard() {
         {activeTab === "episodes" && (
           <div>
             {episodes.length === 0 ? (
-              <EmptyState message="No episodes yet. Run the agent loop to create one." />
+              <EmptyState message="No hay episodios aún. Ejecuta el agent loop para crear uno." />
             ) : (
               <div className="space-y-4">
                 {episodes.map((ep) => (
@@ -343,7 +343,7 @@ export function MemoryDashboard() {
         {activeTab === "anti" && (
           <div>
             {antiPatterns.length === 0 ? (
-              <EmptyState message="No anti-patterns yet." />
+              <EmptyState message="No hay anti-patrones aún." />
             ) : (
               <div className="grid gap-4 md:grid-cols-2">
                 {antiPatterns.map((ap) => (
@@ -357,7 +357,7 @@ export function MemoryDashboard() {
         {activeTab === "skills" && (
           <div>
             {skills.length === 0 ? (
-              <EmptyState message="No skills yet. Skills are promoted from recurring patterns during weekly consolidation." />
+              <EmptyState message="No hay habilidades aún. Se promueven desde patrones recurrentes durante la consolidación semanal." />
             ) : (
               <div className="grid gap-4 md:grid-cols-2">
                 {skills.map((s) => (
@@ -371,17 +371,17 @@ export function MemoryDashboard() {
         {activeTab === "simulator" && (
           <div className="max-w-3xl">
             <div className="mb-8">
-              <h2 className="text-xl font-bold mb-2">Retrieval Simulator</h2>
+              <h2 className="text-xl font-bold mb-2">Simulador de Recuperación</h2>
               <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-                Enter a brief to see what patterns, skills, and anti-patterns the system would retrieve for a new session.
-                This is exactly what the Creator agent would see in its prompt.
+                Ingresa un brief para ver what patterns, skills, and anti-patterns the system would retrieve for a new session.
+                Esto es exactamente lo que el agente Creator vería en su prompt.
               </p>
             </div>
 
             <div className="space-y-4 mb-8 p-6 border border-white/10" style={{ background: "rgba(255,255,255,0.02)" }}>
               <div>
                 <label className="block text-xs uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Brief (user request)
+                  Brief (petición del usuario)
                 </label>
                 <textarea
                   value={simBrief}
@@ -394,7 +394,7 @@ export function MemoryDashboard() {
               </div>
               <div>
                 <label className="block text-xs uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Vertical (optional)
+                  Vertical (opcional)
                 </label>
                 <select
                   value={simVertical}
@@ -402,7 +402,7 @@ export function MemoryDashboard() {
                   className="bg-transparent border border-white/10 px-3 py-2 text-sm"
                   style={{ color: "#fff" }}
                 >
-                  <option value="" style={{ background: "#030014" }}>(auto-detect)</option>
+                  <option value="" style={{ background: "#030014" }}>(auto-detectar)</option>
                   <option value="agency" style={{ background: "#030014" }}>agency</option>
                   <option value="saas" style={{ background: "#030014" }}>saas</option>
                   <option value="portfolio" style={{ background: "#030014" }}>portfolio</option>
@@ -414,7 +414,7 @@ export function MemoryDashboard() {
                 disabled={simLoading || !simBrief}
                 className="px-6 py-2 text-xs uppercase tracking-widest border border-[#00d4ff] text-[#00d4ff] hover:bg-[#00d4ff] hover:text-[#030014] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
-                {simLoading ? "Retrieving..." : "Run Retrieval"}
+                {simLoading ? "Recuperando..." : "Ejecutar Recuperación"}
               </button>
             </div>
 
@@ -427,7 +427,7 @@ export function MemoryDashboard() {
             {simResult && (
               <div className="space-y-6">
                 <div className="text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Retrieved for: <span style={{ color: "#00d4ff" }}>"{simResult.brief.slice(0, 60)}..."</span>
+                  Recuperado para: <span style={{ color: "#00d4ff" }}>"{simResult.brief.slice(0, 60)}..."</span>
                 </div>
 
                 {simResult.patterns.length > 0 && (
@@ -510,7 +510,7 @@ export function MemoryDashboard() {
                 {simResult.patterns.length === 0 &&
                   simResult.anti_patterns.length === 0 &&
                   simResult.skills.length === 0 && (
-                    <EmptyState message="No matches found for this brief." />
+                    <EmptyState message="No se encontraron coincidencias para este brief." />
                   )}
               </div>
             )}
@@ -560,7 +560,7 @@ function PatternCard({ pattern }: { pattern: Pattern }) {
           )}
         </div>
         <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-          accessed {pattern.access_count}x
+          accedido {pattern.access_count}x
         </span>
       </div>
       <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
@@ -644,7 +644,7 @@ function AntiPatternCard({ antiPattern }: { antiPattern: AntiPattern }) {
         {antiPattern.description}
       </p>
       <div className="mt-3 text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-        last seen: {new Date(antiPattern.last_seen).toLocaleString()}
+        última vez: {new Date(antiPattern.last_seen).toLocaleString()}
       </div>
     </div>
   );

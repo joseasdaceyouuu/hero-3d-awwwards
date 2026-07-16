@@ -1,0 +1,367 @@
+{
+  "version": "1.0.0",
+  "description": "Biblioteca de habilidades ejecutables para heroes Awwwards",
+  "skills": [
+    {
+      "id": "shader-noise",
+      "type": "shader",
+      "file": "library/shaders/noise.glsl",
+      "description": "Simplex 2D/3D noise + fBm + curl noise. Base para todos los shaders.",
+      "includes": ["snoise2D", "snoise3D", "fbm", "curlNoise"],
+      "performance": "mobile-safe",
+      "awwwards_frequency": "universal"
+    },
+    {
+      "id": "shader-fresnel-iridescence",
+      "type": "shader",
+      "file": "library/shaders/fresnel.glsl",
+      "description": "Fresnel + thin-film interference para cristal, pompa de jabón, metal pulido",
+      "includes": ["fresnel", "fresnelSimple", "thinFilmIridescence", "chromaticAberration"],
+      "depends_on": ["shader-noise"],
+      "performance": "mobile-safe",
+      "awwwards_frequency": "high",
+      "best_for": ["cristal", "metal", "líquidos", "iridiscencia"]
+    },
+    {
+      "id": "shader-caustics",
+      "type": "shader",
+      "file": "library/shaders/caustics.glsl",
+      "description": "Causticas submarinas + god rays + underwater fog + water distortion",
+      "includes": ["caustics", "causticsBeveled", "godRays", "underwaterFog", "waterDistortion"],
+      "depends_on": ["shader-noise"],
+      "performance": "mobile-safe",
+      "awwwards_frequency": "medium",
+      "best_for": ["submarino", "agua", "profundidad", "luz volumétrica"]
+    },
+    {
+      "id": "shader-postprocessing",
+      "type": "shader",
+      "file": "library/shaders/postprocessing.glsl",
+      "description": "Bloom + chromatic aberration + ACES + grain + vignette en un solo pass",
+      "includes": ["acesTonemap", "bloom", "chromaticAberration", "filmGrain", "vignette", "applyCinematicPostFX"],
+      "depends_on": [],
+      "performance": "mobile-safe",
+      "awwwards_frequency": "high",
+      "presets": {
+        "cinematic-dark": { "bloomStrength": 0.8, "caAmount": 0.0015, "grainAmount": 0.03 },
+        "editorial-light": { "bloomStrength": 0.3, "caAmount": 0.0005, "grainAmount": 0.015 },
+        "tech-sharp": { "bloomStrength": 0.5, "caAmount": 0.0008, "grainAmount": 0.008 },
+        "acid-trip": { "bloomStrength": 1.2, "caAmount": 0.003, "grainAmount": 0.04 }
+      }
+    },
+    {
+      "id": "component-shader-background",
+      "type": "component",
+      "file": "library/components/ShaderBackground.tsx",
+      "description": "Background WebGL configurable con shader custom + mouse interaction + pause-offscreen + keyboard nav",
+      "props": {
+        "vertexShader": "string (required)",
+        "fragmentShader": "string (required)",
+        "speed": "number (default 0.3)",
+        "mouseInteraction": "'ripple' | 'parallax' | 'push' | 'none'",
+        "geometry": "'plane' | 'sphere'",
+        "subdivisions": "number (default 64)"
+      },
+      "compliance": ["C5", "C7", "C12", "PERF-1", "A11Y-3"],
+      "performance": "mobile-safe"
+    },
+    {
+      "id": "component-split-text",
+      "type": "component",
+      "file": "library/components/SplitText.tsx",
+      "description": "Texto con stagger por palabra. 4 variantes: word-reveal, color-fill, blur-materialize, typewriter",
+      "props": {
+        "text": "string (required)",
+        "variant": "'word-reveal' | 'color-fill' | 'blur-materialize' | 'typewriter'",
+        "delay": "number (default 0.8)",
+        "duration": "number (default 1.8)",
+        "stagger": "number (default 0.08)",
+        "ease": "string (default 'power4.out')"
+      },
+      "compliance": ["C11", "C15", "C16"],
+      "performance": "free"
+    },
+    {
+      "id": "component-magnetic-button",
+      "type": "component",
+      "file": "library/components/MagneticButton.tsx",
+      "description": "Botón magnético que se atrae al cursor usando gsap.quickTo() + hover glow + scale",
+      "props": {
+        "strength": "number (default 0.4)",
+        "radius": "number (default 100)",
+        "scale": "number (default 1.05)",
+        "glowColor": "string",
+        "href": "string (optional)",
+        "onClick": "function (optional)"
+      },
+      "compliance": ["C18", "DINAMISMO-6"],
+      "performance": "free"
+    },
+    {
+      "id": "component-blend-cursor",
+      "type": "component",
+      "file": "library/components/BlendCursor.tsx",
+      "description": "Cursor custom con mix-blend-mode: difference. Crece al hover. Desktop only.",
+      "props": {
+        "color": "string (default #ffffff)",
+        "size": "number (default 24)",
+        "hoverSize": "number (default 48)",
+        "lerp": "number (default 0.15)"
+      },
+      "compliance": ["C13"],
+      "performance": "free"
+    },
+    {
+      "id": "component-letter-reveal",
+      "type": "component",
+      "file": "library/components/LetterReveal.tsx",
+      "description": "Título con entrada letra por letra. 3 variantes: reveal (rotateX), blur, scale. Patrón 1.4f.",
+      "props": {
+        "text": "string (required)",
+        "variant": "'reveal' | 'blur' | 'scale' (default 'reveal')",
+        "baseDelay": "number segundos (default 0.8)",
+        "stagger": "number segundos por letra (default 0.08)",
+        "duration": "number segundos por letra (default 1.0)",
+        "as": "ElementType (default 'h1')"
+      },
+      "compliance": ["C11", "C15"],
+      "performance": "free",
+      "awwwards_frequency": "high",
+      "best_for": ["editorial", "tipográfico", "minimalista", "lujo"]
+    },
+    {
+      "id": "component-golden-dust",
+      "type": "component",
+      "file": "library/components/GoldenDust.tsx",
+      "description": "Partículas doradas que aparecen al click. Micro-reward con expand radial. Patrón 1.4g.",
+      "props": {
+        "color": "string CSS color (default '#C9A84C')",
+        "count": "number partículas por click (default 12)",
+        "minVelocity": "number px (default 80)",
+        "maxVelocity": "number px (default 200)",
+        "duration": "number ms (default 800)",
+        "enabled": "boolean (default true)"
+      },
+      "compliance": ["DINAMISMO-6"],
+      "performance": "free",
+      "awwwards_frequency": "medium",
+      "best_for": ["delight", "premium", "refuerzo positivo"]
+    },
+    {
+      "id": "component-mouse-glow",
+      "type": "component",
+      "file": "library/components/MouseGlow.tsx",
+      "description": "Glow suave que sigue al cursor con mix-blend-mode: screen. Patrón 1.4h.",
+      "props": {
+        "color": "string CSS color (default '#C9A84C')",
+        "size": "number px (default 400)",
+        "intensity": "number 0..1 (default 0.04)",
+        "lerp": "number 0..1 (default 0.15)",
+        "enabled": "boolean (default true)"
+      },
+      "compliance": ["C13"],
+      "performance": "free",
+      "awwwards_frequency": "medium",
+      "best_for": ["luz ambiental", "premium", "sin cursor custom"]
+    },
+    {
+      "id": "component-connected-particles",
+      "type": "component",
+      "file": "library/components/ConnectedParticles.tsx",
+      "description": "Partículas Canvas 2D con conexiones tipo constelación. 150 partículas, O(n²). Patrón 1.4i.",
+      "props": {
+        "count": "number (default 150, máx 200)",
+        "color": "string CSS color (default '#C9A84C')",
+        "connectionDistance": "number px (default 100)",
+        "connectionOpacity": "number 0..1 (default 0.08)",
+        "particleSize": "number px (default 2)",
+        "speed": "number 0..1 (default 0.3)",
+        "mouseInteraction": "boolean (default true)",
+        "mouseRadius": "number px (default 150)",
+        "driftUp": "boolean (default true)"
+      },
+      "compliance": ["C5", "C7", "DINAMISMO-5"],
+      "performance": "mobile-safe (n<=150)",
+      "awwwards_frequency": "medium",
+      "best_for": ["red viva", "constelación", "polvo", "estrellas", "conexiones"]
+    },
+    {
+      "id": "component-text-to-particles",
+      "type": "component",
+      "file": "library/components/TextToParticles.tsx",
+      "description": "Texto formado por partículas que se dispersan al acercar cursor. Canvas temporal + getImageData + sampling.",
+      "props": {
+        "text": "string (required)",
+        "colors": "string[] (default ['#00f3ff','#ff0055','#aaff00','#ffaa00'])",
+        "repelRadius": "number px (default 80)",
+        "repelForce": "number (default 4)",
+        "attractForce": "number (default 0.04)",
+        "friction": "number (default 0.88)",
+        "sampleStep": "number (default 4)"
+      },
+      "compliance": ["C5", "C7", "DINAMISMO-5"],
+      "performance": "mobile-safe (n<=2000 particles)",
+      "awwwards_frequency": "high",
+      "best_for": ["text-to-particles", "dispersión", "wow-factor", "agency", "portfolio"]
+    },
+    {
+      "id": "component-magnetic-element",
+      "type": "component",
+      "file": "library/components/MagneticElement.tsx",
+      "description": "Elemento UI atraído magnéticamente al cursor con transform translate proporcional. NO es hover scale.",
+      "props": {
+        "strength": "number 0..1 (default 0.3)",
+        "transition": "string (default 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)')"
+      },
+      "compliance": ["DINAMISMO-6"],
+      "performance": "free",
+      "awwwards_frequency": "high",
+      "best_for": ["magnético", "atracción", "título", "CTA", "stats", "premium"]
+    },
+    {
+      "id": "component-split-screen",
+      "type": "component",
+      "file": "library/components/SplitScreen.tsx",
+      "description": "Pantalla dividida que sigue al cursor con clipPath polygon. Dos lados con contenido y bg custom.",
+      "props": {
+        "leftContent": "ReactNode",
+        "rightContent": "ReactNode",
+        "leftBg": "string CSS (default '#02030a')",
+        "rightBg": "string CSS (default '#f5f5f0')",
+        "dividerColor": "string (default '#ff0055')"
+      },
+      "compliance": ["C5", "DINAMISMO-5"],
+      "performance": "free",
+      "awwwards_frequency": "medium",
+      "best_for": ["split-screen", "contraste", "dual", "comparación", "antes/después"]
+    }
+  ],
+  "tier2_skills": [
+    {
+      "id": "component-scroll-camera",
+      "type": "component",
+      "file": "library/components/ScrollCamera.tsx",
+      "description": "Cámara 3D scroll-driven con quaternions. 3 modos: dolly, orbit, rise.",
+      "props": {
+        "mode": "'dolly' | 'orbit' | 'rise'",
+        "startZ": "number (default 5)",
+        "endZ": "number (default 1)",
+        "startAngle": "number grados (default -15)",
+        "endAngle": "number grados (default 15)",
+        "lerp": "number (default 0.1)"
+      },
+      "compliance": ["DINAMISMO-5"],
+      "performance": "free",
+      "awwwards_frequency": "high"
+    },
+    {
+      "id": "component-preloader",
+      "type": "component",
+      "file": "library/components/Preloader.tsx",
+      "description": "Pantalla de carga que transiciona al hero. 3 variantes: progress, percentage, morph.",
+      "props": {
+        "variant": "'progress' | 'percentage' | 'morph'",
+        "duration": "number ms (default 2000)",
+        "brandText": "string (default 'CARGANDO')",
+        "heroTitle": "string (para variant morph)",
+        "accentColor": "string"
+      },
+      "compliance": ["C14"],
+      "performance": "free"
+    },
+    {
+      "id": "shader-fluid-simulation",
+      "type": "shader",
+      "file": "library/shaders/fluid.glsl",
+      "description": "Navier-Stokes simplificado (curl noise approximation). Advection + vorticity + dye injection. Una sola pasada.",
+      "includes": ["fluidVelocity", "fluidColor", "dyeInjection", "vorticity", "advect"],
+      "depends_on": ["shader-noise"],
+      "performance": "mobile-safe (simplified version)",
+      "awwwards_frequency": "high",
+      "best_for": ["humo", "líquidos", "fuego abstracto", "aurora"]
+    },
+    {
+      "id": "shader-raymarching-sdf",
+      "type": "shader",
+      "file": "library/shaders/raymarch.glsl",
+      "description": "SDF ray-marching con soft shadows (IQ trick), ambient occlusion, domain repetition, twist deformation.",
+      "includes": ["sdSphere", "sdBox", "sdTorus", "opSmoothUnion", "opRep", "opTwist", "raymarch", "softShadow", "calcNormal", "calcAO", "shade"],
+      "depends_on": [],
+      "performance": "desktop-60fps (64 rayos), mobile-fallback-needed",
+      "awwwards_frequency": "medium",
+      "best_for": ["abstracto 3D", "geometría infinita", "paisajes procedurales"]
+    },
+    {
+      "id": "shader-curl-noise-particles",
+      "type": "shader",
+      "file": "library/shaders/particles.glsl",
+      "description": "Sistema de partículas GPGPU con curl noise. 100K+ partículas a 60fps. Incluye versión simplificada (vertex shader, 10K partículas).",
+      "includes": ["updateParticlePosition", "updateParticleVelocity", "particleColor"],
+      "depends_on": ["shader-noise"],
+      "performance": "mobile-safe (simplified), desktop-gpu (full GPGPU)",
+      "awwwards_frequency": "high",
+      "best_for": ["polvo", "estrellas", "chispas", "plancton", "nieve"]
+    }
+  ],
+  "pending_skills": [
+    { "id": "shader-volumetric-godrays", "tier": 3, "description": "God rays volumétricos reales (ray-marching en medio participante)", "status": "DONE" },
+    { "id": "component-text-3d-cinematic", "tier": 3, "description": "Tipografía 3D con troika + shader distortion", "status": "DONE" },
+    { "id": "shader-liquid-metal", "tier": 3, "description": "Metal líquido con environment mapping real", "status": "DONE" },
+    { "id": "shader-aurora-borealis", "tier": 3, "description": "Aurora boreal con campos magnéticos simulados", "status": "DONE" }
+  ],
+  "tier3_skills": [
+    {
+      "id": "shader-volumetric-godrays",
+      "type": "shader",
+      "file": "library/shaders/godrays_volumetric.glsl",
+      "description": "God rays volumétricos reales via ray-marching en medio participante. Incluye light shafts y volumetric fog.",
+      "includes": ["volumetricGodRays", "volumetricGodRaysColored", "volumetricFog", "lightShafts"],
+      "depends_on": ["shader-noise"],
+      "performance": "desktop-60fps (32 samples), mobile-fallback (8-16 samples)",
+      "awwwards_frequency": "medium",
+      "best_for": ["niebla", "luz volumétrica", "atardecer", "bosque", "catedral"]
+    },
+    {
+      "id": "shader-liquid-metal",
+      "type": "shader",
+      "file": "library/shaders/liquid_metal.glsl",
+      "description": "Metal líquido (cromo/oro/mercurio/obsidiana) con reflexión + distortion + specular + iridiscencia. 4 presets.",
+      "includes": ["liquidMetal", "liquidChrome", "liquidGold", "liquidMercury", "liquidObsidian"],
+      "depends_on": ["shader-noise"],
+      "performance": "mobile-safe",
+      "awwwards_frequency": "high",
+      "best_for": ["metal", "cromo", "mercurio", "oro", "obsidiana", "Apple-style", "Nike-style"]
+    },
+    {
+      "id": "shader-aurora-borealis",
+      "type": "shader",
+      "file": "library/shaders/aurora.glsl",
+      "description": "Aurora boreal procedural con 3 cortinas de luz, estrellas, reflejo en agua y viento solar.",
+      "includes": ["auroraCurtain", "aurora", "stars", "auroraWithReflection"],
+      "depends_on": ["shader-noise"],
+      "performance": "mobile-safe",
+      "awwwards_frequency": "medium",
+      "best_for": ["aurora", "norte", "cielo", "estrellas", "oceano", "Islandia"]
+    },
+    {
+      "id": "component-text-3d-cinematic",
+      "type": "component",
+      "file": "library/components/Text3DCinematic.tsx",
+      "description": "Tipografía 3D con troika SDF + 4 variantes de entrada (depth, scale, blur, typewriter) + mouse parallax.",
+      "props": {
+        "text": "string (required)",
+        "variant": "'depth' | 'scale' | 'blur' | 'typewriter'",
+        "delay": "number (default 1.0)",
+        "duration": "number (default 2.0)",
+        "stagger": "number (default 0.1)",
+        "fontSize": "number (default 1.2)",
+        "color": "string (default #ffffff)",
+        "emissive": "string",
+        "emissiveIntensity": "number"
+      },
+      "compliance": ["C11", "C16"],
+      "performance": "mobile-safe (SDF rendering)",
+      "awwwards_frequency": "high"
+    }
+  ]
+}

@@ -1,14 +1,13 @@
 'use client'
 
 /**
- * HeroText.tsx — Text overlay for the chrome hero.
+ * HeroText.tsx — Texto overlay para el hero chrome.
  *
- * Generado por Creator agent (GLM-5.2), adaptado para usar
- * GSAP directo (sin react-intersection-observer).
+ * Generado por Creator agent (GLM-5.2), adaptado al español.
  *
- * C11: Cinematic timing (1.5s, power3.out)
+ * C11: Timing cinematográfico (1.5s, power3.out)
  * C15: Text opacity 0.95 para WCAG AA
- * C16: Semantic HTML (h1, p, a)
+ * C16: HTML semántico (h1, p, a)
  * C18: focus-visible en CTA
  */
 
@@ -24,10 +23,10 @@ export function HeroText() {
     const elements = containerRef.current.querySelectorAll('[data-animate]')
     if (elements.length === 0) return
 
-    // Set initial state
+    // Estado inicial
     gsap.set(elements, { opacity: 0, y: 30 })
 
-    // Animate with stagger (C11: power3.out, 1.5s)
+    // Animar con stagger (C11: power3.out, 1.5s)
     const timeoutId = setTimeout(() => {
       gsap.to(elements, {
         opacity: 1,
@@ -46,7 +45,7 @@ export function HeroText() {
       ref={containerRef}
       className="absolute inset-0 z-10 flex h-full flex-col items-center justify-center px-6 text-center"
     >
-      {/* Top label */}
+      {/* Etiqueta superior */}
       <div data-animate>
         <span
           className="text-[10px] uppercase font-light"
@@ -56,11 +55,11 @@ export function HeroText() {
             opacity: 0.95,
           }}
         >
-          Liquid · Reflective · 2026
+          Líquido · Reflectante · 2026
         </span>
       </div>
 
-      {/* Main headline */}
+      {/* Titular principal */}
       <h1
         data-animate
         className="font-playfair mt-8"
@@ -75,10 +74,10 @@ export function HeroText() {
             '0 0 30px rgba(192,192,192,0.4), 0 0 60px rgba(0,212,255,0.3)',
         }}
       >
-        CHROME SURFACE
+        SUPERFICIE CROMADA
       </h1>
 
-      {/* Tagline */}
+      {/* Subtítulo */}
       <p
         data-animate
         className="mt-10 max-w-xl text-base md:text-lg font-light"
@@ -88,15 +87,15 @@ export function HeroText() {
           letterSpacing: '0.04em',
         }}
       >
-        Liquid metal rendered live. Every pixel a reflection.
+        Metal líquido renderizado en vivo. Cada píxel un reflejo.
         <br />
-        Touch the surface. Watch it ripple.
+        Toca la superficie. Observa cómo se ondula.
       </p>
 
       {/* CTA */}
       <div data-animate className="mt-14">
         <a
-          href="#explore"
+          href="#explorar"
           data-hover
           className="group relative inline-flex items-center justify-center px-10 py-4 text-xs font-light uppercase tracking-wider transition-all"
           style={{
@@ -111,7 +110,7 @@ export function HeroText() {
             style={{ background: 'rgba(192,192,192,0.15)' }}
             aria-hidden
           />
-          <span className="relative z-10">Explore the Surface</span>
+          <span className="relative z-10">Explorar la Superficie</span>
         </a>
       </div>
     </div>

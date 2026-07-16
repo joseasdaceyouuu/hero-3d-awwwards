@@ -232,6 +232,48 @@ export function ChromeShader() {
     return () => observer.disconnect();
   }, []);
 
+  // A11Y-3: Navegación por teclado — las flechas mueven el "mouse virtual"
+  const keyboardMouseRef = useRef(new THREE.Vector2(0, 0));
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const el = containerRef.current;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      const step = 0.1;
+      switch (e.key) {
+        case "ArrowLeft":
+          keyboardMouseRef.current.x = Math.max(-1, keyboardMouseRef.current.x - step);
+          break;
+        case "ArrowRight":
+          keyboardMouseRef.current.x = Math.min(1, keyboardMouseRef.current.x + step);
+          break;
+        case "ArrowUp":
+          keyboardMouseRef.current.y = Math.min(1, keyboardMouseRef.current.y + step);
+          break;
+        case "ArrowDown":
+          keyboardMouseRef.current.y = Math.max(-1, keyboardMouseRef.current.y - step);
+          break;
+        case "Enter":
+        case " ":
+          // Simular click en CTA
+          const cta = document.querySelector('[data-hover]') as HTMLAnchorElement;
+          if (cta) cta.click();
+          break;
+      }
+      // Disparar evento sintético de mousemove para que el shader lo detecte
+      window.dispatchEvent(
+        new MouseEvent("mousemove", {
+          clientX: ((keyboardMouseRef.current.x + 1) / 2) * window.innerWidth,
+          clientY: ((1 - keyboardMouseRef.current.y) / 2) * window.innerHeight,
+        })
+      );
+    };
+
+    el.addEventListener("keydown", onKeyDown);
+    return () => el.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   if (!webglAvailable || reducedMotion) {
     return (
       <div
@@ -245,7 +287,14 @@ export function ChromeShader() {
   }
 
   return (
-    <div ref={containerRef} className="absolute inset-0" aria-hidden>
+    <div
+      ref={containerRef}
+      className="absolute inset-0"
+      role="application"
+      aria-label="Superficie cromada interactiva. Usa las flechas para mover el cursor y Enter para activar el botón."
+      tabIndex={0}
+      style={{ outline: "none" }}
+    >
       <Canvas
         camera={{ position: [0, 0, 1], fov: 45 }}
         dpr={[1, 2]}

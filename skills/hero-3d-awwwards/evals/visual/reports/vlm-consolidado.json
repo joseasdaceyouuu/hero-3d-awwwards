@@ -1,0 +1,413 @@
+[
+  [
+    {
+      "hero": "VERVAIN",
+      "url": "http://localhost:3000/vervain",
+      "avg_score": 7.7,
+      "total_bugs": 6,
+      "total_recomendaciones": 6,
+      "bugs": [
+        {
+          "step": 0.0,
+          "bug": "Zona negra muerta en la parte inferior derecha del hero, donde el texto 'CINEMATIC' se pierde en el fondo oscuro"
+        },
+        {
+          "step": 0.0,
+          "bug": "El botón 'CONTACTO' tiene un contraste de texto-borde bajo (texto dorado sobre borde negro) que reduce la legibilidad"
+        },
+        {
+          "step": 0.5,
+          "bug": "Zonas negras muertas en los bordes laterales del hero, especialmente en la parte inferior, que restan equilibrio a la composición"
+        },
+        {
+          "step": 0.5,
+          "bug": "El scroll indicator o indicador de desplazamiento no es visible, lo que puede confundir al usuario sobre la interactividad de la página"
+        },
+        {
+          "step": 1.0,
+          "bug": "Zonas negras muertas en los bordes laterales y superiores/inferiores del hero, reduciendo el uso del espacio disponible"
+        },
+        {
+          "step": 1.0,
+          "bug": "El scroll indicator (si existe) no es visible, lo que puede confundir al usuario sobre la capacidad de scroll"
+        }
+      ],
+      "recomendaciones": [
+        {
+          "step": 0.0,
+          "rec": "Añadir un ligero degradado o textura sutil al fondo para reducir la sensación de 'pantalla en negro' y dar más profundidad"
+        },
+        {
+          "step": 0.0,
+          "rec": "Mejorar el contraste del botón 'CONTACTO' (ej: texto blanco sobre fondo negro o borde dorado sobre fondo negro)"
+        },
+        {
+          "step": 0.5,
+          "rec": "Añadir un scroll indicator sutil (ej. una barra o icono) en la parte inferior derecha para indicar que hay más contenido"
+        },
+        {
+          "step": 0.5,
+          "rec": "Reducir el espacio en blanco en los bordes laterales para mejorar el equilibrio visual y evitar zonas muertas"
+        },
+        {
+          "step": 1.0,
+          "rec": "Expandir el contenido para llenar más el espacio vertical y horizontal, eliminando las zonas negras muertas"
+        },
+        {
+          "step": 1.0,
+          "rec": "Añadir un scroll indicator sutil (ej. una línea o punto) para indicar scroll, posicionado en un lugar visible (ej. inferior derecha)"
+        }
+      ],
+      "analyses_per_step": [
+        {
+          "scores": {
+            "visual": 9,
+            "contraste": 8,
+            "profundidad": 7,
+            "motion": 6,
+            "elegancia": 9
+          },
+          "overall_score": 7.8,
+          "bugs_detectados": [
+            "Zona negra muerta en la parte inferior derecha del hero, donde el texto 'CINEMATIC' se pierde en el fondo oscuro",
+            "El botón 'CONTACTO' tiene un contraste de texto-borde bajo (texto dorado sobre borde negro) que reduce la legibilidad"
+          ],
+          "fortalezas": [
+            "Composición centrada y equilibrada con jerarquía clara (logo > servicios > quote > CTAs)",
+            "Uso de un fondo oscuro con partículas doradas que crea un ambiente premium y sofisticado"
+          ],
+          "recomendaciones": [
+            "Añadir un ligero degradado o textura sutil al fondo para reducir la sensación de 'pantalla en negro' y dar más profundidad",
+            "Mejorar el contraste del botón 'CONTACTO' (ej: texto blanco sobre fondo negro o borde dorado sobre fondo negro)"
+          ],
+          "step": 0.0,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/vervain_step0.png"
+        },
+        {
+          "scores": {
+            "visual": 8,
+            "contraste": 9,
+            "profundidad": 6,
+            "motion": 5,
+            "elegancia": 9
+          },
+          "overall_score": 7.4,
+          "bugs_detectados": [
+            "Zonas negras muertas en los bordes laterales del hero, especialmente en la parte inferior, que restan equilibrio a la composición",
+            "El scroll indicator o indicador de desplazamiento no es visible, lo que puede confundir al usuario sobre la interactividad de la página"
+          ],
+          "fortalezas": [
+            "Composición centrada y jerárquica clara, con el logo y texto principal como foco visual",
+            "Uso de un fondo oscuro con partículas doradas que crea un ambiente premium y sofisticado",
+            "Alto contraste entre el texto dorado y el fondo negro, garantizando legibilidad WCAG"
+          ],
+          "recomendaciones": [
+            "Añadir un scroll indicator sutil (ej. una barra o icono) en la parte inferior derecha para indicar que hay más contenido",
+            "Reducir el espacio en blanco en los bordes laterales para mejorar el equilibrio visual y evitar zonas muertas"
+          ],
+          "step": 0.5,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/vervain_step50.png"
+        },
+        {
+          "scores": {
+            "visual": 9,
+            "contraste": 9,
+            "profundidad": 7,
+            "motion": 6,
+            "elegancia": 9
+          },
+          "overall_score": 8,
+          "bugs_detectados": [
+            "Zonas negras muertas en los bordes laterales y superiores/inferiores del hero, reduciendo el uso del espacio disponible",
+            "El scroll indicator (si existe) no es visible, lo que puede confundir al usuario sobre la capacidad de scroll"
+          ],
+          "fortalezas": [
+            "Composición centrada con jerarquía clara (logo, servicios, CTA)",
+            "Uso de contraste alto entre texto dorado y fondo negro para legibilidad excelente",
+            "Atmósfera premium lograda con fondo estrellado y tipografía elegante"
+          ],
+          "recomendaciones": [
+            "Expandir el contenido para llenar más el espacio vertical y horizontal, eliminando las zonas negras muertas",
+            "Añadir un scroll indicator sutil (ej. una línea o punto) para indicar scroll, posicionado en un lugar visible (ej. inferior derecha)"
+          ],
+          "step": 1.0,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/vervain_step100.png"
+        }
+      ],
+      "timestamp": "2026-07-16 02:52:56"
+    }
+  ],
+  [
+    {
+      "hero": "PIXELVOID",
+      "url": "http://localhost:3000/pixelvoid",
+      "avg_score": 7.3,
+      "total_bugs": 6,
+      "total_recomendaciones": 6,
+      "bugs": [
+        {
+          "step": 0.0,
+          "bug": "Zonas negras muertas en los bordes laterales y superiores/inferiores del viewport, reduciendo el uso del espacio visual"
+        },
+        {
+          "step": 0.0,
+          "bug": "Elementos de UI (indicadores de scroll, HUD de rendimiento) con bajo contraste contra el fondo negro, dificultando su detección"
+        },
+        {
+          "step": 0.5,
+          "bug": "Zonas negras muertas en los bordes superior e inferior de la composición"
+        },
+        {
+          "step": 0.5,
+          "bug": "El scroll indicator (texto inferior) es demasiado sutil y podría no ser visible en dispositivos móviles"
+        },
+        {
+          "step": 1.0,
+          "bug": "Zonas negras muertas en los bordes laterales y superiores/inferiores del hero, desperdiciando espacio visual"
+        },
+        {
+          "step": 1.0,
+          "bug": "El scroll indicator en la parte inferior ([ CLICK PARA GLITCH ] - [ HOVER PARA DISTORSIÓN ]) es demasiado sutil y podría pasar desapercibido"
+        }
+      ],
+      "recomendaciones": [
+        {
+          "step": 0.0,
+          "rec": "Añadir un fondo sutil (ej. textura oscura o gradiente) para reducir las zonas negras muertas y mejorar la profundidad"
+        },
+        {
+          "step": 0.0,
+          "rec": "Mejorar el contraste de los elementos de UI (indicadores de scroll, HUD) con colores más visibles contra el fondo negro"
+        },
+        {
+          "step": 0.5,
+          "rec": "Añadir un ligero degradado o textura al fondo negro para reducir las zonas muertas"
+        },
+        {
+          "step": 0.5,
+          "rec": "Mejorar la visibilidad del scroll indicator con un color más contrastado o un icono"
+        },
+        {
+          "step": 1.0,
+          "rec": "Añadir un elemento visual (como una textura sutil o un degradado) en las zonas negras muertas para evitar el vacío y mejorar la composición"
+        },
+        {
+          "step": 1.0,
+          "rec": "Mejorar la visibilidad del scroll indicator con un color más contrastado o un icono que indique scroll"
+        }
+      ],
+      "analyses_per_step": [
+        {
+          "scores": {
+            "visual": 8,
+            "contraste": 9,
+            "profundidad": 7,
+            "motion": 6,
+            "elegancia": 8
+          },
+          "overall_score": 7.6,
+          "bugs_detectados": [
+            "Zonas negras muertas en los bordes laterales y superiores/inferiores del viewport, reduciendo el uso del espacio visual",
+            "Elementos de UI (indicadores de scroll, HUD de rendimiento) con bajo contraste contra el fondo negro, dificultando su detección"
+          ],
+          "fortalezas": [
+            "Composición centrada con jerarquía clara (título principal, subtítulo, CTA)",
+            "Uso de glitch effect en el título para añadir dinamismo sin sobrecargar la composición"
+          ],
+          "recomendaciones": [
+            "Añadir un fondo sutil (ej. textura oscura o gradiente) para reducir las zonas negras muertas y mejorar la profundidad",
+            "Mejorar el contraste de los elementos de UI (indicadores de scroll, HUD) con colores más visibles contra el fondo negro"
+          ],
+          "step": 0.0,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/pixelvoid_step0.png"
+        },
+        {
+          "scores": {
+            "visual": 8,
+            "contraste": 9,
+            "profundidad": 6,
+            "motion": 5,
+            "elegancia": 8
+          },
+          "overall_score": 7.2,
+          "bugs_detectados": [
+            "Zonas negras muertas en los bordes superior e inferior de la composición",
+            "El scroll indicator (texto inferior) es demasiado sutil y podría no ser visible en dispositivos móviles"
+          ],
+          "fortalezas": [
+            "Jerarquía clara con el título 'PIXELVOID' como elemento focal",
+            "Uso de colores vibrantes (amarillo, cian, magenta) que contrastan bien con el fondo negro"
+          ],
+          "recomendaciones": [
+            "Añadir un ligero degradado o textura al fondo negro para reducir las zonas muertas",
+            "Mejorar la visibilidad del scroll indicator con un color más contrastado o un icono"
+          ],
+          "step": 0.5,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/pixelvoid_step50.png"
+        },
+        {
+          "scores": {
+            "visual": 8,
+            "contraste": 9,
+            "profundidad": 6,
+            "motion": 5,
+            "elegancia": 8
+          },
+          "overall_score": 7.2,
+          "bugs_detectados": [
+            "Zonas negras muertas en los bordes laterales y superiores/inferiores del hero, desperdiciando espacio visual",
+            "El scroll indicator en la parte inferior ([ CLICK PARA GLITCH ] - [ HOVER PARA DISTORSIÓN ]) es demasiado sutil y podría pasar desapercibido"
+          ],
+          "fortalezas": [
+            "Composición centrada y jerárquica clara, con el título principal 'PIXELVOID' como elemento focal",
+            "Uso del glitch effect en el texto para crear un estilo único y coherente con el tema 'dark fantasy'"
+          ],
+          "recomendaciones": [
+            "Añadir un elemento visual (como una textura sutil o un degradado) en las zonas negras muertas para evitar el vacío y mejorar la composición",
+            "Mejorar la visibilidad del scroll indicator con un color más contrastado o un icono que indique scroll"
+          ],
+          "step": 1.0,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/pixelvoid_step100.png"
+        }
+      ],
+      "timestamp": "2026-07-16 02:55:05"
+    }
+  ],
+  [
+    {
+      "hero": "MERIDA",
+      "url": "http://localhost:3000/merida",
+      "avg_score": 7.5,
+      "total_bugs": 6,
+      "total_recomendaciones": 6,
+      "bugs": [
+        {
+          "step": 0.0,
+          "bug": "Zonas negras muertas en los bordes laterales y superiores/inferiores del viewport, reduciendo el uso del espacio disponible"
+        },
+        {
+          "step": 0.0,
+          "bug": "El scroll indicator (si existe) no es visible, lo que puede confundir al usuario sobre la capacidad de scroll"
+        },
+        {
+          "step": 0.5,
+          "bug": "El texto de la cita ('Donde el sol andino...') tiene un contraste WCAG insuficiente (relación ~3.5:1) contra el fondo oscuro, lo que reduce la legibilidad para usuarios con discapacidad visual"
+        },
+        {
+          "step": 0.5,
+          "bug": "Los elementos de la sección de métricas (1.450, 14°, 100%, 18m) están alineados horizontalmente pero su espaciado vertical es irregular, creando una composición desequilibrada"
+        },
+        {
+          "step": 1.0,
+          "bug": "El fondo oscuro con partículas rojas puede crear zonas negras muertas en áreas sin contenido, reduciendo el impacto visual"
+        },
+        {
+          "step": 1.0,
+          "bug": "El texto en color beige claro podría tener problemas de legibilidad en dispositivos con baja luminosidad (aunque cumple WCAG, el contraste podría mejorarse para mayor claridad)"
+        }
+      ],
+      "recomendaciones": [
+        {
+          "step": 0.0,
+          "rec": "Aumentar el padding del contenedor principal para reducir las zonas negras muertas y aprovechar el espacio del viewport"
+        },
+        {
+          "step": 0.0,
+          "rec": "Añadir un scroll indicator sutil (ej. una barra o flecha) en la parte inferior derecha para indicar scroll, manteniendo la elegancia del diseño"
+        },
+        {
+          "step": 0.5,
+          "rec": "Aumentar el contraste del texto de la cita (ej: usar un color más claro o añadir un fondo semi-transparente) para cumplir con WCAG 2.1 AA"
+        },
+        {
+          "step": 0.5,
+          "rec": "Alinear uniformemente las métricas (igualar altura de las filas o espaciado vertical) para mejorar la consistencia visual"
+        },
+        {
+          "step": 1.0,
+          "rec": "Aumentar ligeramente el contraste del texto principal para mejorar la legibilidad en dispositivos móviles"
+        },
+        {
+          "step": 1.0,
+          "rec": "Añadir una animación sutil a las partículas o elementos para dar más vida al hero sin sobrecargarlo"
+        }
+      ],
+      "analyses_per_step": [
+        {
+          "scores": {
+            "visual": 8,
+            "contraste": 7,
+            "profundidad": 6,
+            "motion": 5,
+            "elegancia": 9
+          },
+          "overall_score": 7,
+          "bugs_detectados": [
+            "Zonas negras muertas en los bordes laterales y superiores/inferiores del viewport, reduciendo el uso del espacio disponible",
+            "El scroll indicator (si existe) no es visible, lo que puede confundir al usuario sobre la capacidad de scroll"
+          ],
+          "fortalezas": [
+            "Composición centrada con jerarquía clara: el título principal 'MÉRIDA' domina visualmente, seguido por el subtítulo y la descripción",
+            "Uso de tipografía serif elegante y contrastante (blanco/crema sobre fondo oscuro) que transmite lujo y refinamiento"
+          ],
+          "recomendaciones": [
+            "Aumentar el padding del contenedor principal para reducir las zonas negras muertas y aprovechar el espacio del viewport",
+            "Añadir un scroll indicator sutil (ej. una barra o flecha) en la parte inferior derecha para indicar scroll, manteniendo la elegancia del diseño"
+          ],
+          "step": 0.0,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/merida_step0.png"
+        },
+        {
+          "scores": {
+            "visual": 9,
+            "contraste": 8,
+            "profundidad": 7,
+            "motion": 6,
+            "elegancia": 9
+          },
+          "overall_score": 7.8,
+          "bugs_detectados": [
+            "El texto de la cita ('Donde el sol andino...') tiene un contraste WCAG insuficiente (relación ~3.5:1) contra el fondo oscuro, lo que reduce la legibilidad para usuarios con discapacidad visual",
+            "Los elementos de la sección de métricas (1.450, 14°, 100%, 18m) están alineados horizontalmente pero su espaciado vertical es irregular, creando una composición desequilibrada"
+          ],
+          "fortalezas": [
+            "Composición centrada con jerarquía clara: el título 'MÉRIDA' domina visualmente, seguido por la descripción y las métricas",
+            "Uso del espacio negativo efectivo que guía la atención al contenido principal sin saturar la pantalla"
+          ],
+          "recomendaciones": [
+            "Aumentar el contraste del texto de la cita (ej: usar un color más claro o añadir un fondo semi-transparente) para cumplir con WCAG 2.1 AA",
+            "Alinear uniformemente las métricas (igualar altura de las filas o espaciado vertical) para mejorar la consistencia visual"
+          ],
+          "step": 0.5,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/merida_step50.png"
+        },
+        {
+          "scores": {
+            "visual": 9,
+            "contraste": 8,
+            "profundidad": 7,
+            "motion": 5,
+            "elegancia": 9
+          },
+          "overall_score": 7.6,
+          "bugs_detectados": [
+            "El fondo oscuro con partículas rojas puede crear zonas negras muertas en áreas sin contenido, reduciendo el impacto visual",
+            "El texto en color beige claro podría tener problemas de legibilidad en dispositivos con baja luminosidad (aunque cumple WCAG, el contraste podría mejorarse para mayor claridad)"
+          ],
+          "fortalezas": [
+            "Composición centrada y jerarquía clara con el título principal 'MÉRIDA' como elemento focal",
+            "Uso de tipografía elegante y consistente que transmite un feel premium",
+            "Elementos de información (altitud, porcentaje, etc.) bien organizados y alineados"
+          ],
+          "recomendaciones": [
+            "Aumentar ligeramente el contraste del texto principal para mejorar la legibilidad en dispositivos móviles",
+            "Añadir una animación sutil a las partículas o elementos para dar más vida al hero sin sobrecargarlo"
+          ],
+          "step": 1.0,
+          "screenshot": "/home/z/my-project/skills/hero-3d-awwwards/evals/visual/screenshots/merida_step100.png"
+        }
+      ],
+      "timestamp": "2026-07-16 02:56:02"
+    }
+  ]
+]
