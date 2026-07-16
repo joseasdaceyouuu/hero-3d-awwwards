@@ -124,7 +124,7 @@ export default function VideoScrollHero() {
           {/* VIDEO — position fixed, siempre visible */}
           <video
             ref={videoRef}
-            src="/cafe-scroll.mp4"
+            src="/cafe-scroll-web.mp4"
             preload="auto"
             playsInline
             muted
